@@ -7,25 +7,7 @@
 
 ## Estructura
 
-```
-noticias/
-├── src/
-│   ├── _includes/
-│   │   └── layouts/
-│   │       ├── base.njk
-│   │       └── post.njk
-│   ├── assets/
-│   ├── posts/          # Markdown de noticias
-│   ├── data/           # Data global (categorías)
-│   ├── index.njk       # Home dinámico
-│   ├── local.njk       # Página Local dinámico
-│   └── national.njk    # Página National dinámico
-├── docs/
-│   ├── TECHNICAL.md
-│   └── USER.md
-├── .eleventy.js
-└── package.json
-```
+
 
 ## Uso
 
