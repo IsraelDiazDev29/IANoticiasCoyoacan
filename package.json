@@ -1,0 +1,12 @@
+{
+  "name": "noticias",
+  "version": "1.1.0",
+  "description": "Sitio de noticias Eleventy con posts y categorías dinámicas",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.0"
+  }
+}
