@@ -1,6 +1,6 @@
 ---
 layout: layouts/post.njk
-title: Julio César Chávez destrozado por situación de su hijo.
+title: "Julio César Chávez destrozado por situación de su hijo."
 date: 2025-07-06
 category: tendencias
 summary: "Julio César Chávez, el legendario boxeador mexicano, se ve devastado por la situación de su hijo, conocido como el Junior, quien enfrenta problemas legales graves en Estados Unidos y México. El joven boxeador está a punto de ser deportado por mentir en su solicitud de residencia y está vinculado al cártel de Sinaloa, con una orden de arresto en su contra por delincuencia organizada y tráfico de armas. A pesar de las acusaciones, Chávez defiende a su hijo asegurando que es inocente y confía en que se resolverá la situación. Además, revela sus conexiones pasadas con figuras del crimen organizado en una entrevista reveladora. La historia de una familia marcada por la tragedia y la controversia."

@@ -1,9 +1,10 @@
 ---
-title: "Mujer en la Condesa insulta a policía: "Odio a los negros como tú""
+layout: layouts/post.njk
+title: "Mujer en la Condesa insulta a policía Odio a los negros como tú"
 date: "2025-07-05"
 category: "tendencias"
 summary: "¡Escándalo en la Condesa! Una mujer extranjera insulta a un policía con comentarios racistas. ¿Qué provocó esta reacción agresiva? Descubre los detalles y la indignación en redes sociales. La polémica por la gentrificación en la CDMX se enciende."
-image: "/assets/mujer-en-la-5936"  # extensión añadida después
+image: "/assets/mujer-en-la-5936.webp"  
 ---
 
 **Mujer en la Condesa insulta a policía alegando odio racial**
