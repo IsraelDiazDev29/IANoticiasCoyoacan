@@ -4,7 +4,7 @@ title: " Inundaciones en Texas dejan 51 fallecidos, incluidos 15 niños "
 date: 2025-07-06
 category: tendencias
 summary: "¡Impactantes inundaciones en Texas dejan 51 fallecidos, incluidos 15 niños desaparecidos durante un campamento de verano! La tragedia golpea con fuerza a este estado de EE. UU., con un desgarrador relato de búsqueda y rescate en medio de un paisaje devastado por las crecidas repentinas. El gobernador de Texas pide ayuda federal mientras continúan las labores de rescate. ¡Una historia que refleja la devastación y la solidaridad en tiempos de crisis climática!"
-image: /assets/inundaciones-en-texas-3571
+image: /assets/inundaciones-en-texas-3571.webp
 ---
 
 **Inundaciones en Texas cobran la vida de 51 personas, incluyendo 15 niños**
