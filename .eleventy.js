@@ -1,11 +1,26 @@
-module.exports = function(eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("src/assets");
-  eleventyConfig.addCollection("posts", c => c.getFilteredByGlob("src/posts/*.md"));
+// .eleventy.js
 
+module.exports = function(eleventyConfig) {
+  // Copia los assets estáticos
+  eleventyConfig.addPassthroughCopy("src/assets");
+
+  // Define la colección "posts", ordenada por fecha descendente (más reciente primero)
+  eleventyConfig.addCollection("posts", collectionApi => {
+    return collectionApi
+      .getFilteredByGlob("src/posts/*.md")
+      .sort((a, b) => b.date.getTime() - a.date.getTime());
+  });
+
+  // Configuración de directorios y motores de plantillas
   return {
-    dir: { input: "src", includes: "_includes", data: "data", output: "dist" },
+    dir: {
+      input:    "src",
+      includes: "_includes",
+      data:     "data",
+      output:   "dist"
+    },
     markdownTemplateEngine: "njk",
-    htmlTemplateEngine: "njk",
+    htmlTemplateEngine:     "njk",
     frontMatter: {
       defaults: [
         {
