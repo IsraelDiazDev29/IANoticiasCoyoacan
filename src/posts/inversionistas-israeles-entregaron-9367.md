@@ -4,7 +4,7 @@ title: " Inversionistas israelíes entregaron $25 millones a Peña Nieto, señal
 date: 2025-07-07
 category: tendencias
 summary: "El ex presidente Enrique Peña Nieto se habría beneficiado con $25 millones de inversionistas israelíes, en un escándalo revelado por el diario The Marker. Los empresarios Avishai Neriah y Uri Ansbacher habrían entregado la suma bajo la promesa de lucrativos contratos durante su administración, relacionados con la venta del software Pegasus. La disputa legal entre los empresarios y Peña Nieto se trasladó del ámbito religioso a la justicia civil, revelando una trama de influencias y poder que involucra altas esferas gubernamentales. Entramado que colocó a los empresarios en una posición complicada para recuperar sus recursos, debido a la personalidad presidencial de aquel entonces."
-image: /assets/inversionistas-israeles-entregaron-9367
+image: /assets/inversionistas-israeles-entregaron-9367.webp
 ---
 
 **Inversionistas israelíes entregaron $25 millones a Peña Nieto, revela litigio legal**
