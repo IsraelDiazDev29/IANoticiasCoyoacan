@@ -1,40 +1,36 @@
 name: Build & Deploy Eleventy
 
-# Se dispara al hacer push en main
 on:
   push:
     branches:
       - main
 
-# Necesitamos permisos para escribir en Pages
 permissions:
-  contents: read       # Solo lectura para el código
-  pages: write         # Permiso para publicar en GitHub Pages
-  id-token: write      # Para la acción de Deploy Pages (no estrictamente necesario aquí)
+  contents: read      # lectura del código fuente
+  pages: write        # permite publicar en GitHub Pages
+  id-token: write     # necesario para algunos flujos de autenticación
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Clonar repo
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true  # asegura que GITHUB_TOKEN se mantiene para push
 
-      # 2. Instalar Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      # 3. Instalar dependencias
       - name: Install dependencies
         run: npm ci
 
-      # 4. Compilar con Eleventy
       - name: Build Eleventy
         run: npx @11ty/eleventy --output _site
 
-      # 5. Desplegar /_site a la rama gh-pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
