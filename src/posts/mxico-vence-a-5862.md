@@ -4,7 +4,7 @@ title: " México vence a Estados Unidos 2-1 en la Final de la Copa Oro "
 date: 2025-07-07
 category: tendencias
 summary: "¡México se corona campeón de la Copa Oro al vencer a Estados Unidos 2-1 en una final emocionante! Revive la crónica de este apasionante encuentro donde el Tri logró remontar y alzarse con la victoria, consolidándose como el gigante de la Concacaf. Raúl Jiménez brilló con un gol espectacular y un emotivo homenaje a su amigo Diogo Jota. No te pierdas detalle de los momentos clave que llevaron a México a la gloria en este enfrentamiento histórico. ¡Una victoria que vale oro para todo un país!"
-image: /assets/mxico-vence-a-5862
+image: /assets/mxico-vence-a-5862.webp
 ---
 
 Título: México conquista la Copa Oro al vencer a Estados Unidos 2-1
