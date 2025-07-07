@@ -10,7 +10,7 @@
       onload="this.rel='stylesheet'"
       href="https://fonts.googleapis.com/css2?display=swap&family=Newsreader:wght@400;500;700;800&family=Noto+Sans:wght@400;500;700;900"
     />
-    <title>{{ title }} | Noticias</title>
+    <title>Los parisinos pueden nadar en el Sena después de un siglo | CNN | Noticias</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   </head>
   <body style='font-family:Newsreader,"Noto Sans",sans-serif;'>
@@ -40,19 +40,19 @@
         <!-- NAV TABS… (igual lógica de slice) -->
 
         <!-- TÍTULO DEL POST -->
-        <h1 class="text-[#121417] text-[32px] font-bold px-4 pt-6 pb-3">{{ title }}</h1>
+        <h1 class="text-[#121417] text-[32px] font-bold px-4 pt-6 pb-3">Los parisinos pueden nadar en el Sena después de un siglo | CNN</h1>
 
         <!-- IMAGEN -->
-        {% if image %}
+        
         <div class="flex w-full bg-white py-3">
           <div class="w-full aspect-[3/2] overflow-hidden">
-            <img src="{{ image }}" alt="{{ title }}" class="w-full h-full object-cover rounded-none" />
+            <img src="/assets/los-parisinos-pueden-0499.webp" alt="Los parisinos pueden nadar en el Sena después de un siglo | CNN" class="w-full h-full object-cover rounded-none" />
           </div>
         </div>
-        {% endif %}
+        
 
         <!-- CONTENIDO -->
-        <div class="prose prose-lg text-[#121417] px-4 pt-1 pb-3">{{ content | safe }}</div>
+        <div class="prose prose-lg text-[#121417] px-4 pt-1 pb-3"></div>
       </div>
 
       <!-- FOOTER NAV MÓVIL… -->

@@ -1,9 +1,3 @@
----
-pagination:
-  data: collections.posts
-  size: 5
-  alias: posts
----
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -46,17 +40,17 @@ pagination:
       <!-- NAV TABS -->
       <div class="pb-3">
         <div class="flex border-b border-[#dce0e5] px-4 gap-8">
-          <a href="/" class="flex flex-col items-center pb-[13px] pt-4 {% if page.url == '/' %}border-b-[#111418] text-[#111418]{% else %}border-b-transparent text-[#637588]{% endif %}">
+          <a href="/" class="flex flex-col items-center pb-[13px] pt-4 border-b-transparent text-[#637588]">
             <p class="text-sm font-bold">Inicio</p>
           </a>
     <!--
-          <a href="/local/" class="flex flex-col items-center pb-[13px] pt-4 {% if page.url | slice(0,7) == '/local/' %}border-b-[#111418] text-[#111418]{% else %}border-b-transparent text-[#637588]{% endif %}">
+          <a href="/local/" class="flex flex-col items-center pb-[13px] pt-4 border-b-transparent text-[#637588]">
             <p class="text-sm font-bold">Local</p>
           </a>
-          <a href="/national/" class="flex flex-col items-center pb-[13px] pt-4 {% if page.url | slice(0,10) == '/national/' %}border-b-[#111418] text-[#111418]{% else %}border-b-transparent text-[#637588]{% endif %}">
+          <a href="/national/" class="flex flex-col items-center pb-[13px] pt-4 border-b-transparent text-[#637588]">
             <p class="text-sm font-bold">National</p>
           </a>
-          <a href="/contact/" class="flex flex-col items-center pb-[13px] pt-4 {% if page.url | slice(0,9) == '/contact/' %}border-b-[#111418] text-[#111418]{% else %}border-b-transparent text-[#637588]{% endif %}">
+          <a href="/contact/" class="flex flex-col items-center pb-[13px] pt-4 border-b-transparent text-[#637588]">
             <p class="text-sm font-bold">Contact</p>
           </a>
           --!>
@@ -67,23 +61,23 @@ pagination:
       <h2 class="text-[#111418] text-[22px] font-bold px-4 pb-3 pt-5">Ultimas Noticias</h2>
 
       <!-- LOOP DE POSTS -->
-{% for post in posts | reverse %}
+
 
       <div class="p-4">
         <div class="flex items-stretch justify-between gap-4 rounded-lg">
           <div class="flex flex-col gap-1 flex-[2_2_0px]">
-            <p class="text-[#637588] text-sm">{{ post.data.category | capitalize }}</p>
-            <a href="{{ post.url }}">
-              <p class="text-[#111418] text-base font-bold">{{ post.data.title }}</p>
+            <p class="text-[#637588] text-sm">Tendencias</p>
+            <a href="/posts/parisinos-se-zambullen-5728/">
+              <p class="text-[#111418] text-base font-bold">¡Parisinos se zambullen en el Sena tras un siglo de espera! 🏊‍♂️🇫🇷</p>
             </a>
-            <p class="text-[#637588] text-sm">{{ post.data.summary }}</p>
+            <p class="text-[#637588] text-sm">¡Parisinos y turistas se sumergen en el histórico río Sena tras más de un siglo de espera! Descubre cómo este emblemático río de París ha sido transformado de un lugar prohibido a uno apto para el baño, en un ambicioso proyecto que lo convierte en escenario de competiciones olímpicas. ¡Sumérgete en la emoción de esta noticia que marca un hito para la ciudad y sus habitantes!</p>
           </div>
-          {% if post.data.image %}
-          <div class="w-full bg-center bg-cover aspect-video rounded-lg flex-1" style="background-image:url('{{ post.data.image }}')"></div>
-          {% endif %}
+          
+          <div class="w-full bg-center bg-cover aspect-video rounded-lg flex-1" style="background-image:url('/assets/parisinos-se-zambullen-5728')"></div>
+          
         </div>
       </div>
-      {% endfor %}
+      
 
       <!-- FOOTER NAV MÓVIL -->
       <div class="mt-auto">
