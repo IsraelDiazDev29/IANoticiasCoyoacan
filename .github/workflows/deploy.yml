@@ -6,9 +6,9 @@ on:
       - main
 
 permissions:
-  contents: read      # lectura del código fuente
-  pages: write        # permite publicar en GitHub Pages
-  id-token: write     # necesario para algunos flujos de autenticación
+  contents: write     # ← permiso de escritura para git push
+  pages: write        # permiso para la API de GitHub Pages
+  id-token: write     # para OIDC (si lo necesitas)
 
 jobs:
   build-and-deploy:
@@ -18,7 +18,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          persist-credentials: true  # asegura que GITHUB_TOKEN se mantiene para push
+          persist-credentials: true  # mantiene GITHUB_TOKEN en la configuración de git
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
