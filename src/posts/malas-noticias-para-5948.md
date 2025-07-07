@@ -4,7 +4,7 @@ title: " Malas noticias para Jamal Musiala: lesión confirmada "
 date: 2025-07-07
 category: tendencias
 summary: "\"El futbolista Jamal Musiala se enfrenta a una dura noticia: lesión confirmada que lo alejará de las canchas durante meses. Descubre el impacto de esta devastadora noticia, su recuperación y su posible participación en el Mundial 2026. Entérate de todos los detalles sobre este trágico acontecimiento que ha conmocionado al mundo del fútbol.\""
-image: /assets/malas-noticias-para-5948
+image: /assets/malas-noticias-para-5948.webp
 ---
 
 **Malas noticias para Jamal Musiala: lesión confirmada**
