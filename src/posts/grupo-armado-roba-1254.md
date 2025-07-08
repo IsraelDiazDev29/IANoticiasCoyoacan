@@ -4,7 +4,7 @@ title: " ¡Grupo armado roba 33 toneladas de oro y plata en carretera de Guadala
 date: 2025-07-08
 category: tendencias
 summary: "¡Impactante robo millonario en México! Un grupo armado ha robado 33 toneladas de oro y plata en una carretera de Guadalajara. El cargamento, propiedad de Grupo Minero Bacis, fue interceptado en un audaz asalto que ha conmocionado al país. Descubre todos los detalles de este sorprendente suceso que ha puesto en jaque a la industria minera y generado una crisis de seguridad. ¡Una historia que no puedes dejar de leer!"
-image: /assets/grupo-armado-roba-1254
+image: /assets/grupo-armado-roba-1254.webp
 ---
 
 **Grupo armado roba 33 toneladas de oro y plata en carretera de Guadalajara**
