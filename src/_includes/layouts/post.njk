@@ -10,8 +10,22 @@
       onload="this.rel='stylesheet'"
       href="https://fonts.googleapis.com/css2?display=swap&family=Newsreader:wght@400;500;700;800&family=Noto+Sans:wght@400;500;700;900"
     />
-    <title>{{ title }} | Noticias</title>
+    <title>{{ title }} </title>
+    <meta name="description" content="{{summary}}">
+    <meta name="robots" content="index,follow">
+
+<!--Etiquetas para facebook-->
+  <!-- Requeridas -->
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:description" content="{{summary}}" />
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <meta property="og:image" content="{{ site.url }}{{image}}" />
+
+
+
+<!-- Fin etiquetas facebook -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
   </head>
   <body style='font-family:Newsreader,"Noto Sans",sans-serif;'>
     <div class="relative flex w-full min-h-screen flex-col bg-white justify-between overflow-x-hidden">

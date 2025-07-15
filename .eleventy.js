@@ -1,17 +1,20 @@
 // .eleventy.js
-
 module.exports = function(eleventyConfig) {
-  // Copia los assets estáticos
+  // Copiar assets estáticos
   eleventyConfig.addPassthroughCopy("src/assets");
 
-  // Define la colección "posts", ordenada por fecha descendente (más reciente primero)
+  // Define colección "posts"
   eleventyConfig.addCollection("posts", collectionApi => {
     return collectionApi
       .getFilteredByGlob("src/posts/*.md")
       .sort((a, b) => b.date.getTime() - a.date.getTime());
   });
 
-  // Configuración de directorios y motores de plantillas
+  // Define URL base como variable global
+  eleventyConfig.addGlobalData("site", {
+    url: "https://noticiascdmxsur.online"
+  });
+
   return {
     dir: {
       input:    "src",

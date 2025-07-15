@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IA Noticias Coyoacán</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap">
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#f9fafb] text-[#111418]">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white border-b border-[#e2e8f0] px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center space-x-2">
+      <img src="/assets/logo.webp" alt="Logo" class="h-8 w-8 rounded-full" />
+      <h1 class="text-lg font-bold">IA Noticias Coyoacán</h1>
+    </div>
+    <button class="text-gray-600">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor">
+        <path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/>
+      </svg>
+    </button>
+  </header>
+
+  <!-- Feed tipo Twitter -->
+  <main class="max-w-xl mx-auto mt-4 px-4 space-y-6">
+    
+    <article class="bg-white rounded-xl border border-[#e2e8f0] shadow-sm p-4 space-y-3">
+      <!-- Título -->
+      <a href="/posts/01-presidente-anuncia/">
+        <h2 class="text-base font-bold hover:underline">FGR imputa a Julio César Chávez Jr. como “golpeador” del Cártel de Sinaloa</h2>
+      </a>
+
+      <!-- Summary -->
+      <p class="text-sm text-[#374151] leading-snug">
+        Chávez Jr. es acusado por la FGR de ser “golpeador” del Cártel de Sinaloa bajo las órdenes de “El Nini”.
+      </p>
+
+      <!-- Imagen -->
+      
+      <div class="w-full rounded-xl overflow-hidden mt-2">
+        <img src="/assets/juliocesar.png" alt="Imagen del post" class="w-full object-cover rounded-xl max-h-64" />
+      </div>
+      
+    </article>
+    
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 py-6">
+    IA Noticias Coyoacán — Versión 1.0.0
+  </footer>
+</body>
+</html>
