@@ -1,0 +1,13 @@
+{
+  "name": "NOTICIAS SUR CDMX",
+  "url": "https://tusitio.mx",
+  "description": "Noticias locales, nacionales, tendencias y deportes.",
+  "publisher": {
+    "name": "NOTICIAS SUR CDMX"
+  },
+  "logo": "/assets/img/logo-512.png",
+  "defaultImage": "/assets/img/og-default.jpg",
+  "instagram": "noticiassurcdmx",
+  "whatsapp": "5215512345678",
+  "twitter": "noticiassurcdmx"
+}

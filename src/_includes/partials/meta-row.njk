@@ -1,0 +1,7 @@
+<div class="text-sm opacity-80 flex flex-wrap items-center gap-2">
+  <time datetime="{{ page.date | dateIso }}">{{ page.date | dateReadable }}</time>
+  <span>·</span>
+  <span>{{ author }}</span>
+  <span>·</span>
+  <a href="/categories/{{ category | lower }}/" class="underline">{{ category }}</a>
+</div>

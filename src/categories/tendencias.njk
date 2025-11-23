@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+title: Tendencias
+description: Noticias de tendencias.
+---
+<section class="max-w-5xl mx-auto px-4 py-6 space-y-6">
+  <h1 class="text-2xl font-bold">Tendencias</h1>
+  <div class="grid gap-4 md:grid-cols-2">
+    {% for post in collections.tendencias %}
+      {% include "partials/card-hero.njk" %}
+    {% endfor %}
+  </div>
+</section>

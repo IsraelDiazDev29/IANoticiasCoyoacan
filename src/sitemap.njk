@@ -1,0 +1,16 @@
+---
+permalink: "/sitemap.xml"
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>{{ site.url }}/</loc></url>
+  {% for post in collections.posts %}
+  <url><loc>{{ site.url }}{{ post.url }}</loc><lastmod>{{ post.date | dateIso }}</lastmod></url>
+  {% endfor %}
+  <url><loc>{{ site.url }}/categories/</loc></url>
+  <url><loc>{{ site.url }}/categories/tendencias/</loc></url>
+  <url><loc>{{ site.url }}/categories/deportes/</loc></url>
+  <url><loc>{{ site.url }}/categories/locales/</loc></url>
+  <url><loc>{{ site.url }}/categories/nacionales/</loc></url>
+</urlset>

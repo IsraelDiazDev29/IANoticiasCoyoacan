@@ -1,0 +1,17 @@
+<article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60">
+  <a href="{{ post.url }}" class="block">
+    <div class="aspect-video relative">
+      <img src="{{ post.data.cover }}" alt="{{ post.data.alt or post.data.title }}" class="w-full h-full object-cover">
+      {% if post.data.breaking %}
+      <span class="absolute top-3 left-3 bg-magenta-500 text-white text-xs px-2 py-1 rounded">BREAKING</span>
+      {% endif %}
+    </div>
+    <div class="p-4 space-y-2">
+      <h2 class="font-semibold text-lg leading-snug">{{ post.data.title }}</h2>
+      <div class="text-xs opacity-70">
+        <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time> · {{ post.data.author }}
+      </div>
+      {% if post.data.excerpt %}<p class="text-sm opacity-90">{{ post.data.excerpt }}</p>{% endif %}
+    </div>
+  </a>
+</article>
