@@ -1,0 +1,18 @@
+# --- Dependencias (Lo que pesa mucho) ---
+node_modules/
+
+# --- Eleventy Build (Lo que se genera automático) ---
+_site/
+dist/
+
+# --- Archivos del Sistema Operativo (Basura) ---
+.DS_Store
+Thumbs.db
+
+# --- Logs y Errores ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Variables de Entorno (Seguridad) ---
+.env
