@@ -1,7 +1,7 @@
 ---
 layout: layouts/article.njk
 title: 'Aseguran que Nodal estuvo a nada de golpear a José Madero por Ángela Aguilar: “Le tiró el can”'
-date: 2025-11-23
+date: 2025-11-24
 author: 'Redacción'
 cover: '/assets/img/43X7IRSN3RHFVOBSSBNUT5NJEU.jpg'
 alt: 'Christian Nodal en evento público'

@@ -10,52 +10,87 @@
       onload="this.rel='stylesheet'"
       href="https://fonts.googleapis.com/css2?display=swap&family=Newsreader:wght@400;500;700;800&family=Noto+Sans:wght@400;500;700;900"
     />
-    <title>Los parisinos pueden nadar en el Sena después de un siglo | CNN | Noticias</title>
+    <title>Los parisinos pueden nadar en el Sena después de un siglo | CNN </title>
+    <meta name="description" content=" Por primera vez en más de un siglo, los parisinos y los turistas podrán darse un refrescante chapuzón...">
+    <meta name="robots" content="index,follow">
+
+    <meta property="og:title" content="Los parisinos pueden nadar en el Sena después de un siglo | CNN" />
+    <meta property="og:description" content=" Por primera vez en más de un siglo, los parisinos y los turistas podrán darse un refrescante chapuzón..." />
+    <meta property="og:url" content="https://tusitio.mx/posts/los-parisinos-pueden-0499/" />
+    <meta property="og:image" content="https://tusitio.mx/assets/los-parisinos-pueden-0499.webp" />
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   </head>
-  <body style='font-family:Newsreader,"Noto Sans",sans-serif;'>
-    <div class="relative flex w-full min-h-screen flex-col bg-white justify-between overflow-x-hidden">
+  <body style='font-family:Newsreader,"Noto Sans",sans-serif;' class="bg-white text-[#121417]">
+    
+    <div class="relative flex w-full min-h-screen flex-col justify-between overflow-x-hidden">
       <div>
-<!-- HEADER -->
-<div class="flex items-center bg-white p-4 pb-2 justify-between">
-  <!-- Contenedor del logo y título -->
-  <div class="flex-1 flex flex-col items-center pl-12">
-    <!-- Logo pequeño no intrusivo -->
-    <img src="/assets/logo.webp" alt="Logo" class="w-8 h-8 mb-1 object-contain" />
-    <!-- Título -->
-    <h2 class="text-[#111418] text-lg font-bold text-center">
-      IA NOTICIAS COYOACAN
-    </h2>
-  </div>
-  <!-- Botón de menú -->
-  <div class="flex w-12 items-center justify-end">
-    <button class="cursor-pointer h-12 flex items-center justify-center rounded-lg bg-transparent text-[#111418]">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor">
-        <path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/>
-      </svg>
-    </button>
-  </div>
-</div>
-
-        <!-- NAV TABS… (igual lógica de slice) -->
-
-        <!-- TÍTULO DEL POST -->
-        <h1 class="text-[#121417] text-[32px] font-bold px-4 pt-6 pb-3">Los parisinos pueden nadar en el Sena después de un siglo | CNN</h1>
-
-        <!-- IMAGEN -->
         
-        <div class="flex w-full bg-white py-3">
-          <div class="w-full aspect-[3/2] overflow-hidden">
-            <img src="/assets/los-parisinos-pueden-0499.webp" alt="Los parisinos pueden nadar en el Sena después de un siglo | CNN" class="w-full h-full object-cover rounded-none" />
+        <div class="flex items-center bg-white p-4 pb-2 justify-between border-b border-gray-100">
+          <div class="flex-1 flex flex-col items-center pl-12">
+            <img src="/assets/logo.webp" alt="Logo" class="w-8 h-8 mb-1 object-contain" />
+            <h2 class="text-[#111418] text-lg font-bold text-center">
+              IA NOTICIAS COYOACAN
+            </h2>
           </div>
+          <div class="flex w-12 items-center justify-end">
+            <button class="cursor-pointer h-12 flex items-center justify-center rounded-lg bg-transparent text-[#111418]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor">
+                <path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="px-4 pt-6 pb-3">
+           
+           <div id="trend-badge-container" class="hidden mb-2">
+             <span class="bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">
+                 TENDENCIA
+             </span>
+           </div>
+
+           <h1 class="text-[#121417] text-[32px] font-bold leading-tight">Los parisinos pueden nadar en el Sena después de un siglo | CNN</h1>
+        </div>
+
+        
+        <div class="flex w-full bg-white py-1">
+          <div class="w-full aspect-[3/2] overflow-hidden relative">
+            <img src="/assets/los-parisinos-pueden-0499.webp" alt="Los parisinos pueden nadar en el Sena después de un siglo | CNN" class="w-full h-full object-cover" />
+            
+            </div>
         </div>
         
 
-        <!-- CONTENIDO -->
-        <div class="prose prose-lg text-[#121417] px-4 pt-1 pb-3"></div>
+        <div class="prose prose-lg text-[#121417] px-4 pt-4 pb-12">
+            
+        </div>
       </div>
-
-      <!-- FOOTER NAV MÓVIL… -->
     </div>
+
+    <script>
+      (function() {
+        // 1. Obtenemos la fecha del post desde Eleventy (Formato YYYY-MM-DD)
+        var postDate = "2025-07-06T00:00:00.000Z"; 
+        
+        // 2. Obtenemos la fecha ACTUAL del usuario
+        var now = new Date();
+        // Construimos manualmente YYYY-MM-DD para evitar errores de zona horaria
+        var year = now.getFullYear();
+        var month = String(now.getMonth() + 1).padStart(2, '0'); // Mes empieza en 0
+        var day = String(now.getDate()).padStart(2, '0');
+        var todayString = year + "-" + month + "-" + day;
+
+        // 3. Comparamos
+        // Si la fecha del post es IGUAL a la fecha de hoy
+        if (postDate === todayString) {
+          var badgeContainer = document.getElementById("trend-badge-container");
+          if (badgeContainer) {
+            // Quitamos la clase 'hidden' para que se vea
+            badgeContainer.classList.remove('hidden');
+          }
+        }
+      })();
+    </script>
   </body>
 </html>

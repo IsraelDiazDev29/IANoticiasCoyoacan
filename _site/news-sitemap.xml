@@ -9,7 +9,7 @@
         <news:name>NOTICIAS SUR CDMX</news:name>
         <news:language>es</news:language>
       </news:publication>
-      <news:publication_date>2025-11-23T00:00:00.000Z</news:publication_date>
+      <news:publication_date>2025-11-24T00:00:00.000Z</news:publication_date>
       <news:title>Aseguran que Nodal estuvo a nada de golpear a José Madero por Ángela Aguilar: “Le tiró el can”</news:title>
       <news:keywords>Tendencias,Christian Nodal,Ángela Aguilar,José Madero</news:keywords>
     </news:news>
@@ -220,6 +220,32 @@
       <news:publication_date>2025-11-23T00:00:00.000Z</news:publication_date>
       <news:title>Trump afirma que su plan de paz para Ucrania no es una oferta final</news:title>
       <news:keywords>Nacionales,Donald Trump,Ucrania,Rusia</news:keywords>
+    </news:news>
+  </url>
+  
+  <url>
+    <loc>https://tusitio.mx/posts/los-parisinos-pueden-0499/</loc>
+    <news:news>
+      <news:publication>
+        <news:name>NOTICIAS SUR CDMX</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2025-07-06T00:00:00.000Z</news:publication_date>
+      <news:title>Los parisinos pueden nadar en el Sena después de un siglo | CNN</news:title>
+      
+    </news:news>
+  </url>
+  
+  <url>
+    <loc>https://tusitio.mx/posts/confesiones-anonimo/</loc>
+    <news:news>
+      <news:publication>
+        <news:name>NOTICIAS SUR CDMX</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2023-11-24T00:00:00.000Z</news:publication_date>
+      <news:title>Confesiones de relaciones prohibidas: terminé en la cama con la tía de mi esposa</news:title>
+      <news:keywords>videos</news:keywords>
     </news:news>
   </url>
   
