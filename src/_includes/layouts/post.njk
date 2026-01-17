@@ -1,96 +1,67 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link
-      rel="stylesheet"
-      as="style"
-      onload="this.rel='stylesheet'"
-      href="https://fonts.googleapis.com/css2?display=swap&family=Newsreader:wght@400;500;700;800&family=Noto+Sans:wght@400;500;700;900"
-    />
-    <title>{{ title }} </title>
-    <meta name="description" content="{{summary}}">
-    <meta name="robots" content="index,follow">
-
-    <meta property="og:title" content="{{ title }}" />
-    <meta property="og:description" content="{{summary}}" />
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
-    <meta property="og:image" content="{{ site.url }}{{image}}" />
-
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  </head>
-  <body style='font-family:Newsreader,"Noto Sans",sans-serif;' class="bg-white text-[#121417]">
-    
-    <div class="relative flex w-full min-h-screen flex-col justify-between overflow-x-hidden">
-      <div>
-        
-        <div class="flex items-center bg-white p-4 pb-2 justify-between border-b border-gray-100">
-          <div class="flex-1 flex flex-col items-center pl-12">
-            <img src="/assets/logo.webp" alt="Logo" class="w-8 h-8 mb-1 object-contain" />
-            <h2 class="text-[#111418] text-lg font-bold text-center">
-              IA NOTICIAS COYOACAN
-            </h2>
-          </div>
-          <div class="flex w-12 items-center justify-end">
-            <button class="cursor-pointer h-12 flex items-center justify-center rounded-lg bg-transparent text-[#111418]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor">
-                <path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <div class="px-4 pt-6 pb-3">
-           
-           <div id="trend-badge-container" class="hidden mb-2">
-             <span class="bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">
-                 TENDENCIA
-             </span>
-           </div>
-
-           <h1 class="text-[#121417] text-[32px] font-bold leading-tight">{{ title }}</h1>
-        </div>
-
-        {% if image %}
-        <div class="flex w-full bg-white py-1">
-          <div class="w-full aspect-[3/2] overflow-hidden relative">
-            <img src="{{ image }}" alt="{{ title }}" class="w-full h-full object-cover" />
-            
-            </div>
-        </div>
-        {% endif %}
-
-        <div class="prose prose-lg text-[#121417] px-4 pt-4 pb-12">
-            {{ content | safe }}
-        </div>
+---
+layout: layouts/base.njk
+hideHeader: true
+hideFooter: true
+---
+<div class="relative flex w-full min-h-screen flex-col justify-between overflow-x-hidden bg-white text-[#121417]">
+  <div>
+    <div class="flex items-center bg-white p-4 pb-2 justify-between border-b border-gray-100">
+      <div class="flex-1 flex flex-col items-center pl-12">
+        <img src="/assets/logo.webp" alt="Logo" class="w-8 h-8 mb-1 object-contain" />
+        <h2 class="text-[#111418] text-lg font-bold text-center">IA NOTICIAS COYOACAN</h2>
+      </div>
+      <div class="flex w-12 items-center justify-end">
+        <a href="/" class="cursor-pointer h-12 flex items-center justify-center rounded-lg bg-transparent text-[#111418]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg>
+        </a>
       </div>
     </div>
 
-    <script>
-      (function() {
-        // 1. Obtenemos la fecha del post desde Eleventy (Formato YYYY-MM-DD)
-        var postDate = "{{ page.date | dateIso }}"; 
-        
-        // 2. Obtenemos la fecha ACTUAL del usuario
-        var now = new Date();
-        // Construimos manualmente YYYY-MM-DD para evitar errores de zona horaria
-        var year = now.getFullYear();
-        var month = String(now.getMonth() + 1).padStart(2, '0'); // Mes empieza en 0
-        var day = String(now.getDate()).padStart(2, '0');
-        var todayString = year + "-" + month + "-" + day;
+    <div class="px-4 pt-6 pb-3">
+       <div id="trend-badge-container" class="hidden mb-2">
+         <span class="bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">TENDENCIA</span>
+       </div>
+       <h1 class="text-[#121417] text-[32px] font-bold leading-tight font-newsreader">{{ title }}</h1>
+    </div>
 
-        // 3. Comparamos
-        // Si la fecha del post es IGUAL a la fecha de hoy
-        if (postDate === todayString) {
-          var badgeContainer = document.getElementById("trend-badge-container");
-          if (badgeContainer) {
-            // Quitamos la clase 'hidden' para que se vea
-            badgeContainer.classList.remove('hidden');
-          }
-        }
-      })();
-    </script>
-  </body>
-</html>
+    {% if image %}
+    <div class="flex w-full bg-white py-1">
+       <div class="w-full aspect-[3/2] overflow-hidden relative">
+        <img src="{{ image }}" alt="{{ title }}" class="w-full h-full object-cover" />
+       </div>
+    </div>
+    {% endif %}
+
+    <div class="prose prose-lg text-[#121417] px-4 pt-4 pb-12 font-newsreader">
+        {{ content | safe }}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var postDate = "{{ page.date | dateIso }}"; 
+    var now = new Date();
+    var todayString = now.toISOString().split('T')[0]; // Forma más corta de sacar YYYY-MM-DD
+    if (postDate === todayString) {
+      var badge = document.getElementById("trend-badge-container");
+      if (badge) badge.classList.remove('hidden');
+    }
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "{{ title }}",
+  "image": ["{{ site.url }}{{ image }}"],
+  "datePublished": "{{ page.date | dateIso }}",
+  "author": { "@type": "Person", "name": "{{ author or site.publisher.name }}" },
+  "publisher": {
+    "@type": "NewsMediaOrganization",
+    "name": "{{ site.name }}",
+    "logo": { "@type": "ImageObject", "url": "{{ site.url }}{{ site.logo }}" }
+  }
+}
+</script>

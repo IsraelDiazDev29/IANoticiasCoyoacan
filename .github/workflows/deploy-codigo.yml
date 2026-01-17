@@ -1,0 +1,43 @@
+name: Deploy Actualización Web (Core)
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:  # <--- "Ignora si el cambio fue SOLO aquí"
+      - 'src/posts/**'
+      - 'src/assets/img/**'
+      - 'README.md'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  test-and-deploy: # Le cambiamos el nombre para diferenciar
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Podrías agregar pasos extra aquí, como pruebas de código (Linter)
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Eleventy (Core Update)
+        run: npx @11ty/eleventy --output _site
+
+      - name: Deploy to QA Branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: qa
+          publish_dir: ./_site
+          commit_message: "Dev-deploy: Actualización de estructura web v${{ github.run_number }}"

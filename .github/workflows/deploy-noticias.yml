@@ -1,0 +1,31 @@
+name: Deploy Solo Noticias (QA)
+
+on:
+  push:
+    branches:
+      - main
+    paths:  # <--- AQUÍ ESTÁ EL FILTRO
+      - 'src/posts/**'        # Cualquier cambio en tus .md
+      - 'src/assets/img/**'   # Cualquier imagen nueva
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      # ... (El resto de los pasos de instalación y build son iguales)
+      
+      - name: Deploy a QA (Noticias)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: qa
+          publish_dir: ./_site
+          commit_message: "Auto-deploy: Actualización de noticias" # <--- Personalizado

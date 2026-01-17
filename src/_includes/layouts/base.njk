@@ -2,105 +2,88 @@
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
+  
   <meta name="description" content="{{ description or site.description }}">
   <meta name="author" content="{{ author or site.publisher.name }}">
-  <meta http-equiv="content-language" content="es-MX">
-
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-
-  <!-- Open Graph -->
+  
   <meta property="og:site_name" content="{{ site.name }}">
   <meta property="og:type" content="{{ ogType or 'website' }}">
   <meta property="og:title" content="{{ title or site.name }}">
   <meta property="og:description" content="{{ description or site.description }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:image" content="{{ ogImage or site.defaultImage }}">
-  <meta property="og:locale" content="es_MX">
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?display=swap&family=Newsreader:wght@400;500;700;800&family=Noto+Sans:wght@400;500;700;900" rel="stylesheet" />
 
-  <!-- Twitter (X) -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ title or site.name }}">
-  <meta name="twitter:description" content="{{ description or site.description }}">
-  <meta name="twitter:image" content="{{ ogImage or site.defaultImage }}">
-  <meta name="twitter:site" content="@{{ site.twitter }}">
-  <meta name="twitter:creator" content="@{{ site.twitter }}">
-
-  <!-- Tailwind CDN (para prototipo; se puede migrar a build JIT posteriormente) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Config minimal de Tailwind para colores de acento
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
+          fontFamily: { 'newsreader': ['Newsreader', 'serif'], 'noto': ['"Noto Sans"', 'sans-serif'] },
           colors: { accent: { 500: '#00E5FF', 600: '#00B8D4' }, magenta: { 500: '#FF2DAF' } }
         }
       }
     }
   </script>
 
-  <!-- Modo claro/oscuro: persistencia -->
   <script>
     (function() {
-      const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const useDark = saved ? saved === 'dark' : prefersDark;
-      if (useDark) document.documentElement.classList.add('dark');
+      // Verifica preferencia guardada o del sistema
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
     })();
   </script>
-
-  <style>
-    html, body { height: 100%; }
-    .prose p { margin: 0.8rem 0; }
-  </style>
 </head>
-<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col">
-  {% include "partials/header.njk" %}
+<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col font-noto transition-colors duration-300">
+
+  {% if not hideHeader %}
+    {% include "partials/header.njk" %}
+  {% endif %}
 
   <main id="content" class="flex-1">
     {{ content | safe }}
   </main>
 
-  {% include "partials/footer-nav.njk" %}
+  {% if not hideFooter %}
+    {% include "partials/footer-nav.njk" %}
+  {% endif %}
 
-  <!-- JSON-LD Organization + Website -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "NewsMediaOrganization",
+    "@type": "WebSite",
     "name": "{{ site.name }}",
-    "url": "{{ site.url }}",
-    "logo": { "@type": "ImageObject", "url": "{{ site.logo }}" },
-    "sameAs": ["https://www.instagram.com/{{ site.instagram }}","https://wa.me/{{ site.whatsapp }}"]
+    "url": "{{ site.url }}"
   }
   </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"{{ site.name }}",
-    "url":"{{ site.url }}",
-    "potentialAction":{
-      "@type":"SearchAction",
-      "target":"{{ site.url }}/buscar?q={search_term_string}",
-      "query-input":"required name=search_term_string"
-    }
-  }
-  </script>
+
   <script>
-    // Toggle tema
-    const $btn = document.getElementById('toggle-theme');
-    if ($btn) {
-      $btn.addEventListener('click', () => {
-        const el = document.documentElement;
-        const isDark = el.classList.toggle('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      });
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      // Buscamos cualquier botón que tenga el ID 'toggle-theme'
+      const themeBtn = document.getElementById('toggle-theme');
+      
+      if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+          const html = document.documentElement;
+          if (html.classList.contains('dark')) {
+            html.classList.remove('dark');
+            localStorage.theme = 'light';
+          } else {
+            html.classList.add('dark');
+            localStorage.theme = 'dark';
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>

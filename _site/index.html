@@ -2,68 +2,55 @@
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inicio | NOTICIAS SUR CDMX</title>
+  
   <meta name="description" content="Noticias locales, nacionales, tendencias y deportes.">
   <meta name="author" content="NOTICIAS SUR CDMX">
-  <meta http-equiv="content-language" content="es-MX">
-
-  <link rel="canonical" href="https://tusitio.mx/">
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-
-  <!-- Open Graph -->
+  <link rel="canonical" href="https://noticiascdmxsur.online//">
+  
   <meta property="og:site_name" content="NOTICIAS SUR CDMX">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Inicio">
   <meta property="og:description" content="Noticias locales, nacionales, tendencias y deportes.">
-  <meta property="og:url" content="https://tusitio.mx/">
+  <meta property="og:url" content="https://noticiascdmxsur.online//">
   <meta property="og:image" content="/assets/img/og-default.jpg">
-  <meta property="og:locale" content="es_MX">
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?display=swap&family=Newsreader:wght@400;500;700;800&family=Noto+Sans:wght@400;500;700;900" rel="stylesheet" />
 
-  <!-- Twitter (X) -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Inicio">
-  <meta name="twitter:description" content="Noticias locales, nacionales, tendencias y deportes.">
-  <meta name="twitter:image" content="/assets/img/og-default.jpg">
-  <meta name="twitter:site" content="@noticiassurcdmx">
-  <meta name="twitter:creator" content="@noticiassurcdmx">
-
-  <!-- Tailwind CDN (para prototipo; se puede migrar a build JIT posteriormente) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Config minimal de Tailwind para colores de acento
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
+          fontFamily: { 'newsreader': ['Newsreader', 'serif'], 'noto': ['"Noto Sans"', 'sans-serif'] },
           colors: { accent: { 500: '#00E5FF', 600: '#00B8D4' }, magenta: { 500: '#FF2DAF' } }
         }
       }
     }
   </script>
 
-  <!-- Modo claro/oscuro: persistencia -->
   <script>
     (function() {
-      const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const useDark = saved ? saved === 'dark' : prefersDark;
-      if (useDark) document.documentElement.classList.add('dark');
+      // Verifica preferencia guardada o del sistema
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
     })();
   </script>
-
-  <style>
-    html, body { height: 100%; }
-    .prose p { margin: 0.8rem 0; }
-  </style>
 </head>
-<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col">
-  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-slate-950/70 border-b border-slate-200/50 dark:border-slate-800/50">
+<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col font-noto transition-colors duration-300">
+
+  
+    <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-slate-950/70 border-b border-slate-200/50 dark:border-slate-800/50">
   <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
     
     <a href="/" class="flex items-center gap-2 font-bold tracking-wide text-xl">
-      <img src="/assets/logo.webp" alt="Logo" class="w-8 h-8 object-contain dark:invert" />
+      <img src="/assets/logos/logo_final.webp" alt="Logo" class="w-8 h-8 object-contain dark:invert" />
       <span>NOTICIAS SUR CDMX</span>
     </a>
 
@@ -72,27 +59,28 @@
     </div>
   </div>
 </header>
+  
 
   <main id="content" class="flex-1">
     <section class="max-w-5xl mx-auto px-4 py-6 space-y-6">
   <div class="grid gap-4 md:grid-cols-2">
     
       <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/2025-11-23-aseguran-que-nodal-estuvo-a-nada-de-golpear-a-jose-madero-por-angela-aguilar-le-tiro-el-can/" class="block flex-1 group">
+  <a href="/posts/20260116_213220.MD/" class="block flex-1 group">
     
     <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
       
       
       
-        <img src="/assets/img/43X7IRSN3RHFVOBSSBNUT5NJEU.jpg" alt="Aseguran que Nodal estuvo a nada de golpear a José Madero por Ángela Aguilar: “Le tiró el can”" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+        <img src="/assets/img/portaaviones-gerald-ford-pacifico.webp" alt="Estados Unidos lanza alerta aérea en el Pacífico mexicano por operaciones militares" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
       
 
       
       
       <span 
-        id="badge-posts2025-11-23-aseguran-que-nodal-estuvo-a-nada-de-golpear-a-jose-madero-por-angela-aguilar-le-tiro-el-can" 
+        id="badge-posts20260116_213220.md" 
         class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-11-24T00:00:00.000Z"> 
+        data-date="2026-01-17T00:00:00.000Z"> 
         TENDENCIA
       </span>
 
@@ -100,13 +88,13 @@
 
     <div class="p-4 space-y-2">
       <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Aseguran que Nodal estuvo a nada de golpear a José Madero por Ángela Aguilar: “Le tiró el can”
+        Estados Unidos lanza alerta aérea en el Pacífico mexicano por operaciones militares
       </h2>
       
       <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-11-24T00:00:00.000Z">23 nov 2025</time>
+        <time datetime="2026-01-17T00:00:00.000Z">16 ene 2026</time>
         
-          <span>· Redacción</span>
+          <span>· Noticias Coyoacán</span>
         
       </div>
       
@@ -118,7 +106,7 @@
   <script>
     (function() {
       // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-11-24T00:00:00.000Z"; 
+      var postDateStr = "2026-01-17T00:00:00.000Z"; 
       
       // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
       // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
@@ -126,7 +114,7 @@
 
       // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
       if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-posts2025-11-23-aseguran-que-nodal-estuvo-a-nada-de-golpear-a-jose-madero-por-angela-aguilar-le-tiro-el-can");
+        var badge = document.getElementById("badge-posts20260116_213220.md");
         if(badge) {
             badge.classList.remove('hidden');
         }
@@ -136,21 +124,21 @@
 </article>
     
       <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/2025-11-23-dictan-prision-preventiva-a-el-licenciado-y-siete-escoltas-de-carlos-manzo/" class="block flex-1 group">
+  <a href="/posts/20260116_213613.MD/" class="block flex-1 group">
     
     <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
       
       
       
-        <img src="/assets/img/3421975.jpg" alt="Dictan prisión preventiva a ‘El Licenciado’ y siete escoltas de Carlos Manzo" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+        <img src="/assets/img/chilindrina-portada.webp" alt="La Chilindrina y la IA - Desmienten foto viral sobre su estado de salud" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
       
 
       
       
       <span 
-        id="badge-posts2025-11-23-dictan-prision-preventiva-a-el-licenciado-y-siete-escoltas-de-carlos-manzo" 
+        id="badge-posts20260116_213613.md" 
         class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-11-23T00:00:00.000Z"> 
+        data-date="2026-01-17T00:00:00.000Z"> 
         TENDENCIA
       </span>
 
@@ -158,13 +146,13 @@
 
     <div class="p-4 space-y-2">
       <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Dictan prisión preventiva a ‘El Licenciado’ y siete escoltas de Carlos Manzo
+        La Chilindrina y la IA - Desmienten foto viral sobre su estado de salud
       </h2>
       
       <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-11-23T00:00:00.000Z">22 nov 2025</time>
+        <time datetime="2026-01-17T00:00:00.000Z">16 ene 2026</time>
         
-          <span>· Redacción</span>
+          <span>· Noticias Coyoacán</span>
         
       </div>
       
@@ -176,7 +164,7 @@
   <script>
     (function() {
       // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-11-23T00:00:00.000Z"; 
+      var postDateStr = "2026-01-17T00:00:00.000Z"; 
       
       // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
       // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
@@ -184,7 +172,7 @@
 
       // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
       if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-posts2025-11-23-dictan-prision-preventiva-a-el-licenciado-y-siete-escoltas-de-carlos-manzo");
+        var badge = document.getElementById("badge-posts20260116_213613.md");
         if(badge) {
             badge.classList.remove('hidden');
         }
@@ -194,21 +182,21 @@
 </article>
     
       <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/2025-11-23-el-ahuehuete-de-reforma-simbolo-verde-atrapado-en-la-disputa-politica-mexicana/" class="block flex-1 group">
+  <a href="/posts/20260116_213736.MD/" class="block flex-1 group">
     
     <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
       
       
       
-        <img src="/assets/img/RK7AKOJIEVECDC6CQWK4VVQVCY.jpg" alt="El ahuehuete de Reforma, símbolo verde atrapado en la disputa política mexicana" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+        <img src="/assets/img/despliegue-ejercito-michoacan.webp" alt="Sheinbaum defiende estrategia de seguridad ante presión de Trump" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
       
 
       
       
       <span 
-        id="badge-posts2025-11-23-el-ahuehuete-de-reforma-simbolo-verde-atrapado-en-la-disputa-politica-mexicana" 
+        id="badge-posts20260116_213736.md" 
         class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-11-23T00:00:00.000Z"> 
+        data-date="2026-01-17T00:00:00.000Z"> 
         TENDENCIA
       </span>
 
@@ -216,13 +204,13 @@
 
     <div class="p-4 space-y-2">
       <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        El ahuehuete de Reforma, símbolo verde atrapado en la disputa política mexicana
+        Sheinbaum defiende estrategia de seguridad ante presión de Trump
       </h2>
       
       <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-11-23T00:00:00.000Z">22 nov 2025</time>
+        <time datetime="2026-01-17T00:00:00.000Z">16 ene 2026</time>
         
-          <span>· Redacción</span>
+          <span>· Noticias Coyoacán</span>
         
       </div>
       
@@ -234,7 +222,7 @@
   <script>
     (function() {
       // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-11-23T00:00:00.000Z"; 
+      var postDateStr = "2026-01-17T00:00:00.000Z"; 
       
       // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
       // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
@@ -242,7 +230,7 @@
 
       // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
       if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-posts2025-11-23-el-ahuehuete-de-reforma-simbolo-verde-atrapado-en-la-disputa-politica-mexicana");
+        var badge = document.getElementById("badge-posts20260116_213736.md");
         if(badge) {
             badge.classList.remove('hidden');
         }
@@ -252,21 +240,21 @@
 </article>
     
       <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/2025-11-23-eu-y-ucrania-abriran-consultas-en-suiza-para-definir-un-plan-de-paz-con-rusia/" class="block flex-1 group">
+  <a href="/posts/20260116_213342.MD/" class="block flex-1 group">
     
     <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
       
       
       
-        <img src="/assets/img/7UXOAK4MMFEWLKSFUP2MX4JZGA.jpg" alt="EU y Ucrania abrirán consultas en Suiza para definir un plan de paz con Rusia" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+        <img src="/assets/img/alerta-faa-vuelos-mexico-latinoamerica.webp" alt="FAA emite alerta urgente por actividades militares en espacio aéreo de México y Latinoamérica" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
       
 
       
       
       <span 
-        id="badge-posts2025-11-23-eu-y-ucrania-abriran-consultas-en-suiza-para-definir-un-plan-de-paz-con-rusia" 
+        id="badge-posts20260116_213342.md" 
         class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-11-23T00:00:00.000Z"> 
+        data-date="2026-01-16T00:00:00.000Z"> 
         TENDENCIA
       </span>
 
@@ -274,13 +262,13 @@
 
     <div class="p-4 space-y-2">
       <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        EU y Ucrania abrirán consultas en Suiza para definir un plan de paz con Rusia
+        FAA emite alerta urgente por actividades militares en espacio aéreo de México y Latinoamérica
       </h2>
       
       <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-11-23T00:00:00.000Z">22 nov 2025</time>
+        <time datetime="2026-01-16T00:00:00.000Z">15 ene 2026</time>
         
-          <span>· Redacción</span>
+          <span>· Noticias Coyoacán</span>
         
       </div>
       
@@ -292,7 +280,7 @@
   <script>
     (function() {
       // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-11-23T00:00:00.000Z"; 
+      var postDateStr = "2026-01-16T00:00:00.000Z"; 
       
       // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
       // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
@@ -300,7 +288,7 @@
 
       // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
       if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-posts2025-11-23-eu-y-ucrania-abriran-consultas-en-suiza-para-definir-un-plan-de-paz-con-rusia");
+        var badge = document.getElementById("badge-posts20260116_213342.md");
         if(badge) {
             badge.classList.remove('hidden');
         }
@@ -310,21 +298,21 @@
 </article>
     
       <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/2025-11-23-fiscalia-confirma-que-el-licenciado-operaba-tambien-en-morelia-y-lideraba-extorsiones-a-mezcaleros/" class="block flex-1 group">
+  <a href="/posts/20260116_213457.MD/" class="block flex-1 group">
     
     <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
       
       
       
-        <img src="/assets/img/3421716.jpg" alt="Fiscalía confirma que “El Licenciado” operaba también en Morelia y lideraba extorsiones a mezcaleros" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+        <img src="/assets/img/polonia-ministro-defensa-otan.webp" alt="Polonia apuesta por la mediación y rechaza enviar tropas a Groenlandia" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
       
 
       
       
       <span 
-        id="badge-posts2025-11-23-fiscalia-confirma-que-el-licenciado-operaba-tambien-en-morelia-y-lideraba-extorsiones-a-mezcaleros" 
+        id="badge-posts20260116_213457.md" 
         class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-11-23T00:00:00.000Z"> 
+        data-date="2026-01-16T00:00:00.000Z"> 
         TENDENCIA
       </span>
 
@@ -332,13 +320,13 @@
 
     <div class="p-4 space-y-2">
       <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Fiscalía confirma que “El Licenciado” operaba también en Morelia y lideraba extorsiones a mezcaleros
+        Polonia apuesta por la mediación y rechaza enviar tropas a Groenlandia
       </h2>
       
       <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-11-23T00:00:00.000Z">22 nov 2025</time>
+        <time datetime="2026-01-16T00:00:00.000Z">15 ene 2026</time>
         
-          <span>· Redacción</span>
+          <span>· Noticias Coyoacán</span>
         
       </div>
       
@@ -350,7 +338,7 @@
   <script>
     (function() {
       // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-11-23T00:00:00.000Z"; 
+      var postDateStr = "2026-01-16T00:00:00.000Z"; 
       
       // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
       // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
@@ -358,7 +346,7 @@
 
       // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
       if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-posts2025-11-23-fiscalia-confirma-que-el-licenciado-operaba-tambien-en-morelia-y-lideraba-extorsiones-a-mezcaleros");
+        var badge = document.getElementById("badge-posts20260116_213457.md");
         if(badge) {
             badge.classList.remove('hidden');
         }
@@ -368,21 +356,21 @@
 </article>
     
       <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/2025-11-23-frank-underwood-aconseja-a-salinas-pliego-para-no-agravar-su-derrota-publica/" class="block flex-1 group">
+  <a href="/posts/20260116_213851.MD/" class="block flex-1 group">
     
     <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
       
       
       
-        <img src="/assets/img/YQMHNQSPRRKLFGZTTR7BI7QLUA.png" alt="Frank Underwood aconseja a Salinas Pliego para no agravar su derrota pública" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+        <img src="/assets/img/checo-perez-cadillac-racing-silverstone.webp" alt="Checo Pérez y Cadillac rompen el silencio en Silverstone con su nuevo F1" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
       
 
       
       
       <span 
-        id="badge-posts2025-11-23-frank-underwood-aconseja-a-salinas-pliego-para-no-agravar-su-derrota-publica" 
+        id="badge-posts20260116_213851.md" 
         class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-11-23T00:00:00.000Z"> 
+        data-date="2026-01-16T00:00:00.000Z"> 
         TENDENCIA
       </span>
 
@@ -390,13 +378,13 @@
 
     <div class="p-4 space-y-2">
       <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Frank Underwood aconseja a Salinas Pliego para no agravar su derrota pública
+        Checo Pérez y Cadillac rompen el silencio en Silverstone con su nuevo F1
       </h2>
       
       <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-11-23T00:00:00.000Z">22 nov 2025</time>
+        <time datetime="2026-01-16T00:00:00.000Z">15 ene 2026</time>
         
-          <span>· Redacción</span>
+          <span>· Noticias Coyoacán</span>
         
       </div>
       
@@ -408,7 +396,7 @@
   <script>
     (function() {
       // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-11-23T00:00:00.000Z"; 
+      var postDateStr = "2026-01-16T00:00:00.000Z"; 
       
       // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
       // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
@@ -416,767 +404,7 @@
 
       // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
       if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-posts2025-11-23-frank-underwood-aconseja-a-salinas-pliego-para-no-agravar-su-derrota-publica");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/2025-11-23-gobierno-de-michoacan-ex-escolta-de-carlos-manzo-esta-profugo/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/un-ex-escolta-de-carlos-manzo-esta-profugo-gobierno-de-michoacan_bc534a4d-16e2-40ce-bc6f-15e4922be827_medialjnimgndimage=fullsize" alt="Gobierno de Michoacán: ex escolta de Carlos Manzo está prófugo" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-posts2025-11-23-gobierno-de-michoacan-ex-escolta-de-carlos-manzo-esta-profugo" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-11-23T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Gobierno de Michoacán: ex escolta de Carlos Manzo está prófugo
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-11-23T00:00:00.000Z">22 nov 2025</time>
-        
-          <span>· Redacción</span>
-        
-      </div>
-      
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-11-23T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-posts2025-11-23-gobierno-de-michoacan-ex-escolta-de-carlos-manzo-esta-profugo");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/2025-11-23-juarez-y-pachuca-disputan-el-ultimo-pase-a-la-liguilla-en-el-cierre-definitivo-del-play-in/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/dvbf_crop1763838646838.jpg_1970638775.jpg" alt="Juárez y Pachuca disputan el último pase a la Liguilla en el cierre definitivo del Play-In" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-posts2025-11-23-juarez-y-pachuca-disputan-el-ultimo-pase-a-la-liguilla-en-el-cierre-definitivo-del-play-in" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-11-23T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Juárez y Pachuca disputan el último pase a la Liguilla en el cierre definitivo del Play-In
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-11-23T00:00:00.000Z">22 nov 2025</time>
-        
-          <span>· Redacción</span>
-        
-      </div>
-      
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-11-23T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-posts2025-11-23-juarez-y-pachuca-disputan-el-ultimo-pase-a-la-liguilla-en-el-cierre-definitivo-del-play-in");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/2025-11-23-los-picks-del-rey-david-en-woodbine-para-el-late-pick-4-del-viernes-21-de-noviembre/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/Rey-David-PIcks-woodbine-1024x640.jpg" alt="Los Picks del Rey David en Woodbine para el Late Pick 4 del viernes 21 de noviembre" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-posts2025-11-23-los-picks-del-rey-david-en-woodbine-para-el-late-pick-4-del-viernes-21-de-noviembre" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-11-23T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Los Picks del Rey David en Woodbine para el Late Pick 4 del viernes 21 de noviembre
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-11-23T00:00:00.000Z">22 nov 2025</time>
-        
-          <span>· Redacción</span>
-        
-      </div>
-      
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-11-23T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-posts2025-11-23-los-picks-del-rey-david-en-woodbine-para-el-late-pick-4-del-viernes-21-de-noviembre");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/2025-11-23-maestros-de-la-cnte-interrumpen-discurso-de-sheinbaum-en-oaxaca-y-simpatizantes-la-respaldan/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/video-sheinbaum-protesta-cnte-oaxaca.jpg" alt="Maestros de la CNTE interrumpen discurso de Sheinbaum en Oaxaca y simpatizantes la respaldan" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-posts2025-11-23-maestros-de-la-cnte-interrumpen-discurso-de-sheinbaum-en-oaxaca-y-simpatizantes-la-respaldan" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-11-23T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Maestros de la CNTE interrumpen discurso de Sheinbaum en Oaxaca y simpatizantes la respaldan
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-11-23T00:00:00.000Z">22 nov 2025</time>
-        
-          <span>· Redacción</span>
-        
-      </div>
-      
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-11-23T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-posts2025-11-23-maestros-de-la-cnte-interrumpen-discurso-de-sheinbaum-en-oaxaca-y-simpatizantes-la-respaldan");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/2025-11-23-miss-jamaica-sigue-en-terapia-intensiva-tras-accidente-en-miss-universo-2025-no-esta-tan-bien/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/HH36N3NP75E43LEYFXQNPWELL4.jpg" alt="Miss Jamaica sigue en terapia intensiva tras accidente en Miss Universo 2025: “No está tan bien”" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-posts2025-11-23-miss-jamaica-sigue-en-terapia-intensiva-tras-accidente-en-miss-universo-2025-no-esta-tan-bien" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-11-23T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Miss Jamaica sigue en terapia intensiva tras accidente en Miss Universo 2025: “No está tan bien”
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-11-23T00:00:00.000Z">22 nov 2025</time>
-        
-          <span>· Redacción</span>
-        
-      </div>
-      
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-11-23T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-posts2025-11-23-miss-jamaica-sigue-en-terapia-intensiva-tras-accidente-en-miss-universo-2025-no-esta-tan-bien");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/2025-11-23-quien-es-bernardo-bosch-padre-de-fatima-bosch-y-su-trayectoria-en-pemex-tras-el-triunfo-de-miss-universo-2025/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/UCCRHNXBKRAITGDPIDHO4XS7S4.png" alt="Quién es Bernardo Bosch, padre de Fátima Bosch y su trayectoria en Pemex tras el triunfo de Miss Universo 2025" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-posts2025-11-23-quien-es-bernardo-bosch-padre-de-fatima-bosch-y-su-trayectoria-en-pemex-tras-el-triunfo-de-miss-universo-2025" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-11-23T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Quién es Bernardo Bosch, padre de Fátima Bosch y su trayectoria en Pemex tras el triunfo de Miss Universo 2025
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-11-23T00:00:00.000Z">22 nov 2025</time>
-        
-          <span>· Redacción</span>
-        
-      </div>
-      
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-11-23T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-posts2025-11-23-quien-es-bernardo-bosch-padre-de-fatima-bosch-y-su-trayectoria-en-pemex-tras-el-triunfo-de-miss-universo-2025");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/2025-11-23-quien-es-omar-harfouch-el-juez-que-cuestiona-el-triunfo-de-fatima-bosch-en-miss-universo-2025/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/LHP6PDTXXZARZFMW4Q7NTYCVLY.jpg" alt="Quién es Omar Harfouch, el juez que cuestiona el triunfo de Fátima Bosch en Miss Universo 2025" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-posts2025-11-23-quien-es-omar-harfouch-el-juez-que-cuestiona-el-triunfo-de-fatima-bosch-en-miss-universo-2025" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-11-23T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Quién es Omar Harfouch, el juez que cuestiona el triunfo de Fátima Bosch en Miss Universo 2025
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-11-23T00:00:00.000Z">22 nov 2025</time>
-        
-          <span>· Redacción</span>
-        
-      </div>
-      
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-11-23T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-posts2025-11-23-quien-es-omar-harfouch-el-juez-que-cuestiona-el-triunfo-de-fatima-bosch-en-miss-universo-2025");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/2025-11-23-revelan-nuevos-detalles-del-asesinato-de-carlos-manzo-el-tirador-fue-abatido-con-su-propia-arma/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/DM7L4YWF3NARPFENMSOROH4ZLQ.jpg" alt="Revelan nuevos detalles del asesinato de Carlos Manzo: el tirador fue abatido con su propia arma" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-posts2025-11-23-revelan-nuevos-detalles-del-asesinato-de-carlos-manzo-el-tirador-fue-abatido-con-su-propia-arma" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-11-23T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Revelan nuevos detalles del asesinato de Carlos Manzo: el tirador fue abatido con su propia arma
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-11-23T00:00:00.000Z">22 nov 2025</time>
-        
-          <span>· Redacción</span>
-        
-      </div>
-      
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-11-23T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-posts2025-11-23-revelan-nuevos-detalles-del-asesinato-de-carlos-manzo-el-tirador-fue-abatido-con-su-propia-arma");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/2025-11-23-sin-titulo/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-         <div class="w-full h-full flex items-center justify-center text-slate-400 bg-slate-200 dark:bg-slate-800">
-            <span class="text-xs font-medium">Sin imagen</span>
-         </div>
-      
-
-      
-      
-      <span 
-        id="badge-posts2025-11-23-sin-titulo" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-11-23T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-11-23T00:00:00.000Z">22 nov 2025</time>
-        
-          <span>· Redacción</span>
-        
-      </div>
-      
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-11-23T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-posts2025-11-23-sin-titulo");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/2025-11-23-transportistas-anuncian-paro-y-megabloqueo-nacional-el-24-de-noviembre-por-inseguridad-en-carreteras/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/QOLJYJ4BPBAUNDG5NWJL2LJVUU.jpg" alt="Transportistas anuncian paro y megabloqueo nacional el 24 de noviembre por inseguridad en carreteras" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-posts2025-11-23-transportistas-anuncian-paro-y-megabloqueo-nacional-el-24-de-noviembre-por-inseguridad-en-carreteras" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-11-23T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Transportistas anuncian paro y megabloqueo nacional el 24 de noviembre por inseguridad en carreteras
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-11-23T00:00:00.000Z">22 nov 2025</time>
-        
-          <span>· Redacción</span>
-        
-      </div>
-      
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-11-23T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-posts2025-11-23-transportistas-anuncian-paro-y-megabloqueo-nacional-el-24-de-noviembre-por-inseguridad-en-carreteras");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/2025-11-23-trump-afirma-que-su-plan-de-paz-para-ucrania-no-es-una-oferta-final/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/74849671_1004.jpg" alt="Trump afirma que su plan de paz para Ucrania no es una oferta final" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-posts2025-11-23-trump-afirma-que-su-plan-de-paz-para-ucrania-no-es-una-oferta-final" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-11-23T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Trump afirma que su plan de paz para Ucrania no es una oferta final
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-11-23T00:00:00.000Z">22 nov 2025</time>
-        
-          <span>· Redacción</span>
-        
-      </div>
-      
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-11-23T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-posts2025-11-23-trump-afirma-que-su-plan-de-paz-para-ucrania-no-es-una-oferta-final");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/los-parisinos-pueden-0499/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/los-parisinos-pueden-0499.webp" alt="Los parisinos pueden nadar en el Sena después de un siglo | CNN" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-postslos-parisinos-pueden-0499" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2025-07-06T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Los parisinos pueden nadar en el Sena después de un siglo | CNN
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2025-07-06T00:00:00.000Z">5 jul 2025</time>
-        
-      </div>
-      
-      
-        <p class="text-sm text-slate-600 dark:text-slate-300 line-clamp-2 leading-relaxed">
-             Por primera vez en más de un siglo, los parisinos y los turistas podrán darse un refrescante chapuzón...
-        </p>
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2025-07-06T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-postslos-parisinos-pueden-0499");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/posts/confesiones-anonimo/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="https://img.youtube.com/vi/ehHysw8G2O8/maxresdefault.jpg" alt="Confesiones de relaciones prohibidas: terminé en la cama con la tía de mi esposa" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-postsconfesiones-anonimo" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2023-11-24T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Confesiones de relaciones prohibidas: terminé en la cama con la tía de mi esposa
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2023-11-24T00:00:00.000Z">23 nov 2023</time>
-        
-      </div>
-      
-      
-        <p class="text-sm text-slate-600 dark:text-slate-300 line-clamp-2 leading-relaxed">
-            Historias de amores ocultos y dilemas éticos. En este episodio de Anónimo Podcast se exploran los límites de lo prohibido con confesiones que te dejarán helado.
-        </p>
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2023-11-24T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-postsconfesiones-anonimo");
+        var badge = document.getElementById("badge-posts20260116_213851.md");
         if(badge) {
             badge.classList.remove('hidden');
         }
@@ -1190,7 +418,8 @@
 
   </main>
 
-  <nav class="sticky bottom-0 z-40 border-t border-slate-200/60 dark:border-slate-800/60 bg-white/80 dark:bg-slate-950/80 backdrop-blur">
+  
+    <nav class="sticky bottom-0 z-40 border-t border-slate-200/60 dark:border-slate-800/60 bg-white/80 dark:bg-slate-950/80 backdrop-blur">
   <div class="max-w-5xl mx-auto grid grid-cols-2 text-center">
 
     <a class="flex flex-col items-center gap-1 py-3 hover:bg-slate-100 dark:hover:bg-slate-900" href="/">
@@ -1212,41 +441,35 @@
 
   </div>
 </nav>
+  
 
-  <!-- JSON-LD Organization + Website -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "NewsMediaOrganization",
+    "@type": "WebSite",
     "name": "NOTICIAS SUR CDMX",
-    "url": "https://tusitio.mx",
-    "logo": { "@type": "ImageObject", "url": "/assets/img/logo-512.png" },
-    "sameAs": ["https://www.instagram.com/noticiassurcdmx","https://wa.me/5215512345678"]
+    "url": "https://noticiascdmxsur.online/"
   }
   </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"NOTICIAS SUR CDMX",
-    "url":"https://tusitio.mx",
-    "potentialAction":{
-      "@type":"SearchAction",
-      "target":"https://tusitio.mx/buscar?q={search_term_string}",
-      "query-input":"required name=search_term_string"
-    }
-  }
-  </script>
+
   <script>
-    // Toggle tema
-    const $btn = document.getElementById('toggle-theme');
-    if ($btn) {
-      $btn.addEventListener('click', () => {
-        const el = document.documentElement;
-        const isDark = el.classList.toggle('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      });
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      // Buscamos cualquier botón que tenga el ID 'toggle-theme'
+      const themeBtn = document.getElementById('toggle-theme');
+      
+      if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+          const html = document.documentElement;
+          if (html.classList.contains('dark')) {
+            html.classList.remove('dark');
+            localStorage.theme = 'light';
+          } else {
+            html.classList.add('dark');
+            localStorage.theme = 'dark';
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>
