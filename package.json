@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
-    "luxon": "^3.5.0"
+    "luxon": "^3.5.0",
+    "slugify": "^1.6.6"
   }
 }
