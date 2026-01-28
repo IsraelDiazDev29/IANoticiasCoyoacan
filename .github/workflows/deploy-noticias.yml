@@ -14,14 +14,25 @@ permissions:
   id-token: write
 
 jobs:
-  build-and-deploy:
+  test-and-deploy: # Le cambiamos el nombre para diferenciar
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      # Podrías agregar pasos extra aquí, como pruebas de código (Linter)
       
-      # ... (El resto de los pasos de instalación y build son iguales)
-      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Eleventy (Core Update)
+        run: npx @11ty/eleventy --output _site
+
       - name: Deploy a QA (Noticias)
         uses: peaceiris/actions-gh-pages@v4
         with:
