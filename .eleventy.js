@@ -2,7 +2,7 @@ import { DateTime } from "luxon";
 
 export default function(eleventyConfig) {
   // Copia de assets (imágenes, CSS, etc.)
-  eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+eleventyConfig.addPassthroughCopy("src/assets");
 
   // Filtro de fecha ISO
   eleventyConfig.addFilter("dateIso", (dateObj) => {
