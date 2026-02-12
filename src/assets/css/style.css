@@ -1,0 +1,149 @@
+/* 1. CARGA DE FUENTES LOCALES */
+@font-face {
+    font-family: 'TwitterChirp';
+    src: url('../fonts/Chirp-Regular.woff2') format('woff2'); /* Ajusta la ruta si es necesario */
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TwitterChirp';
+    src: url('../fonts/Chirp-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* 2. VARIABLES Y RESET BÁSICO */
+:root {
+    --chirp-font: 'TwitterChirp', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --primary-color: #1d9bf0; /* Azul Twitter */
+    --border-color: #eff3f4;
+    --text-main: #0f1419;
+    --text-secondary: #536471;
+    --hover-bg: #f7f9f9;
+}
+
+body {
+    font-family: var(--chirp-font);
+    margin: 0;
+    background-color: #fff;
+    color: var(--text-main);
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* 3. LAYOUT PRINCIPAL (FEED) */
+.feed-container {
+    max-width: 600px;
+    margin: 0 auto;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    min-height: 100vh;
+}
+
+/* 4. TARJETA TIPO TWEET */
+.tweet-card {
+    display: flex;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.tweet-card:hover {
+    background-color: var(--hover-bg);
+}
+
+.tweet-avatar-col {
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.avatar-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.tweet-content-col {
+    flex: 1;
+    min-width: 0; /* Evita desbordes en flex */
+}
+
+.tweet-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 2px;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.user-name { font-weight: 700; color: var(--text-main); text-transform: uppercase; }
+.user-handle { color: var(--text-secondary); }
+.tweet-dot { color: var(--text-secondary); }
+.tweet-time { color: var(--text-secondary); }
+
+.tweet-title {
+    font-size: 15px;
+    font-weight: 700; /* Chirp Bold */
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.tweet-text {
+    font-size: 15px;
+    font-weight: 400; /* Chirp Regular */
+    color: var(--text-main);
+    margin-bottom: 10px;
+    white-space: pre-line; /* Respeta saltos de línea */
+}
+
+/* MEDIA / IMAGEN */
+.tweet-media {
+    margin-top: 10px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    position: relative;
+}
+
+.media-aspect-ratio {
+    aspect-ratio: 16 / 9;
+    background-color: #cfd9de;
+    width: 100%;
+}
+
+.media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* FOOTER ACTIONS */
+.tweet-actions {
+    display: flex;
+    gap: 20px;
+    margin-top: 12px;
+    max-width: 400px;
+}
+
+.action-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    transition: color 0.2s;
+}
+
+.action-item:hover { color: var(--primary-color); }
+.action-icon { width: 18px; height: 18px; fill: currentColor; }

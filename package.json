@@ -10,5 +10,18 @@
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
     "luxon": "^3.5.0"
-  }
+  },
+  "description": "Sitio de noticias minimalista con modo claro/oscuro, colecciones por categorías, metadatos SEO/OG/Twitter, y sitemaps (general + Google News).",
+  "main": ".eleventy.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsraelDiazDev29/IANoticiasCoyoacan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IsraelDiazDev29/IANoticiasCoyoacan/issues"
+  },
+  "homepage": "https://github.com/IsraelDiazDev29/IANoticiasCoyoacan#readme"
 }

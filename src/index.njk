@@ -4,10 +4,13 @@ title: Inicio
 description: Noticias locales, nacionales, tendencias y deportes.
 ogType: website
 ---
-<section class="max-w-5xl mx-auto px-4 py-6 space-y-6">
-  <div class="grid gap-4 md:grid-cols-2">
-    {% for post in collections.posts %}
+
+<section class="max-w-[600px] mx-auto min-h-screen border-x border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+  
+  <div class="flex flex-col">
+    {% for post in collections.posts | reverse %}
       {% include "partials/card-hero.njk" %}
     {% endfor %}
   </div>
+
 </section>

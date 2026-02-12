@@ -1,74 +1,55 @@
-<article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="{{ post.url }}" class="block flex-1 group">
+<article class="tweet-card">
+  <a href="{{ post.url }}" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      {# 1. LÓGICA DE IMAGEN (La que arreglamos antes) #}
-      {% if post.data.cover %}
-        <img src="{{ post.data.cover }}" alt="{{ post.data.title }}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      {% elif post.data.image %}
-        <img src="{{ post.data.image }}" alt="{{ post.data.title }}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      {% elif post.data.youtubeId %}
-        <img src="https://img.youtube.com/vi/{{ post.data.youtubeId }}/hqdefault.jpg" alt="{{ post.data.title }}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition">
-             <div class="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center backdrop-blur shadow-lg">
-                <svg class="w-5 h-5 text-red-600 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-             </div>
-        </div>
-      {% else %}
-         <div class="w-full h-full flex items-center justify-center text-slate-400 bg-slate-200 dark:bg-slate-800">
-            <span class="text-xs font-medium">Sin imagen</span>
-         </div>
-      {% endif %}
-
-      {# 2. ETIQUETA "TENDENCIA" INTELIGENTE #}
-      {# Por defecto está oculta (hidden). El script de abajo la activa si es hoy. #}
-      <span 
-        id="badge-{{ post.url | slug }}" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="{{ post.date | dateIso }}"> {# Guardamos la fecha aquí #}
-        TENDENCIA
-      </span>
-
+    <div class="tweet-avatar-col">
+      <div class="avatar-circle">NC</div>
     </div>
 
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        {{ post.data.title }}
-      </h2>
+    <div class="tweet-content-col">
       
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
-        {% if post.data.author %}
-          <span>· {{ post.data.author }}</span>
-        {% endif %}
+      <div class="tweet-header">
+        <span class="user-name">{{ post.data.category | default("General") }}</span>
+        <span class="user-handle">@NoticiasCoyo</span>
+        <span class="tweet-dot">·</span>
+        <time class="tweet-time">{{ post.date | dateReadable }}</time>
       </div>
-      
+
+      <div class="tweet-title">
+         {{ post.data.title }}
+      </div>
+
       {% if post.data.summary %}
-        <p class="text-sm text-slate-600 dark:text-slate-300 line-clamp-2 leading-relaxed">
-            {{ post.data.summary }}
-        </p>
+      <div class="tweet-text">
+        {{ post.data.summary }}
+      </div>
       {% endif %}
+
+      <div class="tweet-media">
+        <div class="media-aspect-ratio">
+            {% if post.data.cover %}
+                <img src="{{ post.data.cover }}" alt="Imagen" class="media-img">
+            {% elif post.data.image %}
+                <img src="{{ post.data.image }}" alt="Imagen" class="media-img">
+            {% elif post.data.youtubeId %}
+                <img src="https://img.youtube.com/vi/{{ post.data.youtubeId }}/hqdefault.jpg" alt="Video" class="media-img">
+                <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.3);">
+                    <div style="width:40px; height:40px; background:white; border-radius:50%; display:flex; align-items:center; justify-content:center;">▶</div>
+                </div>
+            {% else %}
+                 <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#555;">Sin imagen</div>
+            {% endif %}
+        </div>
+      </div>
+
+      <div class="tweet-actions">
+         <div class="action-item">
+            <span>Leer más</span>
+         </div>
+         <div class="action-item">
+            <span>Compartir</span>
+         </div>
+      </div>
+
     </div>
   </a>
-
-  {# 3. SCRIPT DE VERIFICACIÓN DE FECHA #}
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "{{ post.date | dateIso }}"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-{{ post.url | slug }}");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
 </article>

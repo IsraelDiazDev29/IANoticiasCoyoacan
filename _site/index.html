@@ -1,987 +1,620 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inicio | NOTICIAS SUR CDMX</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio</title>
   
-  <meta name="description" content="Noticias locales, nacionales, tendencias y deportes.">
-  <meta name="author" content="NOTICIAS SUR CDMX">
-  <link rel="canonical" href="https://noticiascdmxsur.online//">
-  
-  <meta property="og:site_name" content="NOTICIAS SUR CDMX">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Inicio">
-  <meta property="og:description" content="Noticias locales, nacionales, tendencias y deportes.">
-  <meta property="og:url" content="https://noticiascdmxsur.online//">
-  <meta property="og:image" content="/assets/img/og-default.jpg">
-  
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?display=swap&family=Newsreader:wght@400;500;700;800&family=Noto+Sans:wght@400;500;700;900" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: { 'newsreader': ['Newsreader', 'serif'], 'noto': ['"Noto Sans"', 'sans-serif'] },
-          colors: { accent: { 500: '#00E5FF', 600: '#00B8D4' }, magenta: { 500: '#FF2DAF' } }
-        }
-      }
+  <style>
+    :root {
+        --bg-color: #ffffff;
+        --text-main: #0f1419;
+        --text-sec: #536471;
+        --border-color: #eff3f4;
+        --accent: #1d9bf0;
+        --card-hover: #f7f9f9;
+        --header-bg: rgba(255, 255, 255, 0.85);
+        --invert-logo: 0; 
     }
-  </script>
 
-  <script>
-    (function() {
-      // Verifica preferencia guardada o del sistema
-      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    })();
-  </script>
+    html.dark {
+        --bg-color: #000000;
+        --text-main: #e7e9ea;
+        --text-sec: #71767b;
+        --border-color: #2f3336;
+        --accent: #1d9bf0;
+        --card-hover: #080808;
+        --header-bg: rgba(0, 0, 0, 0.70);
+        --invert-logo: 1; 
+    }
+
+    * { box-sizing: border-box; }
+    
+    body {
+      font-family: 'TwitterChirp', 'Inter', -apple-system, sans-serif;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: center;
+    }
+
+    a, button, input { 
+        text-decoration: none; 
+        color: inherit; 
+        font-family: inherit;
+    }
+
+    /* === 1. CONTENEDOR PRINCIPAL === */
+    .layout-constrain {
+        width: 100%;
+        max-width: 600px;
+        background-color: var(--bg-color);
+        
+        /* MÓVIL (Por defecto): Sin bordes laterales para que se vea limpio */
+        border-left: none;
+        border-right: none;
+
+        /* Padding lateral para que el texto no toque el borde del celular */
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* PC (Media Query): Si la pantalla es grande, agregamos los bordes */
+    @media (min-width: 610px) {
+        .layout-constrain {
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+        }
+    }
+
+    /* === 2. IMÁGENES FULL WIDTH (Ignoran el padding) === */
+    img { max-width: 100%; display: block; }
+
+    #content img {
+        /* Hacemos que la imagen sea más ancha que el contenedor para "salirse" */
+        width: calc(100% + 32px); 
+        max-width: none;
+        
+        /* La jalamos a la izquierda para cubrir el padding */
+        margin-left: -16px;
+        margin-right: -16px;
+        
+        height: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    /* HEADER */
+    .site-header {
+        position: sticky; top: 0; z-index: 1000;
+        background-color: var(--header-bg);
+        backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-color);
+        width: 100%;
+        display: flex; justify-content: center;
+    }
+
+    .header-inner {
+        width: 100%; max-width: 600px;
+        padding: 10px 16px; 
+        display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .logo-area { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 18px; text-transform: uppercase; }
+    .logo-img { width: 32px; height: 32px; object-fit: contain; filter: invert(var(--invert-logo)); transition: filter 0.3s; }
+
+    .theme-btn {
+        background: transparent; border: 1px solid var(--border-color);
+        color: var(--text-main); padding: 5px 12px; border-radius: 20px;
+        font-size: 12px; font-weight: 700; cursor: pointer;
+    }
+
+    /* FOOTER */
+    .site-footer {
+        position: sticky; bottom: 0; z-index: 1000;
+        background-color: var(--header-bg);
+        backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+        border-top: 1px solid var(--border-color);
+        width: 100%;
+        display: flex; justify-content: center;
+    }
+    
+    .footer-inner {
+        width: 100%; max-width: 600px;
+        display: grid; grid-template-columns: 1fr 1fr;
+    }
+
+    .nav-item {
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        padding: 12px 0; color: var(--text-sec);
+    }
+    .nav-item:hover { background-color: var(--card-hover); color: var(--text-main); }
+    .nav-label { font-size: 11px; margin-top: 4px; font-weight: 500; }
+    .icon { width: 1.5em; height: 1.5em; fill: currentColor; }
+    
+    /* FEED & CARDS */
+    .tweet-card { 
+        display: flex; 
+        padding: 1rem 0; /* Sin padding lateral en la card porque ya lo tiene el contenedor */
+        border-bottom: 1px solid var(--border-color); 
+        cursor: pointer; 
+        transition: background 0.2s; 
+    }
+    .tweet-card:hover { background-color: var(--card-hover); }
+    
+    .tweet-avatar-col { margin-right: 12px; flex-shrink: 0; }
+    .avatar-circle { width: 40px; height: 40px; background-color: var(--text-main); color: var(--bg-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
+    
+    .tweet-content-col { flex: 1; min-width: 0; }
+    .tweet-header { display: flex; align-items: center; gap: 5px; font-size: 15px; margin-bottom: 2px; }
+    .user-name { font-weight: 800; color: var(--text-main); text-transform: capitalize; }
+    .user-handle, .tweet-dot, .tweet-time { color: var(--text-sec); }
+    
+    .tweet-title { display: block; font-weight: 300; margin-bottom: 4px; line-height: 1.3; }
+    .tweet-text { font-size: 15px; font-weight: 400; color: var(--text-sec); margin-bottom: 10px; white-space: pre-line; }
+    
+    .tweet-media { margin-top: 10px; border-radius: 16px; border: 1px solid var(--border-color); overflow: hidden; position: relative; width: 100%; }
+    .media-aspect-ratio { width: 100%; padding-top: 56.25%; background-color: var(--border-color); position: relative; }
+    .media-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+    
+    .tweet-actions { display: flex; gap: 20px; margin-top: 12px; }
+    .action-item { display: flex; align-items: center; gap: 5px; color: var(--text-sec); font-size: 13px; }
+    .action-item:hover { color: var(--accent); }
+
+  </style>
 </head>
-<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col font-noto transition-colors duration-300">
+<body>
 
   
-    <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-slate-950/70 border-b border-slate-200/50 dark:border-slate-800/50">
-  <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+    <header class="site-header">
+  <div class="header-inner">
     
-    <a href="/" class="flex items-center gap-2 font-bold tracking-wide text-xl">
-      <img src="/assets/logos/logo_final.webp" alt="Logo" class="w-8 h-8 object-contain dark:invert" />
-      <span>NOTICIAS SUR CDMX</span>
+    <a href="/" class="logo-area">
+      <img src="/assets/logos/logo_final.webp" alt="Logo" class="logo-img" />
+      <span>NOTICIAS SUR</span>
     </a>
 
-    <div class="flex items-center gap-3">
-      <button id="toggle-theme" class="rounded-xl border px-3 py-1 text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Modo</button>
+    <div>
+      <button id="toggle-theme" class="theme-btn">Modo</button>
     </div>
   </div>
 </header>
   
 
-  <main id="content" class="flex-1">
-    <section class="max-w-5xl mx-auto px-4 py-6 space-y-6">
-  <div class="grid gap-4 md:grid-cols-2">
+  <main id="content" class="layout-constrain" style="flex: 1;">
     
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/locales/army-contra-revendedores-bts-mexico/" class="block flex-1 group">
+<section class="max-w-[600px] mx-auto min-h-screen border-x border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+  
+  <div class="flex flex-col">
     
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/image001-f9a2k8m4.webp" alt="El contraataque viral del Army contra los revendedores en Coyoacán y CDMX" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-localesarmy-contra-revendedores-bts-mexico" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2026-01-29T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
+      <article class="tweet-card">
+  <a href="/locales/metro-cdmx-marcha-paro-febrero/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
+    
+    <div class="tweet-avatar-col">
+      <div class="avatar-circle">NC</div>
     </div>
 
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        El contraataque viral del Army contra los revendedores en Coyoacán y CDMX
-      </h2>
+    <div class="tweet-content-col">
       
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2026-01-29T00:00:00.000Z">28 ene 2026</time>
-        
-          <span>· Noticias Coyoacán</span>
-        
+      <div class="tweet-header">
+        <span class="user-name">Locales</span>
+        <span class="user-handle">@NoticiasCoyo</span>
+        <span class="tweet-dot">·</span>
+        <time class="tweet-time">29 ene 2026</time>
       </div>
+
+      <div class="tweet-title">
+         Metro CDMX a un paso del colapso - Trabajadores anuncian paro y marcha masiva
+      </div>
+
       
-      
+
+      <div class="tweet-media">
+        <div class="media-aspect-ratio">
+            
+                <img src="/assets/img/image001-k9v2n4x8.webp" alt="Imagen" class="media-img">
+            
+        </div>
+      </div>
+
+      <div class="tweet-actions">
+         <div class="action-item">
+            <span>Leer más</span>
+         </div>
+         <div class="action-item">
+            <span>Compartir</span>
+         </div>
+      </div>
+
     </div>
   </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2026-01-29T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-localesarmy-contra-revendedores-bts-mexico");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
 </article>
     
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/nacionales/panico-avenida-guadalupe-balacera/" class="block flex-1 group">
+      <article class="tweet-card">
+  <a href="/nacionales/sheinbaum-trump-seguridad-comercio/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/image001-r8t2v9x4.webp" alt="Pánico en plena tarde - Lluvia de balas en zona comercial deja saldo sangriento" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-nacionalespanico-avenida-guadalupe-balacera" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2026-01-29T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
+    <div class="tweet-avatar-col">
+      <div class="avatar-circle">NC</div>
     </div>
 
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Pánico en plena tarde - Lluvia de balas en zona comercial deja saldo sangriento
-      </h2>
+    <div class="tweet-content-col">
       
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2026-01-29T00:00:00.000Z">28 ene 2026</time>
-        
-          <span>· Noticias Coyoacán</span>
-        
+      <div class="tweet-header">
+        <span class="user-name">Nacionales</span>
+        <span class="user-handle">@NoticiasCoyo</span>
+        <span class="tweet-dot">·</span>
+        <time class="tweet-time">29 ene 2026</time>
       </div>
+
+      <div class="tweet-title">
+         El pacto secreto entre Sheinbaum y Trump - Seguridad y el futuro de México en juego
+      </div>
+
       
-      
+
+      <div class="tweet-media">
+        <div class="media-aspect-ratio">
+            
+                <img src="/assets/img/image001-k9v2n8m4.webp" alt="Imagen" class="media-img">
+            
+        </div>
+      </div>
+
+      <div class="tweet-actions">
+         <div class="action-item">
+            <span>Leer más</span>
+         </div>
+         <div class="action-item">
+            <span>Compartir</span>
+         </div>
+      </div>
+
     </div>
   </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2026-01-29T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-nacionalespanico-avenida-guadalupe-balacera");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
 </article>
     
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/tendencias/plan-secreto-mexico-reconquista-eeuu/" class="block flex-1 group">
+      <article class="tweet-card">
+  <a href="/nacionales/salinas-pliego-pago-millonario-sat/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/image001-j9k2l5n4.webp" alt="El plan secreto de México para reconquistar Estados Unidos que Donald Trump sacó a la luz" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-tendenciasplan-secreto-mexico-reconquista-eeuu" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2026-01-29T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
+    <div class="tweet-avatar-col">
+      <div class="avatar-circle">NC</div>
     </div>
 
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        El plan secreto de México para reconquistar Estados Unidos que Donald Trump sacó a la luz
-      </h2>
+    <div class="tweet-content-col">
       
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2026-01-29T00:00:00.000Z">28 ene 2026</time>
-        
-          <span>· Noticias Coyoacán</span>
-        
+      <div class="tweet-header">
+        <span class="user-name">Nacionales</span>
+        <span class="user-handle">@NoticiasCoyo</span>
+        <span class="tweet-dot">·</span>
+        <time class="tweet-time">29 ene 2026</time>
       </div>
+
+      <div class="tweet-title">
+         El fin de una era de litigios - Salinas Pliego dobla las manos y paga fortuna al SAT
+      </div>
+
       
-      
+
+      <div class="tweet-media">
+        <div class="media-aspect-ratio">
+            
+                <img src="/assets/img/image001-k9z2v8w4.webp" alt="Imagen" class="media-img">
+            
+        </div>
+      </div>
+
+      <div class="tweet-actions">
+         <div class="action-item">
+            <span>Leer más</span>
+         </div>
+         <div class="action-item">
+            <span>Compartir</span>
+         </div>
+      </div>
+
     </div>
   </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2026-01-29T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-tendenciasplan-secreto-mexico-reconquista-eeuu");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
 </article>
     
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/nacionales/cuba-crisis-energetica-pemex/" class="block flex-1 group">
+      <article class="tweet-card">
+  <a href="/tendencias/beatles-biopics-sam-mendes/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/image001-v8k2p9z4.webp" alt="El apagón definitivo de Cuba y el fin del salvavidas petrolero de México" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-nacionalescuba-crisis-energetica-pemex" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2026-01-29T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
+    <div class="tweet-avatar-col">
+      <div class="avatar-circle">NC</div>
     </div>
 
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        El apagón definitivo de Cuba y el fin del salvavidas petrolero de México
-      </h2>
+    <div class="tweet-content-col">
       
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2026-01-29T00:00:00.000Z">28 ene 2026</time>
-        
-          <span>· Noticias Coyoacán</span>
-        
+      <div class="tweet-header">
+        <span class="user-name">Tendencias</span>
+        <span class="user-handle">@NoticiasCoyo</span>
+        <span class="tweet-dot">·</span>
+        <time class="tweet-time">29 ene 2026</time>
       </div>
+
+      <div class="tweet-title">
+         El renacer de la Beatlemania - Así lucen los nuevos Fab Four en la pantalla grande
+      </div>
+
       
-      
+
+      <div class="tweet-media">
+        <div class="media-aspect-ratio">
+            
+                <img src="/assets/img/image004-k9z2p4v1.webp" alt="Imagen" class="media-img">
+            
+        </div>
+      </div>
+
+      <div class="tweet-actions">
+         <div class="action-item">
+            <span>Leer más</span>
+         </div>
+         <div class="action-item">
+            <span>Compartir</span>
+         </div>
+      </div>
+
     </div>
   </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2026-01-29T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-nacionalescuba-crisis-energetica-pemex");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
 </article>
     
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/nacionales/negligencia-tren-interoceanico-maquinistas-detenidos/" class="block flex-1 group">
+      <article class="tweet-card">
+  <a href="/tendencias/microsoft-caida-mercado-ia-incertidumbre/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/tragedia-ferroviaria-oaxaca-a8b2c5d1.webp" alt="Tragedia en el Tren Interoceánico - revelan que los maquinistas operaban sin licencia legal" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-nacionalesnegligencia-tren-interoceanico-maquinistas-detenidos" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2026-01-29T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
+    <div class="tweet-avatar-col">
+      <div class="avatar-circle">NC</div>
     </div>
 
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Tragedia en el Tren Interoceánico - revelan que los maquinistas operaban sin licencia legal
-      </h2>
+    <div class="tweet-content-col">
       
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2026-01-29T00:00:00.000Z">28 ene 2026</time>
-        
-          <span>· Noticias Coyoacán</span>
-        
+      <div class="tweet-header">
+        <span class="user-name">Tendencias</span>
+        <span class="user-handle">@NoticiasCoyo</span>
+        <span class="tweet-dot">·</span>
+        <time class="tweet-time">29 ene 2026</time>
       </div>
+
+      <div class="tweet-title">
+         El gigante Microsoft se tambalea y arrastra los ahorros de miles de inversionistas
+      </div>
+
       
-      
+
+      <div class="tweet-media">
+        <div class="media-aspect-ratio">
+            
+                <img src="/assets/img/image002-v9k2p8m4.webp" alt="Imagen" class="media-img">
+            
+        </div>
+      </div>
+
+      <div class="tweet-actions">
+         <div class="action-item">
+            <span>Leer más</span>
+         </div>
+         <div class="action-item">
+            <span>Compartir</span>
+         </div>
+      </div>
+
     </div>
   </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2026-01-29T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-nacionalesnegligencia-tren-interoceanico-maquinistas-detenidos");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
 </article>
     
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/nacionales/coahuila-instituciones-fuertes-ciudad-judicial/" class="block flex-1 group">
+      <article class="tweet-card">
+  <a href="/locales/recompensa-feminicida-elsa-celeste/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/image001-z9k2m5x8.webp" alt="Coahuila se blinda y consolida su justicia con la nueva Ciudad Judicial de Saltillo" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-nacionalescoahuila-instituciones-fuertes-ciudad-judicial" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2026-01-29T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
+    <div class="tweet-avatar-col">
+      <div class="avatar-circle">NC</div>
     </div>
 
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Coahuila se blinda y consolida su justicia con la nueva Ciudad Judicial de Saltillo
-      </h2>
+    <div class="tweet-content-col">
       
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2026-01-29T00:00:00.000Z">28 ene 2026</time>
-        
-          <span>· Noticias Coyoacán</span>
-        
+      <div class="tweet-header">
+        <span class="user-name">Locales</span>
+        <span class="user-handle">@NoticiasCoyo</span>
+        <span class="tweet-dot">·</span>
+        <time class="tweet-time">29 ene 2026</time>
       </div>
+
+      <div class="tweet-title">
+         Se busca - Medio millón de pesos por el rostro de la impunidad en Iztapalapa
+      </div>
+
       
-      
+
+      <div class="tweet-media">
+        <div class="media-aspect-ratio">
+            
+                <img src="/assets/img/image002-k9a2v7b5.webp" alt="Imagen" class="media-img">
+            
+        </div>
+      </div>
+
+      <div class="tweet-actions">
+         <div class="action-item">
+            <span>Leer más</span>
+         </div>
+         <div class="action-item">
+            <span>Compartir</span>
+         </div>
+      </div>
+
     </div>
   </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2026-01-29T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-nacionalescoahuila-instituciones-fuertes-ciudad-judicial");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
 </article>
     
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/deportes/regreso-historico-paqueta-flamengo/" class="block flex-1 group">
+      <article class="tweet-card">
+  <a href="/tendencias/ocesa-responde-army-mexicano-bts/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/image001-k9z2p4w8.webp" alt="Lucas Paquetá rompe el mercado y regresa a casa como el fichaje más caro en la historia de las Américas" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-deportesregreso-historico-paqueta-flamengo" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2026-01-29T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
+    <div class="tweet-avatar-col">
+      <div class="avatar-circle">NC</div>
     </div>
 
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Lucas Paquetá rompe el mercado y regresa a casa como el fichaje más caro en la historia de las Américas
-      </h2>
+    <div class="tweet-content-col">
       
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2026-01-29T00:00:00.000Z">28 ene 2026</time>
-        
-          <span>· Noticias Coyoacán</span>
-        
+      <div class="tweet-header">
+        <span class="user-name">Tendencias</span>
+        <span class="user-handle">@NoticiasCoyo</span>
+        <span class="tweet-dot">·</span>
+        <time class="tweet-time">29 ene 2026</time>
       </div>
+
+      <div class="tweet-title">
+         OCESA rompe el silencio ante el caos de BTS y niega red de reventa interna
+      </div>
+
       
-      
+
+      <div class="tweet-media">
+        <div class="media-aspect-ratio">
+            
+                <img src="/assets/img/image001-z9k2m5r8.webp" alt="Imagen" class="media-img">
+            
+        </div>
+      </div>
+
+      <div class="tweet-actions">
+         <div class="action-item">
+            <span>Leer más</span>
+         </div>
+         <div class="action-item">
+            <span>Compartir</span>
+         </div>
+      </div>
+
     </div>
   </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2026-01-29T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-deportesregreso-historico-paqueta-flamengo");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
 </article>
     
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/nacionales/ebrard-washington-tmec-reformas/" class="block flex-1 group">
+      <article class="tweet-card">
+  <a href="/nacionales/panico-hotel-palazuelos-tulum/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/reunion-ebrard-washington-a7k9l2w4.webp" alt="La cumbre que decidirá el futuro de tu bolsillo y el rumbo del T-MEC entre México y EU" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-nacionalesebrard-washington-tmec-reformas" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2026-01-28T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
+    <div class="tweet-avatar-col">
+      <div class="avatar-circle">NC</div>
     </div>
 
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        La cumbre que decidirá el futuro de tu bolsillo y el rumbo del T-MEC entre México y EU
-      </h2>
+    <div class="tweet-content-col">
       
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2026-01-28T00:00:00.000Z">27 ene 2026</time>
-        
-          <span>· Noticias Coyoacán</span>
-        
+      <div class="tweet-header">
+        <span class="user-name">Nacionales</span>
+        <span class="user-handle">@NoticiasCoyo</span>
+        <span class="tweet-dot">·</span>
+        <time class="tweet-time">29 ene 2026</time>
       </div>
+
+      <div class="tweet-title">
+         Pánico en el hotel de Roberto Palazuelos por irrupción de comando armado
+      </div>
+
       
-      
+
+      <div class="tweet-media">
+        <div class="media-aspect-ratio">
+            
+                <img src="/assets/img/image001-a9f2k8m4.webp" alt="Imagen" class="media-img">
+            
+        </div>
+      </div>
+
+      <div class="tweet-actions">
+         <div class="action-item">
+            <span>Leer más</span>
+         </div>
+         <div class="action-item">
+            <span>Compartir</span>
+         </div>
+      </div>
+
     </div>
   </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2026-01-28T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-nacionalesebrard-washington-tmec-reformas");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
 </article>
     
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/nacionales/ataque-balazos-diputados-mc-sinaloa/" class="block flex-1 group">
+      <article class="tweet-card">
+  <a href="/locales/coca-cola-descuento-sorpresa-cdmx/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/ataque-diputados-culiacan-k8j3n2v1.webp" alt="Emboscada sangrienta contra legisladores de Movimiento Ciudadano en Culiacán" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-nacionalesataque-balazos-diputados-mc-sinaloa" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2026-01-28T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
+    <div class="tweet-avatar-col">
+      <div class="avatar-circle">NC</div>
     </div>
 
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Emboscada sangrienta contra legisladores de Movimiento Ciudadano en Culiacán
-      </h2>
+    <div class="tweet-content-col">
       
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2026-01-28T00:00:00.000Z">27 ene 2026</time>
-        
-          <span>· Noticias Coyoacán</span>
-        
+      <div class="tweet-header">
+        <span class="user-name">Locales</span>
+        <span class="user-handle">@NoticiasCoyo</span>
+        <span class="tweet-dot">·</span>
+        <time class="tweet-time">29 ene 2026</time>
       </div>
+
+      <div class="tweet-title">
+         Coca-Cola frena la escalada de precios y lanza rebajas de emergencia en la CDMX
+      </div>
+
       
-      
+
+      <div class="tweet-media">
+        <div class="media-aspect-ratio">
+            
+                <img src="/assets/img/image001-k9v2n4r8.webp" alt="Imagen" class="media-img">
+            
+        </div>
+      </div>
+
+      <div class="tweet-actions">
+         <div class="action-item">
+            <span>Leer más</span>
+         </div>
+         <div class="action-item">
+            <span>Compartir</span>
+         </div>
+      </div>
+
     </div>
   </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2026-01-28T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-nacionalesataque-balazos-diputados-mc-sinaloa");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/nacionales/atentado-sergio-torres-elizabeth-montoya-sinaloa/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/image001-k8v2n5z4.webp" alt="El corazón de Culiacán bajo fuego - Sergio Torres y Elizabeth Montoya son víctimas de un atentado armado" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-nacionalesatentado-sergio-torres-elizabeth-montoya-sinaloa" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2026-01-28T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        El corazón de Culiacán bajo fuego - Sergio Torres y Elizabeth Montoya son víctimas de un atentado armado
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2026-01-28T00:00:00.000Z">27 ene 2026</time>
-        
-          <span>· Noticias Coyoacán</span>
-        
-      </div>
-      
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2026-01-28T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-nacionalesatentado-sergio-torres-elizabeth-montoya-sinaloa");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/nacionales/terror-atentado-mc-culiacan/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/atentado-mc-k9z2w1p8.webp" alt="Terror en el Malecón Viejo tras el atentado armado contra líderes de Movimiento Ciudadano" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-nacionalesterror-atentado-mc-culiacan" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2026-01-28T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Terror en el Malecón Viejo tras el atentado armado contra líderes de Movimiento Ciudadano
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2026-01-28T00:00:00.000Z">27 ene 2026</time>
-        
-          <span>· Noticias Coyoacán</span>
-        
-      </div>
-      
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2026-01-28T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-nacionalesterror-atentado-mc-culiacan");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/tendencias/intereses-altos-latinoamerica/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/billetes-200-reales-v9u8t7r6.webp" alt="El club de los intereses imposibles - Cuatro países de Latinoamérica entre los más caros del mundo" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-tendenciasintereses-altos-latinoamerica" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2026-01-28T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        El club de los intereses imposibles - Cuatro países de Latinoamérica entre los más caros del mundo
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2026-01-28T00:00:00.000Z">27 ene 2026</time>
-        
-          <span>· Noticias Coyoacán</span>
-        
-      </div>
-      
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2026-01-28T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-tendenciasintereses-altos-latinoamerica");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/nacionales/cae-terror-tiendas-conveniencia-guadalajara/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/image002-k9z2p4n1.webp" alt="Cae el terror de las tiendas de conveniencia y otros siete delincuentes en un operativo relámpago" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-nacionalescae-terror-tiendas-conveniencia-guadalajara" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2026-01-28T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Cae el terror de las tiendas de conveniencia y otros siete delincuentes en un operativo relámpago
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2026-01-28T00:00:00.000Z">27 ene 2026</time>
-        
-          <span>· Noticias Coyoacán</span>
-        
-      </div>
-      
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2026-01-28T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-nacionalescae-terror-tiendas-conveniencia-guadalajara");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/locales/placas-conmemorativas-mundial-2026-cdmx/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/image001-a7b2c9d4.webp" alt="El distintivo más buscado - Cómo conseguir la placa oficial del Mundial 2026 en CDMX" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-localesplacas-conmemorativas-mundial-2026-cdmx" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2026-01-28T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        El distintivo más buscado - Cómo conseguir la placa oficial del Mundial 2026 en CDMX
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2026-01-28T00:00:00.000Z">27 ene 2026</time>
-        
-          <span>· Noticias Coyoacán</span>
-        
-      </div>
-      
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2026-01-28T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-localesplacas-conmemorativas-mundial-2026-cdmx");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
-</article>
-    
-      <article class="rounded-2xl overflow-hidden border border-slate-200/60 dark:border-slate-800/60 flex flex-col h-full bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow relative">
-  <a href="/tendencias/suspension-agentes-caso-alex-pretti/" class="block flex-1 group">
-    
-    <div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
-      
-      
-      
-        <img src="/assets/img/image002-k9z2p4v7.webp" alt="Suspensión inmediata tras el trágico tiroteo contra el enfermero Alex Pretti" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-      
-
-      
-      
-      <span 
-        id="badge-tendenciassuspension-agentes-caso-alex-pretti" 
-        class="hidden absolute top-3 left-3 bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-sm z-20"
-        data-date="2026-01-28T00:00:00.000Z"> 
-        TENDENCIA
-      </span>
-
-    </div>
-
-    <div class="p-4 space-y-2">
-      <h2 class="font-bold text-lg leading-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-        Suspensión inmediata tras el trágico tiroteo contra el enfermero Alex Pretti
-      </h2>
-      
-      <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
-        <time datetime="2026-01-28T00:00:00.000Z">27 ene 2026</time>
-        
-          <span>· Noticias Coyoacán</span>
-        
-      </div>
-      
-      
-    </div>
-  </a>
-
-  
-  <script>
-    (function() {
-      // Obtenemos la fecha del post que guardamos en el atributo data-date (Formato YYYY-MM-DD)
-      var postDateStr = "2026-01-28T00:00:00.000Z"; 
-      
-      // Obtenemos la fecha de HOY del usuario en formato local (YYYY-MM-DD)
-      // El 'en-CA' es un truco para obtener siempre formato YYYY-MM-DD
-      var todayStr = new Date().toLocaleDateString('en-CA');
-
-      // Si las fechas coinciden, quitamos el "hidden" para mostrar la etiqueta
-      if (postDateStr === todayStr) {
-        var badge = document.getElementById("badge-tendenciassuspension-agentes-caso-alex-pretti");
-        if(badge) {
-            badge.classList.remove('hidden');
-        }
-      }
-    })();
-  </script>
 </article>
     
   </div>
-</section>
 
+</section>
   </main>
 
   
-    <nav class="sticky bottom-0 z-40 border-t border-slate-200/60 dark:border-slate-800/60 bg-white/80 dark:bg-slate-950/80 backdrop-blur">
-  <div class="max-w-5xl mx-auto grid grid-cols-2 text-center">
+    <nav class="site-footer">
+  <div class="footer-inner">
 
-    <a class="flex flex-col items-center gap-1 py-3 hover:bg-slate-100 dark:hover:bg-slate-900" href="/">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M3 11.5L12 3l9 8.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5z"/>
-      </svg>
-      <span>Inicio</span>
+    <a class="nav-item" href="/">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M12 1.696L.622 8.807l1.06 1.696L3 9.679V21a1 1 0 0 0 1 1h6v-6h4v6h6a1 1 0 0 0 1-1V9.68l1.318.823 1.06-1.696L12 1.696zM12 4.168l7 4.375V19h-2v-6H7v6H5V8.543l7-4.375z"/></svg>
+      <span class="theme-btn">Inicio</span>
     </a>
 
-    <a class="flex flex-col items-center gap-1 py-3 hover:bg-slate-100 dark:hover:bg-slate-900" href="/categories/tendenciasvideo/">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      <span>Tendencia</span>
+    <a class="nav-item" href="/categories/tendenciasvideo/">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+      <span class="theme-btn">Tendencia</span>
     </a>
-
-    
 
   </div>
 </nav>
   
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "NOTICIAS SUR CDMX",
-    "url": "https://noticiascdmxsur.online/"
-  }
-  </script>
-
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Buscamos cualquier botón que tenga el ID 'toggle-theme'
       const themeBtn = document.getElementById('toggle-theme');
-      
+      const html = document.documentElement;
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        html.classList.add('dark');
+      } else {
+        html.classList.remove('dark');
+      }
       if (themeBtn) {
         themeBtn.addEventListener('click', () => {
-          const html = document.documentElement;
           if (html.classList.contains('dark')) {
             html.classList.remove('dark');
             localStorage.theme = 'light';
