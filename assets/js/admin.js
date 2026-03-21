@@ -12,64 +12,73 @@ async function obtenerDatosInyectados(rutaMD, urlPost, titulo, autor, cover, ogI
   if (image && image.trim() !== "") imagenes.add(image);
 
   try {
-      if (urlPost && urlPost.trim() !== "") {
-          const response = await fetch(urlPost);
-          const htmlText = await response.text();
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(htmlText, "text/html");
-          
-          const nodosDeImagen = doc.querySelectorAll('article img, .prose img');
-          nodosDeImagen.forEach(img => {
-              const src = img.getAttribute('src');
-              if (src && src.trim() !== "") {
-                  imagenes.add(src);
-              }
-          });
-      }
+    if (urlPost && urlPost.trim() !== "") {
+      const response = await fetch(urlPost);
+      const htmlText = await response.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlText, "text/html");
+
+      const nodosDeImagen = doc.querySelectorAll('article img, .prose img');
+      nodosDeImagen.forEach(img => {
+        const src = img.getAttribute('src');
+        if (src && src.trim() !== "") {
+          imagenes.add(src);
+        }
+      });
+    }
   } catch (err) {
-      console.error("Error extrayendo imágenes del post:", err);
+    console.error("Error extrayendo imágenes del post:", err);
   }
 
   // Quitar el punto inicial de la ruta si existe (de "./src/..." a "/src/...")
   const cleanRutaMD = rutaMD.startsWith('.') ? rutaMD.substring(1) : rutaMD;
 
-  // Combinar MD limpio y las imágenes
-  const todasLasRutas = [cleanRutaMD, ...Array.from(imagenes)];
-  
+  // Combinar MD limpio y las imágenes (asegurando queinicien con src/ si son assets)
+  const rutasImagenes = Array.from(imagenes).map(imgRuta => {
+    let rutaLimpia = imgRuta.startsWith('/') ? imgRuta.substring(1) : imgRuta;
+    rutaLimpia = rutaLimpia.startsWith('./') ? rutaLimpia.substring(2) : rutaLimpia;
+
+    if (rutaLimpia.startsWith('assets/')) {
+      return `/src/${rutaLimpia}`;
+    }
+    return imgRuta;
+  });
+  const todasLasRutas = [cleanRutaMD, ...rutasImagenes];
+
   // Objeto con la estructura solicitada
   return {
-      nombre_commit: `${titulo} - ${autor}`,
-      rutas: todasLasRutas
+    nombre_commit: `${titulo} - ${autor}`,
+    rutas: todasLasRutas
   };
 }
 
-window.manejarPublicacion = async function(rutaMD, urlPost, titulo, autor, cover, ogImage, image) {
+window.manejarPublicacion = async function (rutaMD, urlPost, titulo, autor, cover, ogImage, image) {
   const boton = event.currentTarget || event.target;
   const textoOriginal = boton.innerText;
   boton.innerText = "...";
   boton.disabled = true;
 
   const datos = await obtenerDatosInyectados(rutaMD, urlPost, titulo, autor, cover, ogImage, image);
-  
+
   console.log("=== DATOS PARA PUBLICAR ===");
   console.log(datos);
-  
+
   boton.innerText = textoOriginal;
   boton.disabled = false;
   return datos;
 };
 
-window.manejarPublicacionProd = async function(rutaMD, urlPost, titulo, autor, cover, ogImage, image) {
+window.manejarPublicacionProd = async function (rutaMD, urlPost, titulo, autor, cover, ogImage, image) {
   const boton = event.currentTarget || event.target;
   const textoOriginal = boton.innerText;
   boton.innerText = "...";
   boton.disabled = true;
 
   const datos = await obtenerDatosInyectados(rutaMD, urlPost, titulo, autor, cover, ogImage, image);
-  
+
   console.log("=== DATOS PARA PUBLICAR A PROD ===");
   console.log(datos);
-  
+
   boton.innerText = textoOriginal;
   boton.disabled = false;
   return datos;
