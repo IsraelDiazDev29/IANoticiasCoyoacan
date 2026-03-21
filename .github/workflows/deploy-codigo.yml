@@ -1,13 +1,12 @@
-name: Deploy Actualización Web (Core)
+name: Deploy Solo Noticias (QA)
 
 on:
   push:
     branches:
       - main
-    paths-ignore:  # <--- "Ignora si el cambio fue SOLO aquí"
-      - 'src/posts/**'
-      - 'src/assets/img/**'
-      - 'README.md'
+    paths:  # <--- AQUÍ ESTÁ EL FILTRO
+      - 'src/posts/**'        # Cualquier cambio en tus .md
+      - 'src/assets/img/**'   # Cualquier imagen nueva
 
 permissions:
   contents: write
@@ -34,10 +33,10 @@ jobs:
       - name: Build Eleventy (Core Update)
         run: npx @11ty/eleventy --output _site
 
-      - name: Deploy to QA Branch
+      - name: Deploy a QA (Noticias)
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: qa
           publish_dir: ./_site
-          commit_message: "Dev-deploy: Actualización de estructura web v${{ github.run_number }}"
+          commit_message: "Auto-deploy: Actualización de noticias" # <--- Personalizado

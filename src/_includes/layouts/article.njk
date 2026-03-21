@@ -2,6 +2,8 @@
 layout: layouts/base.njk
 ogType: article
 ---
+
+
 <article class="max-w-3xl mx-auto px-4 py-6 space-y-6">
   <header class="space-y-3">
     <div class="aspect-video relative rounded-2xl overflow-hidden">
@@ -13,6 +15,7 @@ ogType: article
     <h1 class="text-3xl font-extrabold leading-tight">{{ title }}</h1>
     {% include "partials/meta-row.njk" %}
   </header>
+{% include "partials/admin-bar.njk" %}
 
   <div class="prose prose-invert dark:prose-invert max-w-none">
     {{ content | safe }}
