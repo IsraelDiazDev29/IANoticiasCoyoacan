@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fuego cruzado en el corazón de Sinaloa - 11 caídos y la hija de El Mayo entre los retenidos</title>
+  <title>Panel Administrativo - Noticias</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -189,65 +189,198 @@
   
 
   <main id="content" class="layout-constrain" style="flex: 1;">
-    <article class="max-w-3xl mx-auto px-4 py-6 space-y-6">
-  <header class="space-y-3">
-    <div class="aspect-video relative rounded-2xl overflow-hidden">
-      <img src="/assets/img/image005-m1p5r9t4.webp" alt="Operativo de la Secretaría de Marina en Culiacán Sinaloa" class="w-full h-full object-cover">
-      
+    
+<style>
+/* Expandir el contenedor principal para la tabla (sobreescribe base.njk) */
+.layout-constrain {
+    max-width: 1000px !important;
+}
+
+.admin-container {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.admin-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.admin-title {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.back-link {
+    color: var(--text-sec);
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--accent);
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.news-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+.news-table th,
+.news-table td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.news-table th {
+    background-color: var(--card-hover);
+    color: var(--text-sec);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.news-table tr {
+    transition: background-color 0.2s ease;
+}
+
+.news-table tbody tr:hover {
+    background-color: var(--card-hover);
+}
+
+.news-table td {
+    font-size: 14px;
+    color: var(--text-main);
+    vertical-align: middle;
+}
+
+.td-title { 
+    font-weight: 700; 
+}
+
+.td-desc { 
+    color: var(--text-sec);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+    line-height: 1.4;
+}
+
+.td-link a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.td-link a:hover {
+    text-decoration: underline;
+}
+
+.btn-publish {
+    background-color: var(--text-main);
+    color: var(--bg-color);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-publish:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.btn-publish:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+/* Scrollbar styling for webkit */
+.table-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+.table-wrapper::-webkit-scrollbar-track {
+    background: var(--bg-color);
+    border-radius: 0 0 12px 12px;
+}
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--text-sec);
+}
+</style>
+
+<!-- Script externo con la lógica de publicar vinculada a la tabla -->
+<script src="/assets/js/admin.js" defer></script>
+
+<div class="admin-container">
+    <div class="admin-header-row">
+        <div>
+            <a href="/" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Volver al sitio
+            </a>
+            <h1 class="admin-title" style="margin-top: 8px;">Panel de Noticias</h1>
+        </div>
+        <p style="color: var(--text-sec); font-size: 14px;">Total: 0 entradas</p>
     </div>
-    <h1 class="text-3xl font-extrabold leading-tight">Fuego cruzado en el corazón de Sinaloa - 11 caídos y la hija de El Mayo entre los retenidos</h1>
-    <div class="text-sm opacity-80 flex flex-wrap items-center gap-2">
-  <time datetime="2024-05-23T00:00:00.000Z">23 may 2024</time>
-  <span>·</span>
-  <span>Gicela</span>
-  <span>·</span>
-  <a href="/categories/locales/" class="underline">Locales</a>
+
+    <div class="table-wrapper">
+        <table class="news-table">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Descripción</th>
+                    <th>Enlace</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 40px; color: var(--text-sec);">
+                        No hay noticias disponibles todavía.
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
 </div>
-
-  </header>
-
-  <div class="prose prose-invert dark:prose-invert max-w-none">
-    <p>La madrugada en Culiacán no trajo calma, sino el estruendo de las armas de alto poder. En un movimiento quirúrgico pero violento, la <strong>Secretaría de Marina (SEMAR)</strong> irrumpió en el corazón de la facción de <strong>Los Mayos</strong>, dejando un rastro de sangre y una detención que hizo eco en las cúpulas del Cártel de Sinaloa.</p>
-<p>El escenario principal fue la comunidad de <strong>El Álamo</strong>, donde una finca vinculada a Ismael &quot;El Mayo&quot; Zambada se convirtió en una zona de guerra. Al llegar, los marinos fueron recibidos a tiros, lo que desató un enfrentamiento que terminó con <strong>11 agresores abatidos</strong> y el aseguramiento de un arsenal táctico.</p>
-<h2>El misterio de la liberación de Mónica Zambada</h2>
-<p>Uno de los momentos más tensos de la jornada ocurrió cuando las autoridades confirmaron la retención de una mujer en el sitio. Según reportes locales, se trataba de <strong>Mónica Zambada Niebla</strong>, hija del legendario capo.</p>
-<p>Sin embargo, el Gabinete de Seguridad Federal tomó una decisión inmediata: <strong>fue liberada</strong>. ¿La razón? Según el comunicado oficial:</p>
-<ul>
-<li>No existen indicios de su participación en actividades delictivas.</li>
-<li>No cuenta con órdenes de aprehensión vigentes.</li>
-<li>Se aplicaron los protocolos de ley para entregarla a sus familiares.</li>
-</ul>
-<p><img src="/assets/img/image002-v7n3k8q2.webp" alt="Logotipo del Gabinete de Seguridad de México"></p>
-<h2>Caen piezas clave del tablero criminal</h2>
-<p>Mientras el humo se disipaba en El Álamo, otro operativo simultáneo en la localidad de <strong>Valle Escondido</strong> lograba un objetivo distinto. Allí fue capturado <strong>Omar Oswaldo Torres Cabada</strong>, de 39 años, mejor conocido como <strong>&quot;El Patas&quot;</strong>, un integrante activo de la estructura de &quot;Los Mayos&quot;.</p>
-<p>Este despliegue no es un hecho aislado. Se trata de una <strong>estrategia por cuadrantes</strong> implementada por el Gobierno Federal para asfixiar a los grupos generadores de violencia que mantienen en vilo a las familias sinaloenses.</p>
-<p>La presencia militar en la zona sur de Culiacán se mantiene en <strong>alerta máxima</strong>, recordándonos que la paz en estas regiones sigue siendo una moneda al aire.</p>
-<p>¿Consideras que la liberación de familiares de capos ayuda a reducir la violencia o envía un mensaje de impunidad? Queremos leerte.</p>
-
-  </div>
-
-  <!-- JSON-LD NewsArticle -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"NewsArticle",
-    "inLanguage":"es-MX",
-    "headline":"Fuego cruzado en el corazón de Sinaloa - 11 caídos y la hija de El Mayo entre los retenidos",
-    "image":[ "/assets/img/image005-m1p5r9t4.webp" ],
-    "datePublished":"2024-05-23T00:00:00.000Z",
-    "dateModified":"2024-05-23T00:00:00.000Z",
-    "mainEntityOfPage": { "@type":"WebPage", "@id":"https://noticiascdmxsur.online//locales/fuego-en-sinaloa-operativo-mayos/" },
-    "author": { "@type":"Person", "name":"Gicela" },
-    "publisher": {
-      "@type":"NewsMediaOrganization",
-      "name":"NOTICIAS SUR CDMX",
-      "logo": { "@type":"ImageObject", "url":"/assets/img/logo-512.png" }
-    },
-    "articleSection":"Locales",
-    "keywords":""
-  }
-  </script>
-</article>
 
   </main>
 
