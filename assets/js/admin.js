@@ -52,6 +52,73 @@ async function obtenerDatosInyectados(rutaMD, urlPost, titulo, autor, cover, ogI
   };
 }
 
+function mostrarNotificacion(mensaje, tipo = "success") {
+  // Remover notificación anterior si existe
+  const existente = document.getElementById("admin-notificacion");
+  if (existente) existente.remove();
+
+  const notificacion = document.createElement("div");
+  notificacion.id = "admin-notificacion";
+  notificacion.innerText = mensaje;
+  
+  // Estilos básicos para que sea bonito (toast)
+  Object.assign(notificacion.style, {
+    position: "fixed",
+    top: "20px",
+    right: "20px",
+    padding: "15px 25px",
+    backgroundColor: tipo === "success" ? "#4CAF50" : "#F44336",
+    color: "white",
+    borderRadius: "8px",
+    boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+    fontFamily: "system-ui, sans-serif",
+    fontSize: "16px",
+    fontWeight: "bold",
+    zIndex: "9999",
+    opacity: "0",
+    transform: "translateY(-20px)",
+    transition: "all 0.3s ease-in-out"
+  });
+
+  document.body.appendChild(notificacion);
+
+  // Animación de entrada
+  setTimeout(() => {
+    notificacion.style.opacity = "1";
+    notificacion.style.transform = "translateY(0)";
+  }, 10);
+
+  // Ocultar y remover después
+  setTimeout(() => {
+    notificacion.style.opacity = "0";
+    notificacion.style.transform = "translateY(-20px)";
+    setTimeout(() => notificacion.remove(), 300);
+  }, 4000);
+}
+
+async function enviarAPI(datos) {
+  try {
+    const respuesta = await fetch("https://api-orquestador-noticias-786930904274.europe-west1.run.app/api/publish", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(datos)
+    });
+
+    if (respuesta.ok) {
+      mostrarNotificacion("✅ Noticia enviada y publicada correctamente.", "success");
+    } else {
+      const error = await respuesta.text();
+      console.error("Error de la API:", error);
+      mostrarNotificacion("❌ Error al enviar la noticia a la API.", "error");
+    }
+  } catch (error) {
+    console.error("Error de conexión:", error);
+    mostrarNotificacion("⚠️ Ocurrió un error de red al intentar conectarse.", "error");
+  }
+}
+
 window.manejarPublicacion = async function (rutaMD, urlPost, titulo, autor, cover, ogImage, image) {
   const boton = event.currentTarget || event.target;
   const textoOriginal = boton.innerText;
@@ -62,6 +129,8 @@ window.manejarPublicacion = async function (rutaMD, urlPost, titulo, autor, cove
 
   console.log("=== DATOS PARA PUBLICAR ===");
   console.log(datos);
+
+  await enviarAPI(datos);
 
   boton.innerText = textoOriginal;
   boton.disabled = false;
