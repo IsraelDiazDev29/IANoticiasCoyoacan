@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio</title>
+  <title>Pánico en las calles - Violencia imparable deja víctimas en el Centro Histórico y Tepito</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -190,185 +190,156 @@
 
   <main id="content" class="layout-constrain" style="flex: 1;">
     
-<section class="max-w-[600px] mx-auto min-h-screen border-x border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
-  
-  <div class="flex flex-col">
-    
-      <article class="tweet-card">
-  <a href="/locales/panico-calles-violencia-cuauhtemoc/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
 
-    <div class="tweet-content-col">
+<article class="max-w-3xl mx-auto px-4 py-6 space-y-6">
+  <header class="space-y-3">
+    <div class="aspect-video relative rounded-2xl overflow-hidden">
+      <img src="/assets/img/ataque-cuauhtemoc-r7v4n9k2.webp" alt="Operativo policial tras balacera en las calles de la alcaldía Cuauhtémoc" class="w-full h-full object-cover">
       
-      <div class="tweet-header">
-        <span class="user-name">Locales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">22 may 2024</time>
-      </div>
-
-      <div class="tweet-title">
-         Pánico en las calles - Violencia imparable deja víctimas en el Centro Histórico y Tepito
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/ataque-cuauhtemoc-r7v4n9k2.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
     </div>
-  </a>
-</article>
+    <h1 class="text-3xl font-extrabold leading-tight">Pánico en las calles - Violencia imparable deja víctimas en el Centro Histórico y Tepito</h1>
+    <div class="text-sm opacity-80 flex flex-wrap items-center gap-2">
+  <time datetime="2024-05-22T00:00:00.000Z">22 may 2024</time>
+  <span>·</span>
+  <span>Gicela</span>
+  <span>·</span>
+  <a href="/categories/locales/" class="underline">Locales</a>
+</div>
+
+  </header>
+<style>
+/* Estilos para la barra de administración - Independientes al post */
+.admin-global-bar {
+  width: 100%;
+  max-width: 600px; /* Igual que .layout-constrain */
+  margin: 24px auto 24px;
+  background-color: var(--card-hover);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: inherit;
+}
+
+/* Modificador global para pc */
+/* El borde ya se aplica globalmente como tarjeta */
+
+.admin-global-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-sec);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.admin-global-btn {
+  background-color: var(--text-main);
+  color: var(--bg-color);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.admin-global-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.admin-global-btn:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+/* Clase de utilidad para ocultar la barra en producción si lo deseas. Simplemente añade "hide-admin-bar" al div principal. */
+.hide-admin-bar {
+  display: none !important;
+}
+</style>
+
+<!-- Script externo con la lógica de publicar -->
+<script src="/assets/js/admin.js" defer></script>
+
+<!-- Barra de administración inyectada en posts -->
+<div class="admin-global-bar" id="news-admin-bar">
+  <div class="admin-global-info">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 20h9"></path>
+      <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+    </svg>
+    Administración
+  </div>
+  <div style="display: flex; gap: 10px;">
+    <!-- El botón de publicar (local) inyecta varibales Nunjucks hacia el método global JS -->
+    <button class="admin-global-btn" 
+        onclick="manejarPublicacion('./src/posts/20260321_110242.md', '/locales/panico-calles-violencia-cuauhtemoc/', 'Pánico en las calles - Violencia imparable deja víctimas en el Centro Histórico y Tepito', 'Gicela', '/assets/img/ataque-cuauhtemoc-r7v4n9k2.webp', '/assets/img/ataque-cuauhtemoc-r7v4n9k2.webp', '')">
+        Publicar
+    </button>
     
-      <article class="tweet-card">
-  <a href="/tendencias/cuba-sin-petroleo-ruso-sanciones-eeuu/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
+    <!-- El botón de publicar a produccion -->
+    <button class="admin-global-btn" style="background-color: var(--accent);"
+        onclick="manejarPublicacionProd('./src/posts/20260321_110242.md', '/locales/panico-calles-violencia-cuauhtemoc/', 'Pánico en las calles - Violencia imparable deja víctimas en el Centro Histórico y Tepito', 'Gicela', '/assets/img/ataque-cuauhtemoc-r7v4n9k2.webp', '/assets/img/ataque-cuauhtemoc-r7v4n9k2.webp', '')">
+        Publicar Prod
+    </button>
+  </div>
+</div>
 
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Tendencias</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">24 may 2024</time>
-      </div>
 
-      <div class="tweet-title">
-         Cuba a oscuras y sin salvavidas - El barco ruso que huyó de la isla por miedo a las sanciones
-      </div>
+  <div class="prose prose-invert dark:prose-invert max-w-none">
+    <p>El rugir de una motocicleta no siempre anuncia una entrega a domicilio. Anoche, en el corazón de la Ciudad de México, ese sonido fue el preludio de la tragedia. En cuestión de minutos, la calma aparente de la alcaldía Cuauhtémoc se fragmentó bajo el estruendo de proyectiles que no buscaban advertir, sino <strong>terminar con vidas</strong>.</p>
+<p>La violencia, que parece no dar tregua a los habitantes de la zona central, se manifestó en dos puntos neurálgicos con una precisión quirúrgica y una frialdad que estremece.</p>
+<h2>El primer impacto - Tragedia en el Barrio Bravo</h2>
+<p>El primer reporte llegó desde las entrañas de <strong>Tepito</strong>. En la intersección de las calles Granda y la Avenida del Trabajo, la rutina se rompió cuando sujetos a bordo de una motocicleta abrieron fuego.</p>
+<p>En el asfalto quedó la evidencia del horror: <strong>un joven de apenas 15 años</strong> fue el blanco de este ataque directo. Los elementos de la Secretaría de Seguridad Ciudadana (SSC) llegaron al sitio solo para confirmar que el sonido de las balas había silenciado los sueños de un menor de edad.</p>
+<ul>
+<li><strong>Lugar:</strong> Colonia Morelos (Tepito).</li>
+<li><strong>Víctima:</strong> Menor de 15 años.</li>
+<li><strong>Modus Operandi:</strong> Sicarios en motocicleta con huida inmediata.</li>
+</ul>
+<h2>Sangre en el Centro Histórico</h2>
+<p>Mientras las sirenas aún resonaban en la Morelos, un segundo llamado de emergencia alertó a las autoridades. La escena esta vez era la <strong>calle San Marcos</strong>, en la colonia Centro, un lugar transitado donde la vida cotidiana se detuvo en seco.</p>
+<p>Dos mujeres, una de <strong>63 años y otra de 73</strong>, se disponían a recoger su vehículo en un estacionamiento público. No hubo palabras, no hubo reclamos; solo el destello de las armas de fuego. La mujer de 63 años <strong>perdió la vida en el lugar</strong>, mientras que su acompañante lucha por sobrevivir en un hospital tras ser herida de gravedad.</p>
+<h2>¿Por qué esto nos debe importar?</h2>
+<p>Este tipo de eventos no son solo &quot;cifras de inseguridad&quot;. Representan la <strong>vulnerabilidad extrema</strong> en la que se encuentran los espacios que todos transitamos. Un estacionamiento, una avenida principal o la esquina de casa se han convertido en escenarios de ejecuciones directas.</p>
+<p>La seguridad de nuestras familias pende de un hilo cuando los atacantes pueden <strong>desaparecer en motonetas</strong> entre el tráfico de la ciudad, dejando atrás familias destrozadas y un sentimiento de impunidad que asfixia.</p>
+<p>Las autoridades ya analizan las cámaras de videovigilancia para rastrear la ruta de escape de los responsables, pero la pregunta sigue en el aire:</p>
+<p><strong>¿Consideras que el despliegue policial actual es suficiente para frenar estas olas de ataques directos en nuestras colonias?</strong></p>
 
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/image002-x9r2m1q8.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/nacionales/hacienda-reactiva-subsidios-gasolina/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Nacionales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">20 mar 2026</time>
-      </div>
-
-      <div class="tweet-title">
-         Alivio al bolsillo - Hacienda reactiva subsidios a la gasolina tras un año de espera
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/llenar-tanque-hacienda-h7v2n4q1.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/nacionales/melate-4189-resultados-ganadores/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Nacionales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">21 mar 2026</time>
-      </div>
-
-      <div class="tweet-title">
-         La suerte tocó a tu puerta - Estos son los ganadores del Melate 4189
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/resultados-sorteo-mexico-x9z2r5m1.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
   </div>
 
-</section>
+  <!-- JSON-LD NewsArticle -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"NewsArticle",
+    "inLanguage":"es-MX",
+    "headline":"Pánico en las calles - Violencia imparable deja víctimas en el Centro Histórico y Tepito",
+    "image":[ "/assets/img/ataque-cuauhtemoc-r7v4n9k2.webp" ],
+    "datePublished":"2024-05-22T00:00:00.000Z",
+    "dateModified":"2024-05-22T00:00:00.000Z",
+    "mainEntityOfPage": { "@type":"WebPage", "@id":"https://noticiascdmxsur.online//locales/panico-calles-violencia-cuauhtemoc/" },
+    "author": { "@type":"Person", "name":"Gicela" },
+    "publisher": {
+      "@type":"NewsMediaOrganization",
+      "name":"NOTICIAS SUR CDMX",
+      "logo": { "@type":"ImageObject", "url":"/assets/img/logo-512.png" }
+    },
+    "articleSection":"Locales",
+    "keywords":""
+  }
+  </script>
+</article>
+
   </main>
 
   

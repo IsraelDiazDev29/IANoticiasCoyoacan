@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio</title>
+  <title>Cuba a oscuras y sin salvavidas - El barco ruso que huyó de la isla por miedo a las sanciones</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -190,185 +190,155 @@
 
   <main id="content" class="layout-constrain" style="flex: 1;">
     
-<section class="max-w-[600px] mx-auto min-h-screen border-x border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
-  
-  <div class="flex flex-col">
-    
-      <article class="tweet-card">
-  <a href="/locales/panico-calles-violencia-cuauhtemoc/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
 
-    <div class="tweet-content-col">
+<article class="max-w-3xl mx-auto px-4 py-6 space-y-6">
+  <header class="space-y-3">
+    <div class="aspect-video relative rounded-2xl overflow-hidden">
+      <img src="/assets/img/image002-x9r2m1q8.webp" alt="Representación de la crisis energética y el bloqueo de combustible en el Caribe" class="w-full h-full object-cover">
       
-      <div class="tweet-header">
-        <span class="user-name">Locales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">22 may 2024</time>
-      </div>
-
-      <div class="tweet-title">
-         Pánico en las calles - Violencia imparable deja víctimas en el Centro Histórico y Tepito
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/ataque-cuauhtemoc-r7v4n9k2.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
     </div>
-  </a>
-</article>
+    <h1 class="text-3xl font-extrabold leading-tight">Cuba a oscuras y sin salvavidas - El barco ruso que huyó de la isla por miedo a las sanciones</h1>
+    <div class="text-sm opacity-80 flex flex-wrap items-center gap-2">
+  <time datetime="2024-05-24T00:00:00.000Z">24 may 2024</time>
+  <span>·</span>
+  <span>Gicela</span>
+  <span>·</span>
+  <a href="/categories/tendencias/" class="underline">Tendencias</a>
+</div>
+
+  </header>
+<style>
+/* Estilos para la barra de administración - Independientes al post */
+.admin-global-bar {
+  width: 100%;
+  max-width: 600px; /* Igual que .layout-constrain */
+  margin: 24px auto 24px;
+  background-color: var(--card-hover);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: inherit;
+}
+
+/* Modificador global para pc */
+/* El borde ya se aplica globalmente como tarjeta */
+
+.admin-global-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-sec);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.admin-global-btn {
+  background-color: var(--text-main);
+  color: var(--bg-color);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.admin-global-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.admin-global-btn:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+/* Clase de utilidad para ocultar la barra en producción si lo deseas. Simplemente añade "hide-admin-bar" al div principal. */
+.hide-admin-bar {
+  display: none !important;
+}
+</style>
+
+<!-- Script externo con la lógica de publicar -->
+<script src="/assets/js/admin.js" defer></script>
+
+<!-- Barra de administración inyectada en posts -->
+<div class="admin-global-bar" id="news-admin-bar">
+  <div class="admin-global-info">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 20h9"></path>
+      <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+    </svg>
+    Administración
+  </div>
+  <div style="display: flex; gap: 10px;">
+    <!-- El botón de publicar (local) inyecta varibales Nunjucks hacia el método global JS -->
+    <button class="admin-global-btn" 
+        onclick="manejarPublicacion('./src/posts/20260321_110326.md', '/tendencias/cuba-sin-petroleo-ruso-sanciones-eeuu/', 'Cuba a oscuras y sin salvavidas - El barco ruso que huyó de la isla por miedo a las sanciones', 'Gicela', '/assets/img/image002-x9r2m1q8.webp', '/assets/img/image002-x9r2m1q8.webp', '')">
+        Publicar
+    </button>
     
-      <article class="tweet-card">
-  <a href="/tendencias/cuba-sin-petroleo-ruso-sanciones-eeuu/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
+    <!-- El botón de publicar a produccion -->
+    <button class="admin-global-btn" style="background-color: var(--accent);"
+        onclick="manejarPublicacionProd('./src/posts/20260321_110326.md', '/tendencias/cuba-sin-petroleo-ruso-sanciones-eeuu/', 'Cuba a oscuras y sin salvavidas - El barco ruso que huyó de la isla por miedo a las sanciones', 'Gicela', '/assets/img/image002-x9r2m1q8.webp', '/assets/img/image002-x9r2m1q8.webp', '')">
+        Publicar Prod
+    </button>
+  </div>
+</div>
 
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Tendencias</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">24 may 2024</time>
-      </div>
 
-      <div class="tweet-title">
-         Cuba a oscuras y sin salvavidas - El barco ruso que huyó de la isla por miedo a las sanciones
-      </div>
+  <div class="prose prose-invert dark:prose-invert max-w-none">
+    <p>Imagina una isla entera sumergida en el silencio y la penumbra. No es una escena de ficción, es la realidad de millones de personas que hoy ven cómo su última esperanza de energía se desvanece en el horizonte. El <strong>Sea Horse</strong>, un coloso cargado con <strong>200 mil barriles de diésel ruso</strong>, estaba a punto de atracar en La Habana, pero una orden de último minuto lo cambió todo.</p>
+<p>La presión de Washington ha logrado lo impensable. El buque, que debía aliviar semanas de apagones constantes, dio media vuelta abruptamente en el Atlántico Norte. Su nuevo destino es <strong>Trinidad y Tobago</strong>, dejando a Cuba en una situación de vulnerabilidad extrema que ya empieza a pasar factura en los hospitales y las escuelas.</p>
+<h2>Un bloqueo de facto que paraliza la vida diaria</h2>
+<p>La decisión del Departamento del Tesoro de incluir a Cuba en la lista de países restringidos para recibir crudo ruso ha sido el golpe de gracia. Esta medida no solo afecta a los grandes barcos, sino que impacta directamente en el <strong>bolsillo y la seguridad</strong> de las familias cubanas.</p>
+<p>Sin combustible, la red eléctrica ha colapsado. Pero el problema va mucho más allá de no poder encender una bombilla:</p>
+<ul>
+<li><strong>Salud en pausa:</strong> Se ha reportado una extensa lista de espera para cirugías que no pueden realizarse por falta de energía constante.</li>
+<li><strong>Educación suspendida:</strong> Las clases presenciales han tenido que cerrar sus puertas.</li>
+<li><strong>Transporte fantasma:</strong> Las rutas de transporte público están prácticamente paralizadas, dejando a la población sin medios para moverse.</li>
+</ul>
+<p><img src="/assets/img/image004-k3v7b5p2.webp" alt="Buque cisterna navegando lejos de las costas cubanas tras las sanciones"></p>
+<h2>El tablero geopolítico: Trump y la asfixia energética</h2>
+<p>El panorama es desolador. Tras la captura de figuras clave en Venezuela y el corte del suministro desde Caracas, la isla buscó refugio en Moscú. Sin embargo, la estrategia de <strong>Donald Trump</strong> de imponer aranceles a cualquier nación que auxilie energéticamente a la isla ha hecho que incluso aliados históricos, como <strong>México</strong>, suspendan sus envíos por temor a represalias comerciales.</p>
+<p>El gobierno cubano, a través de sus enviados ante la ONU, mantiene un optimismo que parece chocar con la realidad del radar marítimo. Aunque aseguran que <strong>&quot;la ayuda está en camino&quot;</strong>, el desvío del Sea Horse sugiere que la disuasión estadounidense está funcionando con una precisión quirúrgica.</p>
+<p>Mientras tanto, otro buque, el <strong>Anatoly Kolodkin</strong>, navega hacia el puerto de Matanzas. Este barco representa la última prueba de fuego: ¿Se atreverá a desafiar el bloqueo o seguirá la estela del Sea Horse dejando a la isla en la oscuridad total?</p>
+<p>La crisis humanitaria es inminente. Con las plantas eléctricas listas para funcionar pero con los tanques vacíos, el destino de Cuba pende de un hilo diplomático que parece estar a punto de romperse.</p>
+<p>¿Crees que el uso de la energía como arma política es una medida justificada para forzar cambios gubernamentales o debería priorizarse la ayuda humanitaria?</p>
 
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/image002-x9r2m1q8.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/nacionales/hacienda-reactiva-subsidios-gasolina/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Nacionales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">20 mar 2026</time>
-      </div>
-
-      <div class="tweet-title">
-         Alivio al bolsillo - Hacienda reactiva subsidios a la gasolina tras un año de espera
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/llenar-tanque-hacienda-h7v2n4q1.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/nacionales/melate-4189-resultados-ganadores/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Nacionales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">21 mar 2026</time>
-      </div>
-
-      <div class="tweet-title">
-         La suerte tocó a tu puerta - Estos son los ganadores del Melate 4189
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/resultados-sorteo-mexico-x9z2r5m1.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
   </div>
 
-</section>
+  <!-- JSON-LD NewsArticle -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"NewsArticle",
+    "inLanguage":"es-MX",
+    "headline":"Cuba a oscuras y sin salvavidas - El barco ruso que huyó de la isla por miedo a las sanciones",
+    "image":[ "/assets/img/image002-x9r2m1q8.webp" ],
+    "datePublished":"2024-05-24T00:00:00.000Z",
+    "dateModified":"2024-05-24T00:00:00.000Z",
+    "mainEntityOfPage": { "@type":"WebPage", "@id":"https://noticiascdmxsur.online//tendencias/cuba-sin-petroleo-ruso-sanciones-eeuu/" },
+    "author": { "@type":"Person", "name":"Gicela" },
+    "publisher": {
+      "@type":"NewsMediaOrganization",
+      "name":"NOTICIAS SUR CDMX",
+      "logo": { "@type":"ImageObject", "url":"/assets/img/logo-512.png" }
+    },
+    "articleSection":"Tendencias",
+    "keywords":""
+  }
+  </script>
+</article>
+
   </main>
 
   
