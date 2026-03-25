@@ -26,12 +26,12 @@
 
       <div class="tweet-media">
         <div class="media-aspect-ratio">
-            {% if post.data.cover %}
-                <img src="{{ post.data.cover }}" alt="Imagen" class="media-img">
+        {% if post.data.cover %}
+                <img src="{{ post.data.cover }}" alt="{{ post.data.alt or post.data.title }}" class="media-img" loading="lazy" width="600" height="338">
             {% elif post.data.image %}
-                <img src="{{ post.data.image }}" alt="Imagen" class="media-img">
+                <img src="{{ post.data.image }}" alt="{{ post.data.alt or post.data.title }}" class="media-img" loading="lazy" width="600" height="338">
             {% elif post.data.youtubeId %}
-                <img src="https://img.youtube.com/vi/{{ post.data.youtubeId }}/hqdefault.jpg" alt="Video" class="media-img">
+                <img src="https://img.youtube.com/vi/{{ post.data.youtubeId }}/hqdefault.jpg" alt="Video: {{ post.data.title }}" class="media-img" loading="lazy" width="480" height="360">
                 <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.3);">
                     <div style="width:40px; height:40px; background:white; border-radius:50%; display:flex; align-items:center; justify-content:center;">▶</div>
                 </div>
