@@ -1,24 +1,66 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel Administrativo - Noticias</title>
-  
+  <title>Panel Administrativo - Noticias | NOTICIAS SUR CDMX</title>
+
+  <!-- SEO Básico -->
+  <meta name="description" content="Noticias locales, nacionales, tendencias y deportes.">
+  <link rel="canonical" href="https://noticiascdmxsur.online//admin/">
+
+  <!-- Open Graph — WhatsApp, Facebook, Telegram, LinkedIn, iMessage -->
+  <meta property="og:type"         content="website">
+  <meta property="og:url"          content="https://noticiascdmxsur.online//admin/">
+  <meta property="og:title"        content="Panel Administrativo - Noticias | NOTICIAS SUR CDMX">
+  <meta property="og:description"  content="Noticias locales, nacionales, tendencias y deportes.">
+  <meta property="og:image"        content="https://noticiascdmxsur.online//assets/img/og-default.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale"       content="es_MX">
+  <meta property="og:site_name"    content="NOTICIAS SUR CDMX">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:site"        content="@noticiassurcdmx">
+  <meta name="twitter:title"       content="Panel Administrativo - Noticias | NOTICIAS SUR CDMX">
+  <meta name="twitter:description" content="Noticias locales, nacionales, tendencias y deportes.">
+  <meta name="twitter:image"       content="https://noticiascdmxsur.online//assets/img/og-default.jpg">
+
+  <!-- Favicon & App -->
+  <link rel="icon" href="/assets/logos/logo_final.webp" type="image/webp">
+  <link rel="apple-touch-icon" href="/assets/logos/logo_final.webp">
+  <meta name="theme-color" content="#1d9bf0">
+
+  <!-- Preload fuentes locales (evita texto invisible) -->
+  <link rel="preload" href="/assets/fonts/Chirp-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/Chirp-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Newsreader:wght@400;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Preconnect YouTube (video-posts) -->
+  <link rel="preconnect" href="https://www.youtube-nocookie.com">
+  <link rel="dns-prefetch" href="https://www.youtube.com">
 
   <style>
     :root {
+        /* Colores */
         --bg-color: #ffffff;
         --text-main: #0f1419;
         --text-sec: #536471;
         --border-color: #eff3f4;
         --accent: #1d9bf0;
+        --color-breaking: #E31C2D;
         --card-hover: #f7f9f9;
         --header-bg: rgba(255, 255, 255, 0.85);
-        --invert-logo: 0; 
+        --invert-logo: 0;
+        /* Tipografía */
+        --font-ui:       'TwitterChirp', 'Inter', -apple-system, sans-serif;
+        --font-headline: 'Newsreader', Georgia, serif;
+        --font-body:     'Noto Serif', Georgia, serif;
     }
 
     html.dark {
@@ -27,9 +69,10 @@
         --text-sec: #71767b;
         --border-color: #2f3336;
         --accent: #1d9bf0;
+        --color-breaking: #E31C2D;
         --card-hover: #080808;
         --header-bg: rgba(0, 0, 0, 0.70);
-        --invert-logo: 1; 
+        --invert-logo: 1;
     }
 
     * { box-sizing: border-box; }
@@ -182,7 +225,7 @@
     </a>
 
     <div>
-      <button id="toggle-theme" class="theme-btn">Modo</button>
+      <button id="toggle-theme" class="theme-btn" aria-label="Cambiar modo claro/oscuro">Modo</button>
     </div>
   </div>
 </header>
@@ -355,7 +398,7 @@
             </a>
             <h1 class="admin-title" style="margin-top: 8px;">Panel de Noticias</h1>
         </div>
-        <p style="color: var(--text-sec); font-size: 14px;">Total: 11 entradas</p>
+        <p style="color: var(--text-sec); font-size: 14px;">Total: 7 entradas</p>
     </div>
 
     <div class="table-wrapper">
@@ -372,9 +415,105 @@
             <tbody>
                 
                 <tr>
-                    <td class="td-title">Agentes del ICE patrullan aeropuertos de Estados Unidos para agilizar vuelos</td>
+                    <td class="td-title">Mauricio Culebro dejará la presidencia de Tigres al finalizar el torneo</td>
                     <td>Gicela</td>
-                    <td class="td-desc" title="El despliegue de 150 oficiales busca mitigar las largas filas en terminales como el Aeropuerto Kennedy ante la falta de personal remunerado">El despliegue de 150 oficiales busca mitigar las largas filas en terminales como el Aeropuerto Kennedy ante la falta de personal remunerado</td>
+                    <td class="td-desc" title="El Club Tigres anunció que Carlos Emilio González asumirá la presidencia del equipo tras la salida de Mauricio Culebro al cierre del certamen">El Club Tigres anunció que Carlos Emilio González asumirá la presidencia del equipo tras la salida de Mauricio Culebro al cierre del certamen</td>
+                    <td class="td-link">
+                        <a href="/deportes/mauricio-culebro-dejara-presidencia-tigres/" target="_blank">
+                            Ver
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </td>
+                    <td>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn-publish" 
+                                onclick="manejarPublicacion('./src/posts/20260325_203910.md', '/deportes/mauricio-culebro-dejara-presidencia-tigres/', 'Mauricio Culebro dejará la presidencia de Tigres al finalizar el torneo', 'Gicela', '/assets/img/mauricio-culebro-tigres-8v2n4z9q.webp', '/assets/img/mauricio-culebro-tigres-8v2n4z9q.webp', '')">
+                                Publicar
+                            </button>
+                            <button class="btn-publish" style="background-color: var(--accent);"
+                                onclick="manejarPublicacionProd('./src/posts/20260325_203910.md', '/deportes/mauricio-culebro-dejara-presidencia-tigres/', 'Mauricio Culebro dejará la presidencia de Tigres al finalizar el torneo', 'Gicela', '/assets/img/mauricio-culebro-tigres-8v2n4z9q.webp', '/assets/img/mauricio-culebro-tigres-8v2n4z9q.webp', '')">
+                                Publicar Prod
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="td-title">Julio Ibáñez detenido en Sudáfrica por hombres armados durante transmisión</td>
+                    <td>Gicela</td>
+                    <td class="td-desc" title="El reportero de Televisa Julio Profe Ibáñez fue interceptado por personas armadas en su habitación mientras cubría a los rivales de la Selección Mexicana.">El reportero de Televisa Julio Profe Ibáñez fue interceptado por personas armadas en su habitación mientras cubría a los rivales de la Selección Mexicana.</td>
+                    <td class="td-link">
+                        <a href="/deportes/julio-ibanez-detenido-sudafrica/" target="_blank">
+                            Ver
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </td>
+                    <td>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn-publish" 
+                                onclick="manejarPublicacion('./src/posts/20260325_203950.md', '/deportes/julio-ibanez-detenido-sudafrica/', 'Julio Ibáñez detenido en Sudáfrica por hombres armados durante transmisión', 'Gicela', '/assets/img/julio-profe-ibanez-x8v2m9p1.webp', '/assets/img/julio-profe-ibanez-x8v2m9p1.webp', '')">
+                                Publicar
+                            </button>
+                            <button class="btn-publish" style="background-color: var(--accent);"
+                                onclick="manejarPublicacionProd('./src/posts/20260325_203950.md', '/deportes/julio-ibanez-detenido-sudafrica/', 'Julio Ibáñez detenido en Sudáfrica por hombres armados durante transmisión', 'Gicela', '/assets/img/julio-profe-ibanez-x8v2m9p1.webp', '/assets/img/julio-profe-ibanez-x8v2m9p1.webp', '')">
+                                Publicar Prod
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="td-title">Sheinbaum señala al PT - Temen reducir su votación por reforma electoral</td>
+                    <td>Gicela</td>
+                    <td class="td-desc" title="La mandataria afirma que el PT rechaza el plan B por cálculo político y respalda el fin de pensiones de lujo para exfuncionarios">La mandataria afirma que el PT rechaza el plan B por cálculo político y respalda el fin de pensiones de lujo para exfuncionarios</td>
+                    <td class="td-link">
+                        <a href="/nacionales/sheinbaum-critica-pt-reforma-electoral/" target="_blank">
+                            Ver
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </td>
+                    <td>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn-publish" 
+                                onclick="manejarPublicacion('./src/posts/20260325_204157.md', '/nacionales/sheinbaum-critica-pt-reforma-electoral/', 'Sheinbaum señala al PT - Temen reducir su votación por reforma electoral', 'Gicela', '/assets/img/sheinbaum-palacio-nacional-f8d2s3a1.webp', '/assets/img/sheinbaum-palacio-nacional-f8d2s3a1.webp', '')">
+                                Publicar
+                            </button>
+                            <button class="btn-publish" style="background-color: var(--accent);"
+                                onclick="manejarPublicacionProd('./src/posts/20260325_204157.md', '/nacionales/sheinbaum-critica-pt-reforma-electoral/', 'Sheinbaum señala al PT - Temen reducir su votación por reforma electoral', 'Gicela', '/assets/img/sheinbaum-palacio-nacional-f8d2s3a1.webp', '/assets/img/sheinbaum-palacio-nacional-f8d2s3a1.webp', '')">
+                                Publicar Prod
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="td-title">Empresas regiomontanas recortan más de 17 mil empleos por incertidumbre global</td>
+                    <td>Gicela</td>
+                    <td class="td-desc" title="Una muestra de 16 compañías de Monterrey que cotizan en la BMV cerró el año con una reducción del 2.6 por ciento en su fuerza laboral neta.">Una muestra de 16 compañías de Monterrey que cotizan en la BMV cerró el año con una reducción del 2.6 por ciento en su fuerza laboral neta.</td>
+                    <td class="td-link">
+                        <a href="/nacionales/recorte-empleos-empresas-regias-bmv/" target="_blank">
+                            Ver
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </td>
+                    <td>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn-publish" 
+                                onclick="manejarPublicacion('./src/posts/20260325_204031.md', '/nacionales/recorte-empleos-empresas-regias-bmv/', 'Empresas regiomontanas recortan más de 17 mil empleos por incertidumbre global', 'Gicela', '/assets/img/panorama-corporativo-regio-k8j3m2n9.webp', '/assets/img/panorama-corporativo-regio-k8j3m2n9.webp', '')">
+                                Publicar
+                            </button>
+                            <button class="btn-publish" style="background-color: var(--accent);"
+                                onclick="manejarPublicacionProd('./src/posts/20260325_204031.md', '/nacionales/recorte-empleos-empresas-regias-bmv/', 'Empresas regiomontanas recortan más de 17 mil empleos por incertidumbre global', 'Gicela', '/assets/img/panorama-corporativo-regio-k8j3m2n9.webp', '/assets/img/panorama-corporativo-regio-k8j3m2n9.webp', '')">
+                                Publicar Prod
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="td-title">Agentes del ICE patrullan aeropuertos de Estados Unidos por falta de personal</td>
+                    <td>Gicela</td>
+                    <td class="td-desc" title="El gobierno de Donald Trump desplegó 150 oficiales de migración para mitigar las demoras masivas y el colapso en los filtros de seguridad federales">El gobierno de Donald Trump desplegó 150 oficiales de migración para mitigar las demoras masivas y el colapso en los filtros de seguridad federales</td>
                     <td class="td-link">
                         <a href="/tendencias/agentes-ice-patrullan-aeropuertos-eeuu/" target="_blank">
                             Ver
@@ -384,11 +523,11 @@
                     <td>
                         <div style="display: flex; gap: 8px;">
                             <button class="btn-publish" 
-                                onclick="manejarPublicacion('./src/posts/20260325_221310.md', '/tendencias/agentes-ice-patrullan-aeropuertos-eeuu/', 'Agentes del ICE patrullan aeropuertos de Estados Unidos para agilizar vuelos', 'Gicela', '/assets/img/ice-aeropuertos-jfk-x9y8z7w6.webp', '/assets/img/ice-aeropuertos-jfk-x9y8z7w6.webp', '')">
+                                onclick="manejarPublicacion('./src/posts/20260325_203747.md', '/tendencias/agentes-ice-patrullan-aeropuertos-eeuu/', 'Agentes del ICE patrullan aeropuertos de Estados Unidos por falta de personal', 'Gicela', '/assets/img/agentes-ice-operativo-aeropuerto-k9b2r5x1.webp', '/assets/img/agentes-ice-operativo-aeropuerto-k9b2r5x1.webp', '')">
                                 Publicar
                             </button>
                             <button class="btn-publish" style="background-color: var(--accent);"
-                                onclick="manejarPublicacionProd('./src/posts/20260325_221310.md', '/tendencias/agentes-ice-patrullan-aeropuertos-eeuu/', 'Agentes del ICE patrullan aeropuertos de Estados Unidos para agilizar vuelos', 'Gicela', '/assets/img/ice-aeropuertos-jfk-x9y8z7w6.webp', '/assets/img/ice-aeropuertos-jfk-x9y8z7w6.webp', '')">
+                                onclick="manejarPublicacionProd('./src/posts/20260325_203747.md', '/tendencias/agentes-ice-patrullan-aeropuertos-eeuu/', 'Agentes del ICE patrullan aeropuertos de Estados Unidos por falta de personal', 'Gicela', '/assets/img/agentes-ice-operativo-aeropuerto-k9b2r5x1.webp', '/assets/img/agentes-ice-operativo-aeropuerto-k9b2r5x1.webp', '')">
                                 Publicar Prod
                             </button>
                         </div>
@@ -398,9 +537,9 @@
                 <tr>
                     <td class="td-title">Atlético de San Luis enfrentará a Messi y Griezmann en un calendario crítico</td>
                     <td>Gicela</td>
-                    <td class="td-desc" title="El club potosino encara una crisis deportiva y un futuro complejo en la Leagues Cup ante las máximas estrellas de la MLS como Messi y Griezmann.">El club potosino encara una crisis deportiva y un futuro complejo en la Leagues Cup ante las máximas estrellas de la MLS como Messi y Griezmann.</td>
+                    <td class="td-desc" title="El conjunto potosino encara una fase de grupos de alta exigencia en la Leagues Cup frente al Inter Miami y el Orlando City de Antoine Griezmann">El conjunto potosino encara una fase de grupos de alta exigencia en la Leagues Cup frente al Inter Miami y el Orlando City de Antoine Griezmann</td>
                     <td class="td-link">
-                        <a href="/deportes/san-luis-calendario-messi-griezmann/" target="_blank">
+                        <a href="/deportes/atletico-san-luis-leagues-cup-messi-griezmann/" target="_blank">
                             Ver
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
                         </a>
@@ -408,11 +547,11 @@
                     <td>
                         <div style="display: flex; gap: 8px;">
                             <button class="btn-publish" 
-                                onclick="manejarPublicacion('./src/posts/20260325_221353.md', '/deportes/san-luis-calendario-messi-griezmann/', 'Atlético de San Luis enfrentará a Messi y Griezmann en un calendario crítico', 'Gicela', '/assets/img/san-luis-mexsport-8k2m4p1z.webp', '/assets/img/san-luis-mexsport-8k2m4p1z.webp', '')">
+                                onclick="manejarPublicacion('./src/posts/20260325_203830.md', '/deportes/atletico-san-luis-leagues-cup-messi-griezmann/', 'Atlético de San Luis enfrentará a Messi y Griezmann en un calendario crítico', 'Gicela', '/assets/img/calendario-san-luis-8f2k9l1p.webp', '/assets/img/calendario-san-luis-8f2k9l1p.webp', '')">
                                 Publicar
                             </button>
                             <button class="btn-publish" style="background-color: var(--accent);"
-                                onclick="manejarPublicacionProd('./src/posts/20260325_221353.md', '/deportes/san-luis-calendario-messi-griezmann/', 'Atlético de San Luis enfrentará a Messi y Griezmann en un calendario crítico', 'Gicela', '/assets/img/san-luis-mexsport-8k2m4p1z.webp', '/assets/img/san-luis-mexsport-8k2m4p1z.webp', '')">
+                                onclick="manejarPublicacionProd('./src/posts/20260325_203830.md', '/deportes/atletico-san-luis-leagues-cup-messi-griezmann/', 'Atlético de San Luis enfrentará a Messi y Griezmann en un calendario crítico', 'Gicela', '/assets/img/calendario-san-luis-8f2k9l1p.webp', '/assets/img/calendario-san-luis-8f2k9l1p.webp', '')">
                                 Publicar Prod
                             </button>
                         </div>
@@ -420,11 +559,11 @@
                 </tr>
                 
                 <tr>
-                    <td class="td-title">Alcaldía Coyoacán inicia programa de rehabilitación en el Centro Histórico</td>
+                    <td class="td-title">Crisis en Cuba - Futuras madres enfrentan partos en medio de apagones masivos</td>
                     <td>Gicela</td>
-                    <td class="td-desc" title="El gobierno local arranca obras de mantenimiento en Plaza Hidalgo y Jardín del Centenario para mejorar la movilidad peatonal y el alumbrado público.">El gobierno local arranca obras de mantenimiento en Plaza Hidalgo y Jardín del Centenario para mejorar la movilidad peatonal y el alumbrado público.</td>
+                    <td class="td-desc" title="Más de 32,000 gestantes en la isla lidian con la falta de electricidad y suministros médicos esenciales por el colapso del sistema energético">Más de 32,000 gestantes en la isla lidian con la falta de electricidad y suministros médicos esenciales por el colapso del sistema energético</td>
                     <td class="td-link">
-                        <a href="/locales/rehabilitacion-centro-historico-coyoacan/" target="_blank">
+                        <a href="/tendencias/crisis-energetica-cuba-madres-oscuridad/" target="_blank">
                             Ver
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
                         </a>
@@ -432,203 +571,11 @@
                     <td>
                         <div style="display: flex; gap: 8px;">
                             <button class="btn-publish" 
-                                onclick="manejarPublicacion('./src/posts/20260325_221435.md', '/locales/rehabilitacion-centro-historico-coyoacan/', 'Alcaldía Coyoacán inicia programa de rehabilitación en el Centro Histórico', 'Gicela', '/assets/img/remodelacion-centro-coyoacan-f3a1b2c4.webp', '/assets/img/remodelacion-centro-coyoacan-f3a1b2c4.webp', '')">
+                                onclick="manejarPublicacion('./src/posts/20260325_204115.md', '/tendencias/crisis-energetica-cuba-madres-oscuridad/', 'Crisis en Cuba - Futuras madres enfrentan partos en medio de apagones masivos', 'Gicela', '/assets/img/cuba-maternidad-crisis-h7k2m9p1.webp', '/assets/img/cuba-maternidad-crisis-h7k2m9p1.webp', '')">
                                 Publicar
                             </button>
                             <button class="btn-publish" style="background-color: var(--accent);"
-                                onclick="manejarPublicacionProd('./src/posts/20260325_221435.md', '/locales/rehabilitacion-centro-historico-coyoacan/', 'Alcaldía Coyoacán inicia programa de rehabilitación en el Centro Histórico', 'Gicela', '/assets/img/remodelacion-centro-coyoacan-f3a1b2c4.webp', '/assets/img/remodelacion-centro-coyoacan-f3a1b2c4.webp', '')">
-                                Publicar Prod
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="td-title">Explosión de gasera en Chalco provoca destrozos y protestas vecinales</td>
-                    <td>Gicela</td>
-                    <td class="td-desc" title="Una explosión en una estación de gas LP en Chalco dejó un herido y daños materiales. Vecinos bloquean casetas para exigir mayor seguridad.">Una explosión en una estación de gas LP en Chalco dejó un herido y daños materiales. Vecinos bloquean casetas para exigir mayor seguridad.</td>
-                    <td class="td-link">
-                        <a href="/locales/explosion-gasera-chalco-destrozos-protestas/" target="_blank">
-                            Ver
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-                        </a>
-                    </td>
-                    <td>
-                        <div style="display: flex; gap: 8px;">
-                            <button class="btn-publish" 
-                                onclick="manejarPublicacion('./src/posts/20260325_221517.md', '/locales/explosion-gasera-chalco-destrozos-protestas/', 'Explosión de gasera en Chalco provoca destrozos y protestas vecinales', 'Gicela', '/assets/img/explosion-chalco-k8s2j9v1.webp', '/assets/img/explosion-chalco-k8s2j9v1.webp', '')">
-                                Publicar
-                            </button>
-                            <button class="btn-publish" style="background-color: var(--accent);"
-                                onclick="manejarPublicacionProd('./src/posts/20260325_221517.md', '/locales/explosion-gasera-chalco-destrozos-protestas/', 'Explosión de gasera en Chalco provoca destrozos y protestas vecinales', 'Gicela', '/assets/img/explosion-chalco-k8s2j9v1.webp', '/assets/img/explosion-chalco-k8s2j9v1.webp', '')">
-                                Publicar Prod
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="td-title">Fallece Alicia Caro - Icono del Cine de Oro mexicano en Coyoacán</td>
-                    <td>Gicela</td>
-                    <td class="td-desc" title="La actriz Alicia Caro murió a los 95 años en su residencia de Coyoacán. Fue una figura clave de la Época de Oro y trabajó con Luis Buñuel.">La actriz Alicia Caro murió a los 95 años en su residencia de Coyoacán. Fue una figura clave de la Época de Oro y trabajó con Luis Buñuel.</td>
-                    <td class="td-link">
-                        <a href="/locales/fallece-alicia-caro-cine-de-oro/" target="_blank">
-                            Ver
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-                        </a>
-                    </td>
-                    <td>
-                        <div style="display: flex; gap: 8px;">
-                            <button class="btn-publish" 
-                                onclick="manejarPublicacion('./src/posts/20260325_221558.md', '/locales/fallece-alicia-caro-cine-de-oro/', 'Fallece Alicia Caro - Icono del Cine de Oro mexicano en Coyoacán', 'Gicela', '/assets/img/muere-alicia-caro-f8d2e9a1.webp', '/assets/img/muere-alicia-caro-f8d2e9a1.webp', '')">
-                                Publicar
-                            </button>
-                            <button class="btn-publish" style="background-color: var(--accent);"
-                                onclick="manejarPublicacionProd('./src/posts/20260325_221558.md', '/locales/fallece-alicia-caro-cine-de-oro/', 'Fallece Alicia Caro - Icono del Cine de Oro mexicano en Coyoacán', 'Gicela', '/assets/img/muere-alicia-caro-f8d2e9a1.webp', '/assets/img/muere-alicia-caro-f8d2e9a1.webp', '')">
-                                Publicar Prod
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="td-title">Un estudiante de 15 años asesina a dos profesoras en Michoacán con un rifle de asalto</td>
-                    <td>Gicela</td>
-                    <td class="td-desc" title="Un adolescente atacó una escuela privada en Lázaro Cárdenas tras publicar amenazas en redes sociales - el agresor fue detenido con un arma larga.">Un adolescente atacó una escuela privada en Lázaro Cárdenas tras publicar amenazas en redes sociales - el agresor fue detenido con un arma larga.</td>
-                    <td class="td-link">
-                        <a href="/nacionales/tiroteo-preparatoria-lazaro-cardenas-michoacan/" target="_blank">
-                            Ver
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-                        </a>
-                    </td>
-                    <td>
-                        <div style="display: flex; gap: 8px;">
-                            <button class="btn-publish" 
-                                onclick="manejarPublicacion('./src/posts/20260325_221638.md', '/nacionales/tiroteo-preparatoria-lazaro-cardenas-michoacan/', 'Un estudiante de 15 años asesina a dos profesoras en Michoacán con un rifle de asalto', 'Gicela', '/assets/img/emergencia-preparatoria-michoacan-x8y2z9a1.webp', '/assets/img/emergencia-preparatoria-michoacan-x8y2z9a1.webp', '')">
-                                Publicar
-                            </button>
-                            <button class="btn-publish" style="background-color: var(--accent);"
-                                onclick="manejarPublicacionProd('./src/posts/20260325_221638.md', '/nacionales/tiroteo-preparatoria-lazaro-cardenas-michoacan/', 'Un estudiante de 15 años asesina a dos profesoras en Michoacán con un rifle de asalto', 'Gicela', '/assets/img/emergencia-preparatoria-michoacan-x8y2z9a1.webp', '/assets/img/emergencia-preparatoria-michoacan-x8y2z9a1.webp', '')">
-                                Publicar Prod
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="td-title">Empresas regias de la Bolsa recortan más de 17 mil empleos</td>
-                    <td>Gicela</td>
-                    <td class="td-desc" title="Un grupo de 16 compañías de Monterrey listadas en la BMV redujo su plantilla laboral en un 2.6 por ciento debido a la incertidumbre global">Un grupo de 16 compañías de Monterrey listadas en la BMV redujo su plantilla laboral en un 2.6 por ciento debido a la incertidumbre global</td>
-                    <td class="td-link">
-                        <a href="/nacionales/empresas-regias-bolsa-recortan-empleos/" target="_blank">
-                            Ver
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-                        </a>
-                    </td>
-                    <td>
-                        <div style="display: flex; gap: 8px;">
-                            <button class="btn-publish" 
-                                onclick="manejarPublicacion('./src/posts/20260325_221720.md', '/nacionales/empresas-regias-bolsa-recortan-empleos/', 'Empresas regias de la Bolsa recortan más de 17 mil empleos', 'Gicela', '/assets/img/image006-x8y2z4w1.webp', '/assets/img/image006-x8y2z4w1.webp', '')">
-                                Publicar
-                            </button>
-                            <button class="btn-publish" style="background-color: var(--accent);"
-                                onclick="manejarPublicacionProd('./src/posts/20260325_221720.md', '/nacionales/empresas-regias-bolsa-recortan-empleos/', 'Empresas regias de la Bolsa recortan más de 17 mil empleos', 'Gicela', '/assets/img/image006-x8y2z4w1.webp', '/assets/img/image006-x8y2z4w1.webp', '')">
-                                Publicar Prod
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="td-title">Shakira amplía su residencia en Madrid a nueve fechas tras éxito total en México</td>
-                    <td>Gicela</td>
-                    <td class="td-desc" title="La cantante colombiana suma tres nuevos conciertos en el Estadio Shakira de Madrid para cerrar su gira mundial Las Mujeres Ya No Lloran en octubre">La cantante colombiana suma tres nuevos conciertos en el Estadio Shakira de Madrid para cerrar su gira mundial Las Mujeres Ya No Lloran en octubre</td>
-                    <td class="td-link">
-                        <a href="/tendencias/shakira-residencia-madrid-nueve-fechas/" target="_blank">
-                            Ver
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-                        </a>
-                    </td>
-                    <td>
-                        <div style="display: flex; gap: 8px;">
-                            <button class="btn-publish" 
-                                onclick="manejarPublicacion('./src/posts/20260325_221800.md', '/tendencias/shakira-residencia-madrid-nueve-fechas/', 'Shakira amplía su residencia en Madrid a nueve fechas tras éxito total en México', 'Gicela', '/assets/img/shakira-world-tour-madrid-a1b2c3d4.webp', '/assets/img/shakira-world-tour-madrid-a1b2c3d4.webp', '')">
-                                Publicar
-                            </button>
-                            <button class="btn-publish" style="background-color: var(--accent);"
-                                onclick="manejarPublicacionProd('./src/posts/20260325_221800.md', '/tendencias/shakira-residencia-madrid-nueve-fechas/', 'Shakira amplía su residencia en Madrid a nueve fechas tras éxito total en México', 'Gicela', '/assets/img/shakira-world-tour-madrid-a1b2c3d4.webp', '/assets/img/shakira-world-tour-madrid-a1b2c3d4.webp', '')">
-                                Publicar Prod
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="td-title">Claudia Sheinbaum señala al PT por frenar reforma electoral ante riesgo de pérdida de votos</td>
-                    <td>Gicela</td>
-                    <td class="td-desc" title="La presidenta afirmó que la postura del PT contra el Plan B electoral responde a intereses partidistas y no al proyecto de transformación nacional.">La presidenta afirmó que la postura del PT contra el Plan B electoral responde a intereses partidistas y no al proyecto de transformación nacional.</td>
-                    <td class="td-link">
-                        <a href="/nacionales/sheinbaum-pt-reforma-electoral/" target="_blank">
-                            Ver
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-                        </a>
-                    </td>
-                    <td>
-                        <div style="display: flex; gap: 8px;">
-                            <button class="btn-publish" 
-                                onclick="manejarPublicacion('./src/posts/20260325_221842.md', '/nacionales/sheinbaum-pt-reforma-electoral/', 'Claudia Sheinbaum señala al PT por frenar reforma electoral ante riesgo de pérdida de votos', 'Gicela', '/assets/img/claudia-sheinbaum-conferencia-x9k2v4m1.webp', '/assets/img/claudia-sheinbaum-conferencia-x9k2v4m1.webp', '')">
-                                Publicar
-                            </button>
-                            <button class="btn-publish" style="background-color: var(--accent);"
-                                onclick="manejarPublicacionProd('./src/posts/20260325_221842.md', '/nacionales/sheinbaum-pt-reforma-electoral/', 'Claudia Sheinbaum señala al PT por frenar reforma electoral ante riesgo de pérdida de votos', 'Gicela', '/assets/img/claudia-sheinbaum-conferencia-x9k2v4m1.webp', '/assets/img/claudia-sheinbaum-conferencia-x9k2v4m1.webp', '')">
-                                Publicar Prod
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="td-title">Álvaro Fidalgo utilizará el dorsal 19 en su debut con la Selección Mexicana</td>
-                    <td>Gicela</td>
-                    <td class="td-desc" title="El mediocampista del Real Betis no portará su habitual número 8 en los duelos ante Portugal y Bélgica debido a criterios de antigüedad en el equipo">El mediocampista del Real Betis no portará su habitual número 8 en los duelos ante Portugal y Bélgica debido a criterios de antigüedad en el equipo</td>
-                    <td class="td-link">
-                        <a href="/deportes/alvaro-fidalgo-debut-seleccion-mexicana-dorsal-19/" target="_blank">
-                            Ver
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-                        </a>
-                    </td>
-                    <td>
-                        <div style="display: flex; gap: 8px;">
-                            <button class="btn-publish" 
-                                onclick="manejarPublicacion('./src/posts/20260325_221923.md', '/deportes/alvaro-fidalgo-debut-seleccion-mexicana-dorsal-19/', 'Álvaro Fidalgo utilizará el dorsal 19 en su debut con la Selección Mexicana', 'Gicela', '/assets/img/image002-x9f2k8m1.webp', '/assets/img/image002-x9f2k8m1.webp', '')">
-                                Publicar
-                            </button>
-                            <button class="btn-publish" style="background-color: var(--accent);"
-                                onclick="manejarPublicacionProd('./src/posts/20260325_221923.md', '/deportes/alvaro-fidalgo-debut-seleccion-mexicana-dorsal-19/', 'Álvaro Fidalgo utilizará el dorsal 19 en su debut con la Selección Mexicana', 'Gicela', '/assets/img/image002-x9f2k8m1.webp', '/assets/img/image002-x9f2k8m1.webp', '')">
-                                Publicar Prod
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="td-title">FIFA confirma fecha para la última fase de venta de boletos del Mundial 2026</td>
-                    <td>Gicela</td>
-                    <td class="td-desc" title="La FIFA abrirá el 1 de abril la cuarta etapa de venta de entradas para la Copa del Mundo 2026 bajo un sistema de orden de solicitud inmediato">La FIFA abrirá el 1 de abril la cuarta etapa de venta de entradas para la Copa del Mundo 2026 bajo un sistema de orden de solicitud inmediato</td>
-                    <td class="td-link">
-                        <a href="/deportes/fifa-venta-boletos-mundial-2026/" target="_blank">
-                            Ver
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-                        </a>
-                    </td>
-                    <td>
-                        <div style="display: flex; gap: 8px;">
-                            <button class="btn-publish" 
-                                onclick="manejarPublicacion('./src/posts/20260325_222005.md', '/deportes/fifa-venta-boletos-mundial-2026/', 'FIFA confirma fecha para la última fase de venta de boletos del Mundial 2026', 'Gicela', '/assets/img/image002-8k2v9n4m.webp', '/assets/img/image002-8k2v9n4m.webp', '')">
-                                Publicar
-                            </button>
-                            <button class="btn-publish" style="background-color: var(--accent);"
-                                onclick="manejarPublicacionProd('./src/posts/20260325_222005.md', '/deportes/fifa-venta-boletos-mundial-2026/', 'FIFA confirma fecha para la última fase de venta de boletos del Mundial 2026', 'Gicela', '/assets/img/image002-8k2v9n4m.webp', '/assets/img/image002-8k2v9n4m.webp', '')">
+                                onclick="manejarPublicacionProd('./src/posts/20260325_204115.md', '/tendencias/crisis-energetica-cuba-madres-oscuridad/', 'Crisis en Cuba - Futuras madres enfrentan partos en medio de apagones masivos', 'Gicela', '/assets/img/cuba-maternidad-crisis-h7k2m9p1.webp', '/assets/img/cuba-maternidad-crisis-h7k2m9p1.webp', '')">
                                 Publicar Prod
                             </button>
                         </div>

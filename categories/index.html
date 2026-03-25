@@ -1,24 +1,66 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio</title>
-  
+  <title>Inicio | NOTICIAS SUR CDMX</title>
+
+  <!-- SEO Básico -->
+  <meta name="description" content="Noticias estilo Feed.">
+  <link rel="canonical" href="https://noticiascdmxsur.online//categories/">
+
+  <!-- Open Graph — WhatsApp, Facebook, Telegram, LinkedIn, iMessage -->
+  <meta property="og:type"         content="website">
+  <meta property="og:url"          content="https://noticiascdmxsur.online//categories/">
+  <meta property="og:title"        content="Inicio | NOTICIAS SUR CDMX">
+  <meta property="og:description"  content="Noticias estilo Feed.">
+  <meta property="og:image"        content="https://noticiascdmxsur.online//assets/img/og-default.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale"       content="es_MX">
+  <meta property="og:site_name"    content="NOTICIAS SUR CDMX">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:site"        content="@noticiassurcdmx">
+  <meta name="twitter:title"       content="Inicio | NOTICIAS SUR CDMX">
+  <meta name="twitter:description" content="Noticias estilo Feed.">
+  <meta name="twitter:image"       content="https://noticiascdmxsur.online//assets/img/og-default.jpg">
+
+  <!-- Favicon & App -->
+  <link rel="icon" href="/assets/logos/logo_final.webp" type="image/webp">
+  <link rel="apple-touch-icon" href="/assets/logos/logo_final.webp">
+  <meta name="theme-color" content="#1d9bf0">
+
+  <!-- Preload fuentes locales (evita texto invisible) -->
+  <link rel="preload" href="/assets/fonts/Chirp-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/Chirp-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Newsreader:wght@400;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Preconnect YouTube (video-posts) -->
+  <link rel="preconnect" href="https://www.youtube-nocookie.com">
+  <link rel="dns-prefetch" href="https://www.youtube.com">
 
   <style>
     :root {
+        /* Colores */
         --bg-color: #ffffff;
         --text-main: #0f1419;
         --text-sec: #536471;
         --border-color: #eff3f4;
         --accent: #1d9bf0;
+        --color-breaking: #E31C2D;
         --card-hover: #f7f9f9;
         --header-bg: rgba(255, 255, 255, 0.85);
-        --invert-logo: 0; 
+        --invert-logo: 0;
+        /* Tipografía */
+        --font-ui:       'TwitterChirp', 'Inter', -apple-system, sans-serif;
+        --font-headline: 'Newsreader', Georgia, serif;
+        --font-body:     'Noto Serif', Georgia, serif;
     }
 
     html.dark {
@@ -27,9 +69,10 @@
         --text-sec: #71767b;
         --border-color: #2f3336;
         --accent: #1d9bf0;
+        --color-breaking: #E31C2D;
         --card-hover: #080808;
         --header-bg: rgba(0, 0, 0, 0.70);
-        --invert-logo: 1; 
+        --invert-logo: 1;
     }
 
     * { box-sizing: border-box; }
@@ -182,7 +225,7 @@
     </a>
 
     <div>
-      <button id="toggle-theme" class="theme-btn">Modo</button>
+      <button id="toggle-theme" class="theme-btn" aria-label="Cambiar modo claro/oscuro">Modo</button>
     </div>
   </div>
 </header>
@@ -195,136 +238,7 @@
   <div style="display: flex; flex-direction: column;">
     
       <article class="tweet-card">
-  <a href="/deportes/fifa-venta-boletos-mundial-2026/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Deportes</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">25 mar 2026</time>
-      </div>
-
-      <div class="tweet-title">
-         FIFA confirma fecha para la última fase de venta de boletos del Mundial 2026
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/image002-8k2v9n4m.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/deportes/alvaro-fidalgo-debut-seleccion-mexicana-dorsal-19/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Deportes</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">25 mar 2026</time>
-      </div>
-
-      <div class="tweet-title">
-         Álvaro Fidalgo utilizará el dorsal 19 en su debut con la Selección Mexicana
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/image002-x9f2k8m1.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/nacionales/sheinbaum-pt-reforma-electoral/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Nacionales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">25 mar 2026</time>
-      </div>
-
-      <div class="tweet-title">
-         Claudia Sheinbaum señala al PT por frenar reforma electoral ante riesgo de pérdida de votos
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/claudia-sheinbaum-conferencia-x9k2v4m1.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/tendencias/shakira-residencia-madrid-nueve-fechas/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
+  <a href="/tendencias/crisis-energetica-cuba-madres-oscuridad/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
     <div class="tweet-avatar-col">
       <div class="avatar-circle">NC</div>
@@ -336,19 +250,19 @@
         <span class="user-name">Tendencias</span>
         <span class="user-handle">@NoticiasCoyo</span>
         <span class="tweet-dot">·</span>
-        <time class="tweet-time">25 mar 2026</time>
+        <time class="tweet-time">22 may 2024</time>
       </div>
 
       <div class="tweet-title">
-         Shakira amplía su residencia en Madrid a nueve fechas tras éxito total en México
+         Crisis en Cuba - Futuras madres enfrentan partos en medio de apagones masivos
       </div>
 
       
 
       <div class="tweet-media">
         <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/shakira-world-tour-madrid-a1b2c3d4.webp" alt="Imagen" class="media-img">
+        
+                <img src="/assets/img/cuba-maternidad-crisis-h7k2m9p1.webp" alt="Mujer embarazada en Cuba frente a la crisis de servicios básicos" class="media-img" loading="lazy" width="600" height="338">
             
         </div>
       </div>
@@ -367,222 +281,7 @@
 </article>
     
       <article class="tweet-card">
-  <a href="/nacionales/empresas-regias-bolsa-recortan-empleos/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Nacionales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">25 mar 2026</time>
-      </div>
-
-      <div class="tweet-title">
-         Empresas regias de la Bolsa recortan más de 17 mil empleos
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/image006-x8y2z4w1.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/nacionales/tiroteo-preparatoria-lazaro-cardenas-michoacan/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Nacionales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">25 mar 2026</time>
-      </div>
-
-      <div class="tweet-title">
-         Un estudiante de 15 años asesina a dos profesoras en Michoacán con un rifle de asalto
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/emergencia-preparatoria-michoacan-x8y2z9a1.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/locales/fallece-alicia-caro-cine-de-oro/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Locales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">25 mar 2026</time>
-      </div>
-
-      <div class="tweet-title">
-         Fallece Alicia Caro - Icono del Cine de Oro mexicano en Coyoacán
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/muere-alicia-caro-f8d2e9a1.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/locales/explosion-gasera-chalco-destrozos-protestas/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Locales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">25 mar 2026</time>
-      </div>
-
-      <div class="tweet-title">
-         Explosión de gasera en Chalco provoca destrozos y protestas vecinales
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/explosion-chalco-k8s2j9v1.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/locales/rehabilitacion-centro-historico-coyoacan/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Locales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">25 mar 2026</time>
-      </div>
-
-      <div class="tweet-title">
-         Alcaldía Coyoacán inicia programa de rehabilitación en el Centro Histórico
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/remodelacion-centro-coyoacan-f3a1b2c4.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/deportes/san-luis-calendario-messi-griezmann/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
+  <a href="/deportes/atletico-san-luis-leagues-cup-messi-griezmann/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
     <div class="tweet-avatar-col">
       <div class="avatar-circle">NC</div>
@@ -594,7 +293,7 @@
         <span class="user-name">Deportes</span>
         <span class="user-handle">@NoticiasCoyo</span>
         <span class="tweet-dot">·</span>
-        <time class="tweet-time">25 mar 2026</time>
+        <time class="tweet-time">22 may 2024</time>
       </div>
 
       <div class="tweet-title">
@@ -605,8 +304,8 @@
 
       <div class="tweet-media">
         <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/san-luis-mexsport-8k2m4p1z.webp" alt="Imagen" class="media-img">
+        
+                <img src="/assets/img/calendario-san-luis-8f2k9l1p.webp" alt="Jugadores del Atlético de San Luis durante un encuentro oficial" class="media-img" loading="lazy" width="600" height="338">
             
         </div>
       </div>
@@ -637,19 +336,191 @@
         <span class="user-name">Tendencias</span>
         <span class="user-handle">@NoticiasCoyo</span>
         <span class="tweet-dot">·</span>
-        <time class="tweet-time">25 mar 2026</time>
+        <time class="tweet-time">22 may 2024</time>
       </div>
 
       <div class="tweet-title">
-         Agentes del ICE patrullan aeropuertos de Estados Unidos para agilizar vuelos
+         Agentes del ICE patrullan aeropuertos de Estados Unidos por falta de personal
       </div>
 
       
 
       <div class="tweet-media">
         <div class="media-aspect-ratio">
+        
+                <img src="/assets/img/agentes-ice-operativo-aeropuerto-k9b2r5x1.webp" alt="Agentes del Servicio de Inmigración y Control de Aduanas en una terminal aérea" class="media-img" loading="lazy" width="600" height="338">
             
-                <img src="/assets/img/ice-aeropuertos-jfk-x9y8z7w6.webp" alt="Imagen" class="media-img">
+        </div>
+      </div>
+
+      <div class="tweet-actions">
+         <div class="action-item">
+            <span>Leer más</span>
+         </div>
+         <div class="action-item">
+            <span>Compartir</span>
+         </div>
+      </div>
+
+    </div>
+  </a>
+</article>
+    
+      <article class="tweet-card">
+  <a href="/nacionales/recorte-empleos-empresas-regias-bmv/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
+    
+    <div class="tweet-avatar-col">
+      <div class="avatar-circle">NC</div>
+    </div>
+
+    <div class="tweet-content-col">
+      
+      <div class="tweet-header">
+        <span class="user-name">Nacionales</span>
+        <span class="user-handle">@NoticiasCoyo</span>
+        <span class="tweet-dot">·</span>
+        <time class="tweet-time">24 may 2024</time>
+      </div>
+
+      <div class="tweet-title">
+         Empresas regiomontanas recortan más de 17 mil empleos por incertidumbre global
+      </div>
+
+      
+
+      <div class="tweet-media">
+        <div class="media-aspect-ratio">
+        
+                <img src="/assets/img/panorama-corporativo-regio-k8j3m2n9.webp" alt="Edificios corporativos y actividad económica en Monterrey" class="media-img" loading="lazy" width="600" height="338">
+            
+        </div>
+      </div>
+
+      <div class="tweet-actions">
+         <div class="action-item">
+            <span>Leer más</span>
+         </div>
+         <div class="action-item">
+            <span>Compartir</span>
+         </div>
+      </div>
+
+    </div>
+  </a>
+</article>
+    
+      <article class="tweet-card">
+  <a href="/nacionales/sheinbaum-critica-pt-reforma-electoral/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
+    
+    <div class="tweet-avatar-col">
+      <div class="avatar-circle">NC</div>
+    </div>
+
+    <div class="tweet-content-col">
+      
+      <div class="tweet-header">
+        <span class="user-name">Nacionales</span>
+        <span class="user-handle">@NoticiasCoyo</span>
+        <span class="tweet-dot">·</span>
+        <time class="tweet-time">22 may 2025</time>
+      </div>
+
+      <div class="tweet-title">
+         Sheinbaum señala al PT - Temen reducir su votación por reforma electoral
+      </div>
+
+      
+
+      <div class="tweet-media">
+        <div class="media-aspect-ratio">
+        
+                <img src="/assets/img/sheinbaum-palacio-nacional-f8d2s3a1.webp" alt="Presidenta Claudia Sheinbaum durante conferencia de prensa en Palacio Nacional" class="media-img" loading="lazy" width="600" height="338">
+            
+        </div>
+      </div>
+
+      <div class="tweet-actions">
+         <div class="action-item">
+            <span>Leer más</span>
+         </div>
+         <div class="action-item">
+            <span>Compartir</span>
+         </div>
+      </div>
+
+    </div>
+  </a>
+</article>
+    
+      <article class="tweet-card">
+  <a href="/deportes/julio-ibanez-detenido-sudafrica/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
+    
+    <div class="tweet-avatar-col">
+      <div class="avatar-circle">NC</div>
+    </div>
+
+    <div class="tweet-content-col">
+      
+      <div class="tweet-header">
+        <span class="user-name">Deportes</span>
+        <span class="user-handle">@NoticiasCoyo</span>
+        <span class="tweet-dot">·</span>
+        <time class="tweet-time">22 may 2025</time>
+      </div>
+
+      <div class="tweet-title">
+         Julio Ibáñez detenido en Sudáfrica por hombres armados durante transmisión
+      </div>
+
+      
+
+      <div class="tweet-media">
+        <div class="media-aspect-ratio">
+        
+                <img src="/assets/img/julio-profe-ibanez-x8v2m9p1.webp" alt="Julio Profe Ibáñez periodista de Televisa Deportes" class="media-img" loading="lazy" width="600" height="338">
+            
+        </div>
+      </div>
+
+      <div class="tweet-actions">
+         <div class="action-item">
+            <span>Leer más</span>
+         </div>
+         <div class="action-item">
+            <span>Compartir</span>
+         </div>
+      </div>
+
+    </div>
+  </a>
+</article>
+    
+      <article class="tweet-card">
+  <a href="/deportes/mauricio-culebro-dejara-presidencia-tigres/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
+    
+    <div class="tweet-avatar-col">
+      <div class="avatar-circle">NC</div>
+    </div>
+
+    <div class="tweet-content-col">
+      
+      <div class="tweet-header">
+        <span class="user-name">Deportes</span>
+        <span class="user-handle">@NoticiasCoyo</span>
+        <span class="tweet-dot">·</span>
+        <time class="tweet-time">25 mar 2026</time>
+      </div>
+
+      <div class="tweet-title">
+         Mauricio Culebro dejará la presidencia de Tigres al finalizar el torneo
+      </div>
+
+      
+
+      <div class="tweet-media">
+        <div class="media-aspect-ratio">
+        
+                <img src="/assets/img/mauricio-culebro-tigres-8v2n4z9q.webp" alt="Mauricio Culebro en las instalaciones del Club Tigres" class="media-img" loading="lazy" width="600" height="338">
             
         </div>
       </div>
