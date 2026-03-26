@@ -21,7 +21,27 @@ hideFooter: true
        <div id="trend-badge-container" class="hidden mb-2">
          <span style="background-color: var(--color-breaking);" class="text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">TENDENCIA</span>
        </div>
+       
+       {% if category %}
+       <div style="margin-bottom: 12px;">
+         <a href="/categoria/{{ category | slugify }}/" style="display: inline-block; padding: 4px 12px; background-color: rgba(37, 99, 235, 0.1); color: var(--accent, #1d9bf0); font-size: 12px; font-weight: bold; border-radius: 4px; border: 1px solid rgba(37, 99, 235, 0.2); text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none;">
+           {{ category }}
+         </a>
+       </div>
+       {% endif %}
+
        <h1 style="font-family: var(--font-headline); font-size: 2rem; font-weight: 700; line-height: 1.2; color: #121417; margin: 0;">{{ title }}</h1>
+       {% if author %}
+         {% set authorData = authors[author] %}
+         {% if authorData %}
+           <div style="margin-top: 16px; display: flex; align-items: center;">
+             <a href="/autor/{{ author }}/" style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 16px 4px 4px; background-color: var(--card-hover); border-radius: 30px; text-decoration: none; font-size: 14.5px; font-weight: 700; color: inherit;">
+               <img src="{{ authorData.avatar }}" alt="{{ authorData.name }}" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover;" />
+               <span>Por {{ authorData.name }}</span>
+             </a>
+           </div>
+         {% endif %}
+       {% endif %}
     </div>
 
     {% if image %}
@@ -61,7 +81,7 @@ hideFooter: true
   "datePublished": "{{ page.date | dateIso }}",
   "dateModified": "{{ page.date | dateIso }}",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ site.url }}{{ page.url }}" },
-  "author": { "@type": "Person", "name": "{{ author or site.publisher.name }}" },
+  "author": { "@type": "Person", "name": "{% if authors and author and authors[author] %}{{ authors[author].name }}{% else %}{{ author or site.publisher.name }}{% endif %}" },
   "publisher": {
     "@type": "NewsMediaOrganization",
     "name": "{{ site.name }}",

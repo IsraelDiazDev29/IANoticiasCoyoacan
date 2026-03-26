@@ -1,0 +1,25 @@
+---
+pagination:
+  data: collections.categoriesList
+  size: 1
+  alias: category
+permalink: /categoria/{{ category | slugify }}/
+layout: layouts/base.njk
+eleventyComputed:
+  title: "Noticias de {{ category }}"
+  description: "Últimas noticias sobre {{ category }}."
+---
+
+<section class="feed-container">
+  <div class="category-header" style="padding: 20px 16px; border-bottom: 1px solid var(--border-color);">
+    <h1 style="margin:0; font-size: 24px; text-transform: capitalize;">{{ category }}</h1>
+  </div>
+  
+  <div style="display: flex; flex-direction: column;">
+    {% for post in collections.posts %}
+      {% if post.data.category == category %}
+        {% include "partials/card-hero.njk" %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>

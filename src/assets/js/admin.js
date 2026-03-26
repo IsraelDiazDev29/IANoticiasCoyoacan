@@ -151,3 +151,82 @@ window.manejarPublicacionProd = async function (rutaMD, urlPost, titulo, autor, 
   boton.disabled = false;
   return datos;
 };
+
+// ==========================================
+// AUTENTICACIÓN FIREBASE (ADMINISTRACIÓN)
+// ==========================================
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBdB9pX33iCRwRgdQ_2nyBhVrLSbBttszY",
+  authDomain: "noticiascdmxsuronline.firebaseapp.com",
+  projectId: "noticiascdmxsuronline",
+  storageBucket: "noticiascdmxsuronline.firebasestorage.app",
+  messagingSenderId: "791218041376",
+  appId: "1:791218041376:web:3a04297728db2116228245",
+  measurementId: "G-K7FDF8QBG8"
+};
+
+try {
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // Escuchar cambios en la sesión
+  onAuthStateChanged(auth, (user) => {
+    const adminBar = document.getElementById('news-admin-bar');
+    if (user) {
+      // Usuario logueado: Mostramos la barra
+      if (adminBar) adminBar.style.display = 'flex';
+      
+      // Manejar la vista de login si estamos en ella
+      const loginForm = document.getElementById('admin-login-form');
+      if (loginForm) {
+        document.getElementById('login-message').innerText = "✅ Sesión iniciada correctamente como " + user.email;
+        document.getElementById('login-message').style.color = "green";
+        loginForm.style.display = "none";
+        document.getElementById('logout-btn-container').style.display = "block";
+      }
+    } else {
+      // Usuario NO logueado: Ocultamos la barra
+      if (adminBar) adminBar.style.display = 'none';
+      
+      // Manejar la vista de login si estamos en ella
+      const loginForm = document.getElementById('admin-login-form');
+      if (loginForm) {
+        loginForm.style.display = "flex";
+        document.getElementById('logout-btn-container').style.display = "none";
+        document.getElementById('login-message').innerText = "";
+      }
+    }
+  });
+
+  window.iniciarSesionAdmin = async function(event) {
+    event.preventDefault();
+    const email = document.getElementById('admin-email').value;
+    const password = document.getElementById('admin-password').value;
+    const msg = document.getElementById('login-message');
+    
+    msg.innerText = "Iniciando sesión...";
+    msg.style.color = "var(--text-sec)";
+    
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      // onAuthStateChanged se dispara automáticamente y muestra éxito
+    } catch (error) {
+      console.error("Error de login:", error);
+      msg.innerText = "❌ Correo o contraseña incorrectos.";
+      msg.style.color = "var(--magenta-500)";
+    }
+  };
+
+  window.cerrarSesionAdmin = async function() {
+    await signOut(auth);
+    mostrarNotificacion("🔒 Sesión cerrada", "success");
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  };
+} catch(e) {
+  console.log("Firebase no configurado aún:", e);
+}

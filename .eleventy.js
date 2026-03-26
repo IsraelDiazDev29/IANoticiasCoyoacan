@@ -19,18 +19,23 @@ eleventyConfig.addPassthroughCopy("src/assets");
   // Filtro JSON
   eleventyConfig.addFilter("json", (obj) => JSON.stringify(obj));
 
-  // Colección principal de POSTS (Corrección aquí: {md,MD})
+  // Colección principal de POSTS con ordenamiento cronológico exacto de milisegundos
   eleventyConfig.addCollection("posts", (collection) => {
-    return collection.getFilteredByGlob("src/posts/**/*.{md,MD}").sort((a,b)=>b.date - a.date);
+    return collection.getFilteredByGlob("src/posts/**/*.{md,MD}").sort((a,b) => {
+      // Orden cronológico exacto (del más reciente al más antiguo)
+      return b.date.getTime() - a.date.getTime();
+    });
   });
 
-  // Colecciones por Categoría (Corrección aquí también: {md,MD})
-  const cats = ["Tendencias","Deportes","Locales","Nacionales"];
-  cats.forEach(cat => {
-    eleventyConfig.addCollection(cat.toLowerCase(), (collection) => {
-      // Busca en ambos tipos de extensión y filtra por tag
-      return collection.getFilteredByGlob("src/posts/**/*.{md,MD}").filter(p=> (p.data.tags||[]).includes(cat));
+  // Colección dinámica de categorías (extrae la categoría principal de cada post)
+  eleventyConfig.addCollection("categoriesList", (collection) => {
+    let catSet = new Set();
+    collection.getAll().forEach(item => {
+      if (item.data && item.data.category) {
+        catSet.add(item.data.category);
+      }
     });
+    return [...catSet].sort();
   });
 
   return {
