@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | NOTICIAS SUR CDMX</title>
+  <title>Acceso Administrativo | NOTICIAS SUR CDMX</title>
 
   <!-- SEO Básico -->
   <meta name="description" content="Noticias locales, nacionales, tendencias y deportes.">
-  <link rel="canonical" href="https://noticiascdmxsur.online//contact/">
+  <link rel="canonical" href="https://noticiascdmxsur.online//login/">
 
   <!-- Open Graph — WhatsApp, Facebook, Telegram, LinkedIn, iMessage -->
   <meta property="og:type"         content="website">
-  <meta property="og:url"          content="https://noticiascdmxsur.online//contact/">
-  <meta property="og:title"        content="Contact | NOTICIAS SUR CDMX">
+  <meta property="og:url"          content="https://noticiascdmxsur.online//login/">
+  <meta property="og:title"        content="Acceso Administrativo | NOTICIAS SUR CDMX">
   <meta property="og:description"  content="Noticias locales, nacionales, tendencias y deportes.">
   <meta property="og:image"        content="https://noticiascdmxsur.online//assets/img/og-default.jpg">
   <meta property="og:image:width"  content="1200">
@@ -23,7 +23,7 @@
   <!-- Twitter / X Card -->
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:site"        content="@noticiassurcdmx">
-  <meta name="twitter:title"       content="Contact | NOTICIAS SUR CDMX">
+  <meta name="twitter:title"       content="Acceso Administrativo | NOTICIAS SUR CDMX">
   <meta name="twitter:description" content="Noticias locales, nacionales, tendencias y deportes.">
   <meta name="twitter:image"       content="https://noticiascdmxsur.online//assets/img/og-default.jpg">
 
@@ -241,8 +241,39 @@
   
 
   <main id="content" class="layout-constrain" style="flex: 1;">
-    <h1>Contacto</h1>
-<p>Formulario de contacto pendiente de implementación.</p>
+    
+<div class="max-w-md mx-auto px-4 py-12">
+  <div class="bg-card-bg border border-border-color rounded-2xl p-8 shadow-sm">
+    <h1 style="font-family: var(--font-headline); font-size: 1.5rem; font-weight: 700; margin-bottom: 24px; text-align: center;">Acceso Restringido</h1>
+    
+    <div id="login-message" style="margin-bottom: 16px; font-weight: bold; text-align: center;"></div>
+    
+    <form id="admin-login-form" onsubmit="window.iniciarSesionAdmin(event)" style="display: none; flex-direction: column; gap: 16px;">
+      <div>
+        <label for="admin-email" style="display: block; margin-bottom: 8px; font-weight: 600;">Correo Electrónico</label>
+        <input type="email" id="admin-email" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main);">
+      </div>
+      
+      <div>
+        <label for="admin-password" style="display: block; margin-bottom: 8px; font-weight: 600;">Contraseña</label>
+        <input type="password" id="admin-password" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main);">
+      </div>
+      
+      <button type="submit" style="background-color: var(--text-main); color: var(--bg-color); border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 8px;">
+        Entrar
+      </button>
+    </form>
+
+    <div id="logout-btn-container" style="display: none; text-align: center; margin-top: 16px;">
+      <button onclick="window.cerrarSesionAdmin()" style="background-color: var(--magenta-500); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer;">
+        Cerrar Sesión
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Necesitamos cargar el script de login aquí también -->
+<script src="/assets/js/admin.js" type="module"></script>
 
     
     <footer class="legal-footer">

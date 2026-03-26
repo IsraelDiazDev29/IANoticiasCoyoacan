@@ -1,24 +1,66 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tendencias video</title>
-  
+  <title>Aviso de Privacidad | NOTICIAS SUR CDMX</title>
+
+  <!-- SEO Básico -->
+  <meta name="description" content="Noticias locales, nacionales, tendencias y deportes.">
+  <link rel="canonical" href="https://noticiascdmxsur.online//legal/aviso-de-privacidad/">
+
+  <!-- Open Graph — WhatsApp, Facebook, Telegram, LinkedIn, iMessage -->
+  <meta property="og:type"         content="website">
+  <meta property="og:url"          content="https://noticiascdmxsur.online//legal/aviso-de-privacidad/">
+  <meta property="og:title"        content="Aviso de Privacidad | NOTICIAS SUR CDMX">
+  <meta property="og:description"  content="Noticias locales, nacionales, tendencias y deportes.">
+  <meta property="og:image"        content="https://noticiascdmxsur.online//assets/img/og-default.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale"       content="es_MX">
+  <meta property="og:site_name"    content="NOTICIAS SUR CDMX">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:site"        content="@noticiassurcdmx">
+  <meta name="twitter:title"       content="Aviso de Privacidad | NOTICIAS SUR CDMX">
+  <meta name="twitter:description" content="Noticias locales, nacionales, tendencias y deportes.">
+  <meta name="twitter:image"       content="https://noticiascdmxsur.online//assets/img/og-default.jpg">
+
+  <!-- Favicon & App -->
+  <link rel="icon" href="/assets/logos/logo_final.webp" type="image/webp">
+  <link rel="apple-touch-icon" href="/assets/logos/logo_final.webp">
+  <meta name="theme-color" content="#1d9bf0">
+
+  <!-- Preload fuentes locales (evita texto invisible) -->
+  <link rel="preload" href="/assets/fonts/Chirp-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/Chirp-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Newsreader:wght@400;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Preconnect YouTube (video-posts) -->
+  <link rel="preconnect" href="https://www.youtube-nocookie.com">
+  <link rel="dns-prefetch" href="https://www.youtube.com">
 
   <style>
     :root {
+        /* Colores */
         --bg-color: #ffffff;
         --text-main: #0f1419;
         --text-sec: #536471;
         --border-color: #eff3f4;
         --accent: #1d9bf0;
+        --color-breaking: #E31C2D;
         --card-hover: #f7f9f9;
         --header-bg: rgba(255, 255, 255, 0.85);
-        --invert-logo: 0; 
+        --logo-filter: none;
+        /* Tipografía */
+        --font-ui:       'TwitterChirp', 'Inter', -apple-system, sans-serif;
+        --font-headline: 'Newsreader', Georgia, serif;
+        --font-body:     'Noto Serif', Georgia, serif;
     }
 
     html.dark {
@@ -27,22 +69,23 @@
         --text-sec: #71767b;
         --border-color: #2f3336;
         --accent: #1d9bf0;
+        --color-breaking: #E31C2D;
         --card-hover: #080808;
         --header-bg: rgba(0, 0, 0, 0.70);
-        --invert-logo: 1; 
+        --logo-filter: brightness(0) invert(1);
     }
 
     * { box-sizing: border-box; }
     
     body {
-      font-family: 'TwitterChirp', 'Inter', -apple-system, sans-serif;
-      margin: 0;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      align-items: center;
+        font-family: 'TwitterChirp', 'Inter', -apple-system, sans-serif;
+        margin: 0;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        align-items: center;
     }
 
     a, button, input { 
@@ -82,13 +125,18 @@
         width: calc(100% + 32px); 
         max-width: none;
         
+        /* Limitamos el aspecto de las imágenes ultra-verticales */
+        max-height: 65vh;
+        object-fit: contain;
+        background-color: var(--card-hover);
+        
         /* La jalamos a la izquierda para cubrir el padding */
         margin-left: -16px;
         margin-right: -16px;
         
         height: auto;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 
     /* HEADER */
@@ -108,7 +156,7 @@
     }
 
     .logo-area { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 18px; text-transform: uppercase; }
-    .logo-img { width: 32px; height: 32px; object-fit: contain; filter: invert(var(--invert-logo)); transition: filter 0.3s; }
+    .logo-img { width: 32px; height: 32px; object-fit: contain; filter: var(--logo-filter); transition: filter 0.3s; }
 
     .theme-btn {
         background: transparent; border: 1px solid var(--border-color);
@@ -168,6 +216,10 @@
     .action-item { display: flex; align-items: center; gap: 5px; color: var(--text-sec); font-size: 13px; }
     .action-item:hover { color: var(--accent); }
 
+    .legal-footer { text-align: center; padding: 20px 10px; font-size: 12px; color: var(--text-sec); border-top: 1px solid var(--border-color); margin-top: 40px; }
+    .legal-footer a { margin: 0 8px; text-decoration: underline; }
+    .legal-footer a:hover { color: var(--text-main); }
+
   </style>
 </head>
 <body>
@@ -182,21 +234,48 @@
     </a>
 
     <div>
-      <button id="toggle-theme" class="theme-btn">Modo</button>
+      <button id="toggle-theme" class="theme-btn" aria-label="Cambiar modo claro/oscuro">Modo</button>
     </div>
   </div>
 </header>
   
 
   <main id="content" class="layout-constrain" style="flex: 1;">
-    <section class="max-w-5xl mx-auto px-4 py-6 space-y-6">
-  <div class="grid gap-4 md:grid-cols-2">
+    <h1>Aviso de Privacidad</h1>
+<p><strong>Última actualización:</strong> 25 de Marzo de 2026</p>
+<p>En noticiascdmxsur.online, nos comprometemos a proteger su privacidad. Este Aviso de Privacidad detalla cómo recopilamos, usamos, protegemos y, en su caso, compartimos su información personal cuando visita nuestro sitio web.</p>
+<h2>1. Identidad y Domicilio del Responsable</h2>
+<p>El responsable del tratamiento de sus datos personales es Noticias CDMX Sur, un proyecto digital con operaciones radicadas en la Ciudad de México, México. Para todos los efectos relacionados con este Aviso de Privacidad y el tratamiento de sus datos, se establece como medio de contacto oficial el correo electrónico: soporte@noticiascdmxsur.online</p>
+<h2>2. Datos Personales que Recabamos</h2>
+<p>Podemos recabar los siguientes datos personales:</p>
+<ul>
+<li>Nombre completo.</li>
+<li>Correo electrónico.</li>
+<li>Información analítica sobre la navegación en el sitio (cookies, dirección IP, tipo de navegador).</li>
+</ul>
+<h2>3. Finalidades del Tratamiento</h2>
+<p>Sus datos personales serán utilizados para:</p>
+<ul>
+<li>Atender dudas o comentarios enviados a través de nuestros canales de contacto.</li>
+<li>Mejorar la experiencia de usuario y realizar análisis estadísticos de nuestras visitas.</li>
+<li>Envío de boletines informativos (si el usuario se suscribe explícitamente).</li>
+</ul>
+<h2>4. Uso de Cookies y Tecnologías de Rastreo</h2>
+<p>Este sitio web utiliza cookies y tecnologías similares para analizar el tráfico del sitio (por ejemplo, Google Analytics) y mostrar anuncios relevantes (por ejemplo, Google AdSense). Puede desactivar el uso de cookies en cualquier momento desde la configuración de su navegador.</p>
+<h2>5. Derechos ARCO</h2>
+<p>Usted tiene derecho a conocer qué datos personales tenemos de usted, para qué los utilizamos y las condiciones del uso que les damos (Acceso). Asimismo, es su derecho solicitar la corrección de su información personal en caso de que esté desactualizada, sea inexacta o incompleta (Rectificación); que la eliminemos de nuestros registros o bases de datos (Cancelación); así como oponerse al uso de sus datos personales para fines específicos (Oposición).</p>
+<p>Para ejercer sus derechos ARCO, envíe un correo electrónico a soporte@noticiascdmxsur.online</p>
+<h2>6. Cambios a este Aviso de Privacidad</h2>
+<p>Nos reservamos el derecho de efectuar en cualquier momento modificaciones o actualizaciones al presente aviso de privacidad. Estas modificaciones estarán disponibles al público a través de esta misma página.</p>
+
     
-    
-       <p class="text-center text-gray-500 col-span-2">No hay videos disponibles por el momento.</p>
-    
-  </div>
-</section>
+    <footer class="legal-footer">
+      <a href="/legal/aviso-de-privacidad/">Aviso de Privacidad</a> |
+      <a href="/legal/terminos-y-condiciones/">Términos y Condiciones</a> |
+      <a href="/legal/codigo-de-etica/">Código de Ética</a>
+      <br><br>
+      &copy; 2026 NOTICIAS SUR CDMX. Todos los derechos reservados.
+    </footer>
   </main>
 
   
