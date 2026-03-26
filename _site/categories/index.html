@@ -1,24 +1,66 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio</title>
-  
+  <title>Inicio | NOTICIAS SUR CDMX</title>
+
+  <!-- SEO Básico -->
+  <meta name="description" content="Noticias estilo Feed.">
+  <link rel="canonical" href="https://noticiascdmxsur.online//categories/">
+
+  <!-- Open Graph — WhatsApp, Facebook, Telegram, LinkedIn, iMessage -->
+  <meta property="og:type"         content="website">
+  <meta property="og:url"          content="https://noticiascdmxsur.online//categories/">
+  <meta property="og:title"        content="Inicio | NOTICIAS SUR CDMX">
+  <meta property="og:description"  content="Noticias estilo Feed.">
+  <meta property="og:image"        content="https://noticiascdmxsur.online//assets/img/og-default.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale"       content="es_MX">
+  <meta property="og:site_name"    content="NOTICIAS SUR CDMX">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:site"        content="@noticiassurcdmx">
+  <meta name="twitter:title"       content="Inicio | NOTICIAS SUR CDMX">
+  <meta name="twitter:description" content="Noticias estilo Feed.">
+  <meta name="twitter:image"       content="https://noticiascdmxsur.online//assets/img/og-default.jpg">
+
+  <!-- Favicon & App -->
+  <link rel="icon" href="/assets/logos/logo_final.webp" type="image/webp">
+  <link rel="apple-touch-icon" href="/assets/logos/logo_final.webp">
+  <meta name="theme-color" content="#1d9bf0">
+
+  <!-- Preload fuentes locales (evita texto invisible) -->
+  <link rel="preload" href="/assets/fonts/Chirp-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/Chirp-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Newsreader:wght@400;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Preconnect YouTube (video-posts) -->
+  <link rel="preconnect" href="https://www.youtube-nocookie.com">
+  <link rel="dns-prefetch" href="https://www.youtube.com">
 
   <style>
     :root {
+        /* Colores */
         --bg-color: #ffffff;
         --text-main: #0f1419;
         --text-sec: #536471;
         --border-color: #eff3f4;
         --accent: #1d9bf0;
+        --color-breaking: #E31C2D;
         --card-hover: #f7f9f9;
         --header-bg: rgba(255, 255, 255, 0.85);
-        --invert-logo: 0; 
+        --logo-filter: none;
+        /* Tipografía */
+        --font-ui:       'TwitterChirp', 'Inter', -apple-system, sans-serif;
+        --font-headline: 'Newsreader', Georgia, serif;
+        --font-body:     'Noto Serif', Georgia, serif;
     }
 
     html.dark {
@@ -27,22 +69,23 @@
         --text-sec: #71767b;
         --border-color: #2f3336;
         --accent: #1d9bf0;
+        --color-breaking: #E31C2D;
         --card-hover: #080808;
         --header-bg: rgba(0, 0, 0, 0.70);
-        --invert-logo: 1; 
+        --logo-filter: brightness(0) invert(1);
     }
 
     * { box-sizing: border-box; }
     
     body {
-      font-family: 'TwitterChirp', 'Inter', -apple-system, sans-serif;
-      margin: 0;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      align-items: center;
+        font-family: 'TwitterChirp', 'Inter', -apple-system, sans-serif;
+        margin: 0;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        align-items: center;
     }
 
     a, button, input { 
@@ -82,13 +125,18 @@
         width: calc(100% + 32px); 
         max-width: none;
         
+        /* Limitamos el aspecto de las imágenes ultra-verticales */
+        max-height: 65vh;
+        object-fit: contain;
+        background-color: var(--card-hover);
+        
         /* La jalamos a la izquierda para cubrir el padding */
         margin-left: -16px;
         margin-right: -16px;
         
         height: auto;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 
     /* HEADER */
@@ -108,7 +156,7 @@
     }
 
     .logo-area { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 18px; text-transform: uppercase; }
-    .logo-img { width: 32px; height: 32px; object-fit: contain; filter: invert(var(--invert-logo)); transition: filter 0.3s; }
+    .logo-img { width: 32px; height: 32px; object-fit: contain; filter: var(--logo-filter); transition: filter 0.3s; }
 
     .theme-btn {
         background: transparent; border: 1px solid var(--border-color);
@@ -168,6 +216,10 @@
     .action-item { display: flex; align-items: center; gap: 5px; color: var(--text-sec); font-size: 13px; }
     .action-item:hover { color: var(--accent); }
 
+    .legal-footer { text-align: center; padding: 20px 10px; font-size: 12px; color: var(--text-sec); border-top: 1px solid var(--border-color); margin-top: 40px; }
+    .legal-footer a { margin: 0 8px; text-decoration: underline; }
+    .legal-footer a:hover { color: var(--text-main); }
+
   </style>
 </head>
 <body>
@@ -182,7 +234,7 @@
     </a>
 
     <div>
-      <button id="toggle-theme" class="theme-btn">Modo</button>
+      <button id="toggle-theme" class="theme-btn" aria-label="Cambiar modo claro/oscuro">Modo</button>
     </div>
   </div>
 </header>
@@ -195,139 +247,13 @@
   <div style="display: flex; flex-direction: column;">
     
       <article class="tweet-card">
-  <a href="/locales/cristiano-ronaldo-estadio-azteca-mexico-portugal/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
+  <a href="/tendencias/crisis-energetica-cuba-madres-oscuridad/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
     <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
       
-      <div class="tweet-header">
-        <span class="user-name">Locales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">6 mar 2024</time>
-      </div>
-
-      <div class="tweet-title">
-         La millonaria cláusula que traería a Cristiano Ronaldo al Estadio Azteca pese a estar lesionado
-      </div>
-
       
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/cr7-mexico-azteca-k9z2m5p1.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/tendencias/chuck-norris-hospitalizado-emergencia-hawai/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
+        <img src="/assets/logos/tendencias.webp" alt="Tendencias" class="avatar-circle" style="width: 40px !important; height: 40px !important; max-width: 40px !important; margin: 0 !important; border-radius: 50%; object-fit: cover; background: #ffffff; display: block;">
       
-      <div class="tweet-header">
-        <span class="user-name">Tendencias</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">20 mar 2024</time>
-      </div>
-
-      <div class="tweet-title">
-         Ni las patadas giratorias detuvieron esto - La emergencia médica que pone en vilo a Chuck Norris
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/chuck-norris-hospital-v5t3r7q0.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/locales/panico-calles-violencia-cuauhtemoc/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Locales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">21 may 2024</time>
-      </div>
-
-      <div class="tweet-title">
-         Pánico en las calles - Violencia imparable deja víctimas en el Centro Histórico y Tepito
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/ataque-cuauhtemoc-r7v4n9k2.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/tendencias/ricky-martin-escandalo-infidelidad-modelo/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
     </div>
 
     <div class="tweet-content-col">
@@ -340,15 +266,15 @@
       </div>
 
       <div class="tweet-title">
-         Ricky Martin bajo la lupa por un supuesto triángulo amoroso con un famoso modelo
+         Crisis en Cuba - Futuras madres enfrentan partos en medio de apagones masivos
       </div>
 
       
 
       <div class="tweet-media">
         <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/image004-q1z9w7x4.webp" alt="Imagen" class="media-img">
+        
+                <img src="/assets/img/cuba-maternidad-crisis-h7k2m9p1.webp" alt="Mujer embarazada en Cuba frente a la crisis de servicios básicos" class="media-img" loading="lazy" width="600" height="338">
             
         </div>
       </div>
@@ -367,53 +293,13 @@
 </article>
     
       <article class="tweet-card">
-  <a href="/tendencias/olinia-auto-electrico-mexicano-precio-lanzamiento/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
+  <a href="/deportes/atletico-san-luis-leagues-cup-messi-griezmann/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
     <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
       
-      <div class="tweet-header">
-        <span class="user-name">Tendencias</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">21 may 2024</time>
-      </div>
-
-      <div class="tweet-title">
-         Adiós a la gasolina por 150 mil pesos - Olinia revela cuándo invadirá las calles de México
-      </div>
-
       
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/auto-mexicano-olinia-k3b9v1z2.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/deportes/aguirre-porteros-mundial-2026/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
+        <img src="/assets/logos/deportes.webp" alt="Deportes" class="avatar-circle" style="width: 40px !important; height: 40px !important; max-width: 40px !important; margin: 0 !important; border-radius: 50%; object-fit: cover; background: #ffffff; display: block;">
+      
     </div>
 
     <div class="tweet-content-col">
@@ -426,15 +312,15 @@
       </div>
 
       <div class="tweet-title">
-         Se acabó el misterio - Javier Aguirre define a los tres guardianes del arco para el Mundial 2026
+         Atlético de San Luis enfrentará a Messi y Griezmann en un calendario crítico
       </div>
 
       
 
       <div class="tweet-media">
         <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/image002-k9l2m5p8.webp" alt="Imagen" class="media-img">
+        
+                <img src="/assets/img/calendario-san-luis-8f2k9l1p.webp" alt="Jugadores del Atlético de San Luis durante un encuentro oficial" class="media-img" loading="lazy" width="600" height="338">
             
         </div>
       </div>
@@ -453,289 +339,80 @@
 </article>
     
       <article class="tweet-card">
-  <a href="/nacionales/fuego-en-el-estrecho-iran-ataque/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
+  <a href="/tendencias/agentes-ice-patrullan-aeropuertos-eeuu/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
     <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
       
-      <div class="tweet-header">
-        <span class="user-name">Nacionales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">21 may 2024</time>
-      </div>
-
-      <div class="tweet-title">
-         Fuego en el Estrecho – Irán lanza misiles contra la Quinta Flota de EU y paraliza refinerías
-      </div>
-
       
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/ataque-iran-misiles-b7n2m8k1.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/nacionales/infonavit-vivienda-bienestar-ley-73/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
+        <img src="/assets/logos/tendencias.webp" alt="Tendencias" class="avatar-circle" style="width: 40px !important; height: 40px !important; max-width: 40px !important; margin: 0 !important; border-radius: 50%; object-fit: cover; background: #ffffff; display: block;">
       
-      <div class="tweet-header">
-        <span class="user-name">Nacionales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">21 may 2024</time>
-      </div>
-
-      <div class="tweet-title">
-         Infonavit entrega casas nuevas y revela cómo recuperar tus ahorros - Una noticia que cambia vidas
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/vivienda-bienestar-a8z2x9w1.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/locales/calendario-registro-pension-bienestar-discapacidad/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Locales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">21 may 2024</time>
-      </div>
-
-      <div class="tweet-title">
-         3 mil 300 pesos bimensuales - Así es el calendario para el registro a la Pensión de 30 a 64 años
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/image002-k7r2m9q1.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/deportes/terremoto-aston-martin-newey-wheatley/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Deportes</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">21 may 2024</time>
-      </div>
-
-      <div class="tweet-title">
-         Sacudida total en la F1 - Newey renuncia a la dirección de Aston Martin y Wheatley escapa de Audi
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/aston-martin-principal-k9m2j8p1.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/nacionales/mexico-salvavidas-petrolero-cuba/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Nacionales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">21 may 2024</time>
-      </div>
-
-      <div class="tweet-title">
-         México desafía presiones y prepara salvavidas petrolero para Cuba
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/petroleo-cuba-mexico-v9r4m2q8.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/locales/fuego-en-sinaloa-operativo-mayos/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Locales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">22 may 2024</time>
-      </div>
-
-      <div class="tweet-title">
-         Fuego cruzado en el corazón de Sinaloa - 11 caídos y la hija de El Mayo entre los retenidos
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/image005-m1p5r9t4.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/tendencias/cuba-sin-petroleo-ruso-sanciones-eeuu/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
     </div>
 
     <div class="tweet-content-col">
       
       <div class="tweet-header">
         <span class="user-name">Tendencias</span>
+        <span class="user-handle">@NoticiasCoyo</span>
+        <span class="tweet-dot">·</span>
+        <time class="tweet-time">21 may 2024</time>
+      </div>
+
+      <div class="tweet-title">
+         Agentes del ICE patrullan aeropuertos de Estados Unidos por falta de personal
+      </div>
+
+      
+
+      <div class="tweet-media">
+        <div class="media-aspect-ratio">
+        
+                <img src="/assets/img/agentes-ice-operativo-aeropuerto-k9b2r5x1.webp" alt="Agentes del Servicio de Inmigración y Control de Aduanas en una terminal aérea" class="media-img" loading="lazy" width="600" height="338">
+            
+        </div>
+      </div>
+
+      <div class="tweet-actions">
+         <div class="action-item">
+            <span>Leer más</span>
+         </div>
+         <div class="action-item">
+            <span>Compartir</span>
+         </div>
+      </div>
+
+    </div>
+  </a>
+</article>
+    
+      <article class="tweet-card">
+  <a href="/nacionales/recorte-empleos-empresas-regias-bmv/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
+    
+    <div class="tweet-avatar-col">
+      
+      
+        <img src="/assets/logos/nacionales.webp" alt="Nacionales" class="avatar-circle" style="width: 40px !important; height: 40px !important; max-width: 40px !important; margin: 0 !important; border-radius: 50%; object-fit: cover; background: #ffffff; display: block;">
+      
+    </div>
+
+    <div class="tweet-content-col">
+      
+      <div class="tweet-header">
+        <span class="user-name">Nacionales</span>
         <span class="user-handle">@NoticiasCoyo</span>
         <span class="tweet-dot">·</span>
         <time class="tweet-time">23 may 2024</time>
       </div>
 
       <div class="tweet-title">
-         Cuba a oscuras y sin salvavidas - El barco ruso que huyó de la isla por miedo a las sanciones
+         Empresas regiomontanas recortan más de 17 mil empleos por incertidumbre global
       </div>
 
       
 
       <div class="tweet-media">
         <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/image002-x9r2m1q8.webp" alt="Imagen" class="media-img">
+        
+                <img src="/assets/img/panorama-corporativo-regio-k8j3m2n9.webp" alt="Edificios corporativos y actividad económica en Monterrey" class="media-img" loading="lazy" width="600" height="338">
             
         </div>
       </div>
@@ -754,96 +431,13 @@
 </article>
     
       <article class="tweet-card">
-  <a href="/tendencias/ataque-ras-laffan-crisis-gas-mundial/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
+  <a href="/nacionales/sheinbaum-critica-pt-reforma-electoral/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
     <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
       
-      <div class="tweet-header">
-        <span class="user-name">Tendencias</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">18 mar 2026</time>
-      </div>
-
-      <div class="tweet-title">
-         El mundo se queda sin gas - El brutal ataque de Irán que cambiará tu economía por años
-      </div>
-
       
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/refineria-haifa-incendio-k8p2m5x4.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/tendencias/ejercicio-ideal-corazon-natacion/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
+        <img src="/assets/logos/nacionales.webp" alt="Nacionales" class="avatar-circle" style="width: 40px !important; height: 40px !important; max-width: 40px !important; margin: 0 !important; border-radius: 50%; object-fit: cover; background: #ffffff; display: block;">
       
-      <div class="tweet-header">
-        <span class="user-name">Tendencias</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">18 mar 2026</time>
-      </div>
-
-      <div class="tweet-title">
-         Olvida las caminatas - este es el ejercicio definitivo para blindar tu corazón
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/image002-k8j2m1n5.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/nacionales/sheinbaum-encuentro-presidente-alemania-cancun/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
     </div>
 
     <div class="tweet-content-col">
@@ -852,19 +446,19 @@
         <span class="user-name">Nacionales</span>
         <span class="user-handle">@NoticiasCoyo</span>
         <span class="tweet-dot">·</span>
-        <time class="tweet-time">18 mar 2026</time>
+        <time class="tweet-time">21 may 2025</time>
       </div>
 
       <div class="tweet-title">
-         Sheinbaum y Alemania sellan alianza estratégica en el corazón del mundo maya
+         Sheinbaum señala al PT - Temen reducir su votación por reforma electoral
       </div>
 
       
 
       <div class="tweet-media">
         <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/reunion-bilateral-sheinbaum-steinmeier-k9p2m4z1.webp" alt="Imagen" class="media-img">
+        
+                <img src="/assets/img/sheinbaum-palacio-nacional-f8d2s3a1.webp" alt="Presidenta Claudia Sheinbaum durante conferencia de prensa en Palacio Nacional" class="media-img" loading="lazy" width="600" height="338">
             
         </div>
       </div>
@@ -883,31 +477,34 @@
 </article>
     
       <article class="tweet-card">
-  <a href="/nacionales/banxico-tasas-petroleo-inflacion/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
+  <a href="/deportes/julio-ibanez-detenido-sudafrica/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
     <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
+      
+      
+        <img src="/assets/logos/deportes.webp" alt="Deportes" class="avatar-circle" style="width: 40px !important; height: 40px !important; max-width: 40px !important; margin: 0 !important; border-radius: 50%; object-fit: cover; background: #ffffff; display: block;">
+      
     </div>
 
     <div class="tweet-content-col">
       
       <div class="tweet-header">
-        <span class="user-name">Nacionales</span>
+        <span class="user-name">Deportes</span>
         <span class="user-handle">@NoticiasCoyo</span>
         <span class="tweet-dot">·</span>
-        <time class="tweet-time">18 mar 2026</time>
+        <time class="tweet-time">21 may 2025</time>
       </div>
 
       <div class="tweet-title">
-         El fantasma de la inflación acecha de nuevo - Por qué el Banco de México pondrá freno a la baja de tasas
+         Julio Ibáñez detenido en Sudáfrica por hombres armados durante transmisión
       </div>
 
       
 
       <div class="tweet-media">
         <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/image002-z9r4p1w2.webp" alt="Imagen" class="media-img">
+        
+                <img src="/assets/img/julio-profe-ibanez-x8v2m9p1.webp" alt="Julio Profe Ibáñez periodista de Televisa Deportes" class="media-img" loading="lazy" width="600" height="338">
             
         </div>
       </div>
@@ -926,74 +523,34 @@
 </article>
     
       <article class="tweet-card">
-  <a href="/nacionales/hacienda-reactiva-subsidios-gasolina/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
+  <a href="/deportes/mauricio-culebro-dejara-presidencia-tigres/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
     <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
+      
+      
+        <img src="/assets/logos/deportes.webp" alt="Deportes" class="avatar-circle" style="width: 40px !important; height: 40px !important; max-width: 40px !important; margin: 0 !important; border-radius: 50%; object-fit: cover; background: #ffffff; display: block;">
+      
     </div>
 
     <div class="tweet-content-col">
       
       <div class="tweet-header">
-        <span class="user-name">Nacionales</span>
+        <span class="user-name">Deportes</span>
         <span class="user-handle">@NoticiasCoyo</span>
         <span class="tweet-dot">·</span>
-        <time class="tweet-time">19 mar 2026</time>
+        <time class="tweet-time">24 mar 2026</time>
       </div>
 
       <div class="tweet-title">
-         Alivio al bolsillo - Hacienda reactiva subsidios a la gasolina tras un año de espera
+         Mauricio Culebro dejará la presidencia de Tigres al finalizar el torneo
       </div>
 
       
 
       <div class="tweet-media">
         <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/llenar-tanque-hacienda-h7v2n4q1.webp" alt="Imagen" class="media-img">
-            
-        </div>
-      </div>
-
-      <div class="tweet-actions">
-         <div class="action-item">
-            <span>Leer más</span>
-         </div>
-         <div class="action-item">
-            <span>Compartir</span>
-         </div>
-      </div>
-
-    </div>
-  </a>
-</article>
-    
-      <article class="tweet-card">
-  <a href="/nacionales/melate-4189-resultados-ganadores/" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
-    
-    <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
-    </div>
-
-    <div class="tweet-content-col">
-      
-      <div class="tweet-header">
-        <span class="user-name">Nacionales</span>
-        <span class="user-handle">@NoticiasCoyo</span>
-        <span class="tweet-dot">·</span>
-        <time class="tweet-time">20 mar 2026</time>
-      </div>
-
-      <div class="tweet-title">
-         La suerte tocó a tu puerta - Estos son los ganadores del Melate 4189
-      </div>
-
-      
-
-      <div class="tweet-media">
-        <div class="media-aspect-ratio">
-            
-                <img src="/assets/img/resultados-sorteo-mexico-x9z2r5m1.webp" alt="Imagen" class="media-img">
+        
+                <img src="/assets/img/mauricio-culebro-tigres-8v2n4z9q.webp" alt="Mauricio Culebro en las instalaciones del Club Tigres" class="media-img" loading="lazy" width="600" height="338">
             
         </div>
       </div>
@@ -1014,6 +571,14 @@
   </div>
 
 </section>
+    
+    <footer class="legal-footer">
+      <a href="/legal/aviso-de-privacidad/">Aviso de Privacidad</a> |
+      <a href="/legal/terminos-y-condiciones/">Términos y Condiciones</a> |
+      <a href="/legal/codigo-de-etica/">Código de Ética</a>
+      <br><br>
+      &copy; 2026 NOTICIAS SUR CDMX. Todos los derechos reservados.
+    </footer>
   </main>
 
   

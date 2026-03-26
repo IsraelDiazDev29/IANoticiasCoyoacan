@@ -1,24 +1,66 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact</title>
-  
+  <title>Contact | NOTICIAS SUR CDMX</title>
+
+  <!-- SEO Básico -->
+  <meta name="description" content="Noticias locales, nacionales, tendencias y deportes.">
+  <link rel="canonical" href="https://noticiascdmxsur.online//contact/">
+
+  <!-- Open Graph — WhatsApp, Facebook, Telegram, LinkedIn, iMessage -->
+  <meta property="og:type"         content="website">
+  <meta property="og:url"          content="https://noticiascdmxsur.online//contact/">
+  <meta property="og:title"        content="Contact | NOTICIAS SUR CDMX">
+  <meta property="og:description"  content="Noticias locales, nacionales, tendencias y deportes.">
+  <meta property="og:image"        content="https://noticiascdmxsur.online//assets/img/og-default.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale"       content="es_MX">
+  <meta property="og:site_name"    content="NOTICIAS SUR CDMX">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:site"        content="@noticiassurcdmx">
+  <meta name="twitter:title"       content="Contact | NOTICIAS SUR CDMX">
+  <meta name="twitter:description" content="Noticias locales, nacionales, tendencias y deportes.">
+  <meta name="twitter:image"       content="https://noticiascdmxsur.online//assets/img/og-default.jpg">
+
+  <!-- Favicon & App -->
+  <link rel="icon" href="/assets/logos/logo_final.webp" type="image/webp">
+  <link rel="apple-touch-icon" href="/assets/logos/logo_final.webp">
+  <meta name="theme-color" content="#1d9bf0">
+
+  <!-- Preload fuentes locales (evita texto invisible) -->
+  <link rel="preload" href="/assets/fonts/Chirp-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/Chirp-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Newsreader:wght@400;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Preconnect YouTube (video-posts) -->
+  <link rel="preconnect" href="https://www.youtube-nocookie.com">
+  <link rel="dns-prefetch" href="https://www.youtube.com">
 
   <style>
     :root {
+        /* Colores */
         --bg-color: #ffffff;
         --text-main: #0f1419;
         --text-sec: #536471;
         --border-color: #eff3f4;
         --accent: #1d9bf0;
+        --color-breaking: #E31C2D;
         --card-hover: #f7f9f9;
         --header-bg: rgba(255, 255, 255, 0.85);
-        --invert-logo: 0; 
+        --logo-filter: none;
+        /* Tipografía */
+        --font-ui:       'TwitterChirp', 'Inter', -apple-system, sans-serif;
+        --font-headline: 'Newsreader', Georgia, serif;
+        --font-body:     'Noto Serif', Georgia, serif;
     }
 
     html.dark {
@@ -27,22 +69,23 @@
         --text-sec: #71767b;
         --border-color: #2f3336;
         --accent: #1d9bf0;
+        --color-breaking: #E31C2D;
         --card-hover: #080808;
         --header-bg: rgba(0, 0, 0, 0.70);
-        --invert-logo: 1; 
+        --logo-filter: brightness(0) invert(1);
     }
 
     * { box-sizing: border-box; }
     
     body {
-      font-family: 'TwitterChirp', 'Inter', -apple-system, sans-serif;
-      margin: 0;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      align-items: center;
+        font-family: 'TwitterChirp', 'Inter', -apple-system, sans-serif;
+        margin: 0;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        align-items: center;
     }
 
     a, button, input { 
@@ -82,13 +125,18 @@
         width: calc(100% + 32px); 
         max-width: none;
         
+        /* Limitamos el aspecto de las imágenes ultra-verticales */
+        max-height: 65vh;
+        object-fit: contain;
+        background-color: var(--card-hover);
+        
         /* La jalamos a la izquierda para cubrir el padding */
         margin-left: -16px;
         margin-right: -16px;
         
         height: auto;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 
     /* HEADER */
@@ -108,7 +156,7 @@
     }
 
     .logo-area { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 18px; text-transform: uppercase; }
-    .logo-img { width: 32px; height: 32px; object-fit: contain; filter: invert(var(--invert-logo)); transition: filter 0.3s; }
+    .logo-img { width: 32px; height: 32px; object-fit: contain; filter: var(--logo-filter); transition: filter 0.3s; }
 
     .theme-btn {
         background: transparent; border: 1px solid var(--border-color);
@@ -168,6 +216,10 @@
     .action-item { display: flex; align-items: center; gap: 5px; color: var(--text-sec); font-size: 13px; }
     .action-item:hover { color: var(--accent); }
 
+    .legal-footer { text-align: center; padding: 20px 10px; font-size: 12px; color: var(--text-sec); border-top: 1px solid var(--border-color); margin-top: 40px; }
+    .legal-footer a { margin: 0 8px; text-decoration: underline; }
+    .legal-footer a:hover { color: var(--text-main); }
+
   </style>
 </head>
 <body>
@@ -182,7 +234,7 @@
     </a>
 
     <div>
-      <button id="toggle-theme" class="theme-btn">Modo</button>
+      <button id="toggle-theme" class="theme-btn" aria-label="Cambiar modo claro/oscuro">Modo</button>
     </div>
   </div>
 </header>
@@ -192,6 +244,14 @@
     <h1>Contacto</h1>
 <p>Formulario de contacto pendiente de implementación.</p>
 
+    
+    <footer class="legal-footer">
+      <a href="/legal/aviso-de-privacidad/">Aviso de Privacidad</a> |
+      <a href="/legal/terminos-y-condiciones/">Términos y Condiciones</a> |
+      <a href="/legal/codigo-de-etica/">Código de Ética</a>
+      <br><br>
+      &copy; 2026 NOTICIAS SUR CDMX. Todos los derechos reservados.
+    </footer>
   </main>
 
   
