@@ -18,3 +18,6 @@ yarn-error.log*
 .env
 prueba1
 prueba2
+
+# --- Documentacion ---
+documentacion/

@@ -8,7 +8,7 @@ ogType: website
 <section class="feed-container">
   
   <div style="display: flex; flex-direction: column;">
-    {% for post in collections.posts | reverse %}
+    {% for post in collections.posts %}
       {% include "partials/card-hero.njk" %}
     {% endfor %}
   </div>
