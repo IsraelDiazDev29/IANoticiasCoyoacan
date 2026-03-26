@@ -131,6 +131,7 @@ window.manejarPublicacion = async function (rutaMD, urlPost, titulo, autor, cove
   console.log(datos);
 
   await enviarAPI(datos);
+
   boton.innerText = textoOriginal;
   boton.disabled = false;
   return datos;
