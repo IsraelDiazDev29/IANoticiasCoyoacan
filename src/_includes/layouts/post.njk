@@ -19,20 +19,20 @@ hideFooter: true
 
     <div class="px-4 pt-6 pb-3">
        <div id="trend-badge-container" class="hidden mb-2">
-         <span class="bg-[#E31C2D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">TENDENCIA</span>
+         <span style="background-color: var(--color-breaking);" class="text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">TENDENCIA</span>
        </div>
-       <h1 class="text-[#121417] text-[32px] font-bold leading-tight font-newsreader">{{ title }}</h1>
+       <h1 style="font-family: var(--font-headline); font-size: 2rem; font-weight: 700; line-height: 1.2; color: #121417; margin: 0;">{{ title }}</h1>
     </div>
 
     {% if image %}
     <div class="flex w-full bg-white py-1">
-       <div class="w-full aspect-[3/2] overflow-hidden relative">
-        <img src="{{ image }}" alt="{{ title }}" class="w-full h-full object-cover" />
+     <div class="w-full overflow-hidden relative" style="aspect-ratio: 3/2;">
+        <img src="{{ image }}" alt="{{ title }}" class="w-full h-full object-cover" fetchpriority="high" width="900" height="600">
        </div>
     </div>
     {% endif %}
 
-    <div class="prose prose-lg text-[#121417] px-4 pt-4 pb-12 font-newsreader">
+    <div style="font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.7; padding: 1rem 1rem 3rem; color: #121417; max-width: 100%;">
         {{ content | safe }}
     </div>
   </div>
@@ -54,9 +54,13 @@ hideFooter: true
 {
   "@context": "https://schema.org",
   "@type": "NewsArticle",
+  "inLanguage": "es-MX",
   "headline": "{{ title }}",
+  "description": "{{ description or site.description }}",
   "image": ["{{ site.url }}{{ image }}"],
   "datePublished": "{{ page.date | dateIso }}",
+  "dateModified": "{{ page.date | dateIso }}",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ site.url }}{{ page.url }}" },
   "author": { "@type": "Person", "name": "{{ author or site.publisher.name }}" },
   "publisher": {
     "@type": "NewsMediaOrganization",
