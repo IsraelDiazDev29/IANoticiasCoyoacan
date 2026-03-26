@@ -2,7 +2,16 @@
   <a href="{{ post.url }}" style="display: flex; width: 100%; text-decoration: none; color: inherit;">
     
     <div class="tweet-avatar-col">
-      <div class="avatar-circle">NC</div>
+      {% set cat = post.data.category | default("General") | lower %}
+      {% if cat == "tendencias" %}
+        <img src="/assets/logos/tendencias.webp" alt="Tendencias" class="avatar-circle" style="width: 40px !important; height: 40px !important; max-width: 40px !important; margin: 0 !important; border-radius: 50%; object-fit: cover; background: #ffffff; display: block;">
+      {% elif cat == "nacionales" or cat == "nacional" %}
+        <img src="/assets/logos/nacionales.webp" alt="Nacionales" class="avatar-circle" style="width: 40px !important; height: 40px !important; max-width: 40px !important; margin: 0 !important; border-radius: 50%; object-fit: cover; background: #ffffff; display: block;">
+      {% elif cat == "deportes" %}
+        <img src="/assets/logos/deportes.webp" alt="Deportes" class="avatar-circle" style="width: 40px !important; height: 40px !important; max-width: 40px !important; margin: 0 !important; border-radius: 50%; object-fit: cover; background: #ffffff; display: block;">
+      {% else %}
+        <div class="avatar-circle">NC</div>
+      {% endif %}
     </div>
 
     <div class="tweet-content-col">

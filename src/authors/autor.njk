@@ -1,0 +1,31 @@
+---
+pagination:
+  data: authors
+  size: 1
+  alias: author_id
+permalink: /autor/{{ author_id }}/
+layout: layouts/base.njk
+eleventyComputed:
+  title: "Noticias de {{ authors[author_id].name }}"
+  description: "Perfil y artículos de {{ authors[author_id].name }}."
+---
+
+<section class="author-profile" style="padding: 20px 16px; border-bottom: 1px solid var(--border-color); text-align: center;">
+  {% set authorData = authors[author_id] %}
+  <img src="{{ authorData.avatar }}" alt="Foto de {{ authorData.name }}" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px;">
+  <h1 style="margin:0; font-size: 24px; font-weight: 800;">{{ authorData.name }}</h1>
+  <p style="color: var(--text-sec); font-size: 14px; margin-top: 5px;">{{ authorData.bio }}</p>
+</section>
+
+<section class="feed-container">
+  <div style="padding: 15px 16px; font-weight: 700; border-bottom: 1px solid var(--border-color);">
+    Últimas noticias
+  </div>
+  <div style="display: flex; flex-direction: column;">
+    {% for post in collections.posts %}
+      {% if post.data.author == author_id %}
+        {% include "partials/card-hero.njk" %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>

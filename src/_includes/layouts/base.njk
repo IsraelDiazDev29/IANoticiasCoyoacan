@@ -56,7 +56,7 @@
         --color-breaking: #E31C2D;
         --card-hover: #f7f9f9;
         --header-bg: rgba(255, 255, 255, 0.85);
-        --invert-logo: 0;
+        --logo-filter: none;
         /* Tipografía */
         --font-ui:       'TwitterChirp', 'Inter', -apple-system, sans-serif;
         --font-headline: 'Newsreader', Georgia, serif;
@@ -72,20 +72,20 @@
         --color-breaking: #E31C2D;
         --card-hover: #080808;
         --header-bg: rgba(0, 0, 0, 0.70);
-        --invert-logo: 1;
+        --logo-filter: brightness(0) invert(1);
     }
 
     * { box-sizing: border-box; }
     
     body {
-      font-family: 'TwitterChirp', 'Inter', -apple-system, sans-serif;
-      margin: 0;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      align-items: center;
+        font-family: 'TwitterChirp', 'Inter', -apple-system, sans-serif;
+        margin: 0;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        align-items: center;
     }
 
     a, button, input { 
@@ -125,13 +125,18 @@
         width: calc(100% + 32px); 
         max-width: none;
         
+        /* Limitamos el aspecto de las imágenes ultra-verticales */
+        max-height: 65vh;
+        object-fit: contain;
+        background-color: var(--card-hover);
+        
         /* La jalamos a la izquierda para cubrir el padding */
         margin-left: -16px;
         margin-right: -16px;
         
         height: auto;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 
     /* HEADER */
@@ -151,7 +156,7 @@
     }
 
     .logo-area { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 18px; text-transform: uppercase; }
-    .logo-img { width: 32px; height: 32px; object-fit: contain; filter: invert(var(--invert-logo)); transition: filter 0.3s; }
+    .logo-img { width: 32px; height: 32px; object-fit: contain; filter: var(--logo-filter); transition: filter 0.3s; }
 
     .theme-btn {
         background: transparent; border: 1px solid var(--border-color);
@@ -211,6 +216,10 @@
     .action-item { display: flex; align-items: center; gap: 5px; color: var(--text-sec); font-size: 13px; }
     .action-item:hover { color: var(--accent); }
 
+    .legal-footer { text-align: center; padding: 20px 10px; font-size: 12px; color: var(--text-sec); border-top: 1px solid var(--border-color); margin-top: 40px; }
+    .legal-footer a { margin: 0 8px; text-decoration: underline; }
+    .legal-footer a:hover { color: var(--text-main); }
+
   </style>
 </head>
 <body>
@@ -221,6 +230,14 @@
 
   <main id="content" class="layout-constrain" style="flex: 1;">
     {{ content | safe }}
+    
+    <footer class="legal-footer">
+      <a href="/legal/aviso-de-privacidad/">Aviso de Privacidad</a> |
+      <a href="/legal/terminos-y-condiciones/">Términos y Condiciones</a> |
+      <a href="/legal/codigo-de-etica/">Código de Ética</a>
+      <br><br>
+      &copy; 2026 {{ site.name }}. Todos los derechos reservados.
+    </footer>
   </main>
 
   {% if not hideFooter %}

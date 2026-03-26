@@ -33,7 +33,7 @@ ogType: article
     "datePublished":"{{ page.date | dateIso }}",
     "dateModified":"{{ (modified or page.date) | dateIso }}",
     "mainEntityOfPage": { "@type":"WebPage", "@id":"{{ site.url }}{{ page.url }}" },
-    "author": { "@type":"Person", "name":"{{ author }}" },
+    "author": { "@type":"Person", "name":"{% if authors and author and authors[author] %}{{ authors[author].name }}{% else %}{{ author }}{% endif %}" },
     "publisher": {
       "@type":"NewsMediaOrganization",
       "name":"{{ site.name }}",
