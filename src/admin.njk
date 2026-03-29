@@ -158,7 +158,7 @@ permalink: /admin/
 </style>
 
 <!-- Script externo con la lógica de publicar vinculada a la tabla -->
-<script src="/assets/js/admin.js" defer></script>
+<script src="/assets/js/admin.js" type="module" defer></script>
 
 <div class="admin-container">
     <div class="admin-header-row">
@@ -201,9 +201,9 @@ permalink: /admin/
                                 onclick="manejarPublicacion('{{ post.inputPath | default('') }}', '{{ post.url | default('') }}', '{{ post.data.title | escape }}', '{{ post.data.author | default('Desconocido') | escape }}', '{{ post.data.cover | default('') }}', '{{ post.data.ogImage | default('') }}', '{{ post.data.image | default('') }}')">
                                 Publicar
                             </button>
-                            <button class="btn-publish" style="background-color: var(--accent);"
+                            <button class="btn-publish" style="background-color: #1877F2;"
                                 onclick="manejarPublicacionProd('{{ post.inputPath | default('') }}', '{{ post.url | default('') }}', '{{ post.data.title | escape }}', '{{ post.data.author | default('Desconocido') | escape }}', '{{ post.data.cover | default('') }}', '{{ post.data.ogImage | default('') }}', '{{ post.data.image | default('') }}')">
-                                Publicar Prod
+                                Publicar Redes
                             </button>
                         </div>
                     </td>

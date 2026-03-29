@@ -119,6 +119,29 @@ async function enviarAPI(datos) {
   }
 }
 
+async function enviarFacebook(urlPost, titulo) {
+  const urlCompleta = `https://noticiascdmxsur.online${urlPost.startsWith('/') ? urlPost : '/' + urlPost}`;
+  try {
+    const respuesta = await fetch("https://api-orquestador-noticias-786930904274.europe-west1.run.app/api/facebook/publish", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url: urlCompleta, message: titulo })
+    });
+
+    const json = await respuesta.json();
+
+    if (respuesta.ok && json.status === "success") {
+      mostrarNotificacion(`✅ Publicado en Facebook. Post ID: ${json.postId}`, "success");
+    } else {
+      const detalle = json.details ? ` (${json.details})` : "";
+      mostrarNotificacion(`❌ Error al publicar en Facebook: ${json.message}${detalle}`, "error");
+    }
+  } catch (error) {
+    console.error("Error de red al publicar en Facebook:", error);
+    mostrarNotificacion("⚠️ Error de red al intentar publicar en Facebook.", "error");
+  }
+}
+
 window.manejarPublicacion = async function (rutaMD, urlPost, titulo, autor, cover, ogImage, image) {
   const boton = event.currentTarget || event.target;
   const textoOriginal = boton.innerText;
@@ -146,6 +169,8 @@ window.manejarPublicacionProd = async function (rutaMD, urlPost, titulo, autor, 
 
   console.log("=== DATOS PARA PUBLICAR A PROD ===");
   console.log(datos);
+
+  await enviarFacebook(urlPost, titulo);
 
   boton.innerText = textoOriginal;
   boton.disabled = false;
