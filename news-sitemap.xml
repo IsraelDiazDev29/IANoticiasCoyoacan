@@ -2,43 +2,4 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
 
-  <url>
-    <loc>https://noticiascdmxsur.online//tendencias/libro-novios-felipe-vi-joaquin-abad/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>NOTICIAS SUR CDMX</news:name>
-        <news:language>es</news:language>
-      </news:publication>
-      <news:publication_date>2026-04-12T22:25:10.000Z</news:publication_date>
-      <news:title>Joaquín Abad revela supuestos vínculos sentimentales del Rey Felipe VI en su nuevo libro</news:title>
-      <news:keywords>Casa Real, Felipe VI, Joaquín Abad, España, Miguel Bosé</news:keywords>
-    </news:news>
-  </url>
-  
-  <url>
-    <loc>https://noticiascdmxsur.online//tendencias/nasa-sonido-agujero-negro/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>NOTICIAS SUR CDMX</news:name>
-        <news:language>es</news:language>
-      </news:publication>
-      <news:publication_date>2026-04-12T22:24:31.000Z</news:publication_date>
-      <news:title>La NASA transforma datos de un agujero negro en una experiencia sonora sin precedentes</news:title>
-      <news:keywords>NASA, Agujero Negro, Ciencia, Sonificación, Espacio</news:keywords>
-    </news:news>
-  </url>
-  
-  <url>
-    <loc>https://noticiascdmxsur.online//deportes/chelsea-manchester-city-premier-league-2026/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>NOTICIAS SUR CDMX</news:name>
-        <news:language>es</news:language>
-      </news:publication>
-      <news:publication_date>2026-04-12T22:23:28.000Z</news:publication_date>
-      <news:title>Chelsea y Manchester City chocan en Stamford Bridge por la Premier League</news:title>
-      <news:keywords>Premier League, Manchester City, Chelsea, Pep Guardiola, Fútbol Internacional</news:keywords>
-    </news:news>
-  </url>
-  
 </urlset>
