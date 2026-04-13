@@ -8,7 +8,7 @@ hideFooter: true
     <div class="flex items-center bg-white p-4 pb-2 justify-between border-b border-gray-100">
       <div class="flex-1 flex flex-col items-center pl-12">
         <img src="/assets/logo.webp" alt="Logo" class="w-8 h-8 mb-1 object-contain" />
-        <h2 class="text-[#111418] text-lg font-bold text-center">IA NOTICIAS COYOACAN</h2>
+        <div class="text-[#111418] text-lg font-bold text-center">IA NOTICIAS COYOACAN</div>
       </div>
       <div class="flex w-12 items-center justify-end">
         <a href="/" class="cursor-pointer h-12 flex items-center justify-center rounded-lg bg-transparent text-[#111418]">
@@ -31,23 +31,26 @@ hideFooter: true
        {% endif %}
 
        <h1 style="font-family: var(--font-headline); font-size: 2rem; font-weight: 700; line-height: 1.2; color: #121417; margin: 0;">{{ title }}</h1>
-       {% if author %}
-         {% set authorData = authors[author] %}
-         {% if authorData %}
-           <div style="margin-top: 16px; display: flex; align-items: center;">
-             <a href="/autor/{{ author }}/" style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 16px 4px 4px; background-color: var(--card-hover); border-radius: 30px; text-decoration: none; font-size: 14.5px; font-weight: 700; color: inherit;">
-               <img src="{{ authorData.avatar }}" alt="{{ authorData.name }}" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover;" />
-               <span>Por {{ authorData.name }}</span>
-             </a>
-           </div>
-         {% endif %}
-       {% endif %}
+        {% if author %}
+          {% set authorData = authors[author] %}
+          {% if authorData %}
+            <div style="margin-top: 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+              <a href="/autor/{{ author }}/" style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 16px 4px 4px; background-color: var(--card-hover); border-radius: 30px; text-decoration: none; font-size: 14.5px; font-weight: 700; color: inherit;">
+                <img src="{{ authorData.avatar }}" alt="{{ authorData.name }}" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover;" />
+                <span>Por {{ authorData.name }}</span>
+              </a>
+              <span style="font-size: 13.5px; color: var(--text-sec); font-family: var(--font-ui); font-weight: 500;">
+                {{ page.date | dateReadable }}
+              </span>
+            </div>
+          {% endif %}
+        {% endif %}
     </div>
 
     {% if image %}
     <div class="flex w-full bg-white py-1">
      <div class="w-full overflow-hidden relative" style="aspect-ratio: 3/2;">
-        <img src="{{ image }}" alt="{{ title }}" class="w-full h-full object-cover" fetchpriority="high" width="900" height="600">
+        <img src="{{ image }}" alt="{{ title }}" class="w-full h-full object-cover" fetchpriority="high" width="1200" height="800">
        </div>
     </div>
     {% endif %}

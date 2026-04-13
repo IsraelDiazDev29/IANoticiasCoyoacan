@@ -27,6 +27,21 @@ eleventyConfig.addPassthroughCopy("src/assets");
     });
   });
 
+  // Colección de noticias recientes (últimas 48 horas) para el sitemap de Google News
+  eleventyConfig.addCollection("newsLatest", (collection) => {
+    const fortyEightHoursAgo = new Date().getTime() - (48 * 60 * 60 * 1000);
+    let posts = collection.getFilteredByGlob("src/posts/**/*.{md,MD}").sort((a,b) => b.date.getTime() - a.date.getTime());
+    
+    let recent = posts.filter(item => item.date.getTime() >= fortyEightHoursAgo);
+    
+    // Fallback de seguridad: Si no hay noticias en 48 hrs y el sitemap queda vacío, Google Search Console marca error de esquema.
+    // Enviamos siempre al menos la más reciente para evitar el quiebre del XML.
+    if (recent.length === 0 && posts.length > 0) {
+      recent = [posts[0]];
+    }
+    return recent;
+  });
+
   // Colección dinámica de categorías (extrae la categoría principal de cada post)
   eleventyConfig.addCollection("categoriesList", (collection) => {
     let catSet = new Set();
