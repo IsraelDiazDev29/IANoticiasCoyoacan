@@ -1,0 +1,49 @@
+Quiero crear un nuevo modulo.
+Primero vamos a mockear hasta que me guste el diseño.
+
+Imagina una lista de un arreglo:
+"data": [
+    {
+      "articulo_id": 950,
+      "google_guid": "CBMitAFBVV95cUxPZnhpOXdTYXl3SEJFTW8ycHFVX1B0YlFIbDV0WWd4WEtEYTVxQTUyTDBhMTVabWFlaUtEYnVGbXg4dTRXVG9UQWRXckJ5eWFOMFNDQVdNRGJZa2pyR1lQZkN1Q1M4d3k5S0FWb2ptQ1VXWUtpTkhxblZNV0RXd0pDb1M0MUd0TEswVlFpLVNfRGxqUHpyLVBNU1p6QS1adEc5cHp0OXlNbllId1g0VkVacG43QXA",
+      "historia_id": null,
+      "categoria_id": 1,
+      "titulo": "¿Por qué el Estadio Banorte pagará mil millones de pesos a FIFA? - ESPN México",
+      "link_google": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPZnhpOXdTYXl3SEJFTW8ycHFVX1B0YlFIbDV0WWd4WEtEYTVxQTUyTDBhMTVabWFlaUtEYnVGbXg4dTRXVG9UQWRXckJ5eWFOMFNDQVdNRGJZa2pyR1lQZkN1Q1M4d3k5S0FWb2ptQ1VXWUtpTkhxblZNV0RXd0pDb1M0MUd0TEswVlFpLVNfRGxqUHpyLVBNU1p6QS1adEc5cHp0OXlNbllId1g0VkVacG43QXA?oc=5",
+      "fuente_principal": "ESPN México",
+      "fecha_publicacion": "2026-05-04T17:48:09.000Z",
+      "fecha_descarga": "2026-05-05T00:07:30.464Z",
+      "tipo": "SEGUIMIENTO",
+      "procesada": false,
+      "procesado_rpa": false,
+      "eliminado": false,
+      "articulos_relacionados": [
+        {
+          "relacionado_id": 1723,
+          "articulo_id": 950,
+          "titulo": "El Estadio Azteca pagará 1.000 millones de pesos a la FIFA por el uso de los palcos y plateas",
+          "fuente": "EL PAÍS",
+          "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQcG9kSnNwU3dZbmZRLW03M1hmRmtLT0IyNWpYZWpYajN6YW96anl4bHV4LWtrVk1aM25UQU02ZTllQW8ydjE2U09TWXRzTm5jaVNOb2F2Q21MRERBYlVVTFJBb2FPcXBzVzRERzN1LThOT0VRYnlGU1o3T3RYNWxSR0EyazJueHllaTRkLVJXdm1nTEhyOTQ1WExkdjNWNlFhVzQtOWt1WElGdmJtZmk3T2JTdzVIRUFQbXZVRnJPa3pWenk4YnVUaUFJejZoajQ?oc=5",
+          "procesada": false,
+          "procesado_rpa": false,
+          "eliminado": false,
+          "status": "NUEVO"
+        }
+]
+
+Me gustaria que en una lista se pueda ver los articulos generales y en una sublista ver los articulos relacionados.
+Se manejaran con colores:
+si el articulo principal su valor procesada: false entonces debe ser de color verde 
+si el articulo principal su valor procesada:true entonces debe ser de color azul 
+si el articulo relacionado su valor procesada: false entonces debe ser de color verde
+si el articulo relacionado su valor procesada:true entonces debe ser de color azul
+
+si el articulo o articulo relacionado en su valor procesado_rpa: true entonces se pondra de color gris con una leyenda arriba 
+de su card que diga PROCESADO RPA.
+
+Adicional en estas card tenemos 2 botones, procesar (evidentemente si el valor procesada es false) y 
+eliminar lo cual se pondra la card de color negro y se minimizara para no robar foco.
+
+¿Podemos hacer este diseño primero? 
+Ya despues te dig los endpoitns y todo.
+

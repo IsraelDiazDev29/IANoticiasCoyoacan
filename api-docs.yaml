@@ -1,0 +1,302 @@
+openapi: 3.0.0
+info:
+  title: Agente24 Orquestador de Noticias API
+  version: 1.0.0
+  description: API para la orquestación y descarga de feeds RSS de Google News.
+servers:
+  - url: http://localhost:3000
+    description: Servidor Local
+paths:
+  /api/v1/google/noticias:
+    post:
+      summary: Descarga noticias del feed Google por categoría
+      description: >-
+        Consulta las categorías activas, descarga los XML de Google News, extrae
+        los artículos y los inserta o actualiza en la base de datos (UPSERT).
+        También extrae los artículos relacionados.
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                categoria_id:
+                  type: integer
+                  description: >-
+                    ID de la categoría a procesar (Opcional, si no se envía
+                    procesa todas las activas).
+      responses:
+        '200':
+          description: Proceso finalizado correctamente.
+        '500':
+          description: Error interno del servidor.
+  /api/v1/google/decodificador-url:
+    post:
+      summary: Decodifica una URL corta de Google News a su URL original
+      description: Retorna la URL real de la noticia sin realizar web scraping pesado.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - url
+              properties:
+                url:
+                  type: string
+                  description: >-
+                    URL acortada de Google News (ej.
+                    https://news.google.com/rss/articles/...)
+      responses:
+        '200':
+          description: URL decodificada correctamente.
+        '400':
+          description: URL inválida o faltante.
+        '500':
+          description: Error interno del servidor.
+  /api/v1/noticias:
+    get:
+      summary: Obtiene todos los artículos y artículos relacionados
+      description: >-
+        Consulta artículos con opciones adicionales de filtrado. Si no se pasa
+        `categoria_id`, retorna artículos de todas las categorías.
+      parameters:
+        - in: query
+          name: categoria_id
+          required: false
+          schema:
+            type: integer
+          description: >-
+            ID de la categoría a consultar. Si se omite, se retornan todas las
+            categorías.
+        - in: query
+          name: tipo
+          required: false
+          schema:
+            type: string
+            enum:
+              - NUEVA
+              - SEGUIMIENTO
+          description: Filtra por el tipo del artículo.
+        - in: query
+          name: procesada
+          required: false
+          schema:
+            type: boolean
+          description: Filtra por si la noticia ya fue procesada.
+        - in: query
+          name: procesado_rpa
+          required: false
+          schema:
+            type: boolean
+          description: Filtra por si la noticia fue procesada por RPA.
+        - in: query
+          name: eliminado
+          required: false
+          schema:
+            type: boolean
+          description: Filtra por si la noticia fue eliminada lógicamente.
+      responses:
+        '200':
+          description: Lista de artículos encontrados.
+        '400':
+          description: categoria_id debe ser un número válido si se proporciona.
+        '500':
+          description: Error interno del servidor.
+  /api/v1/noticias/categorias:
+    get:
+      summary: Consulta todas las categorías
+      description: >-
+        Retorna todas las categorías registradas en el sistema, ordenadas por
+        ID.
+      responses:
+        '200':
+          description: Lista de categorías.
+        '500':
+          description: Error interno del servidor.
+  /api/v1/noticias/articulosrelacionados/{id}:
+    get:
+      summary: Obtiene los artículos relacionados por id del artículo
+      description: >-
+        Consulta artículos relacionados de un artículo padre, con filtros
+        opcionales por status, procesado y eliminación lógica.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID del artículo padre.
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: string
+            enum:
+              - NUEVO
+              - SEGUIMIENTO
+          description: Filtra por el estatus del artículo relacionado.
+        - in: query
+          name: procesada
+          required: false
+          schema:
+            type: boolean
+          description: Filtra por si el artículo relacionado ya fue procesado.
+        - in: query
+          name: procesado_rpa
+          required: false
+          schema:
+            type: boolean
+          description: Filtra por si el artículo relacionado fue procesado por RPA.
+        - in: query
+          name: eliminado
+          required: false
+          schema:
+            type: boolean
+          description: Filtra por si el artículo relacionado fue eliminado lógicamente.
+      responses:
+        '200':
+          description: Lista de artículos relacionados encontrados.
+        '400':
+          description: ID inválido.
+        '500':
+          description: Error interno del servidor.
+  /api/v1/noticias/articulo/{id}:
+    get:
+      summary: Consulta un artículo por ID
+      description: >-
+        Obtiene un artículo específico por su ID, incluyendo sus artículos
+        relacionados.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID del artículo a consultar.
+      responses:
+        '200':
+          description: Artículo encontrado.
+        '404':
+          description: Artículo no encontrado.
+        '500':
+          description: Error interno del servidor.
+  /api/v1/noticias/articulo:
+    patch:
+      summary: Actualización masiva de artículos (procesada, eliminado, procesado_rpa)
+      description: >
+        Recibe un arreglo de objetos con `articulo_id` y opcionalmente
+        `procesada`, `eliminado` y/o `procesado_rpa`.
+
+        Solo actualiza los campos que se envíen en cada elemento. Soporta 1 a N
+        registros por llamada.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                required:
+                  - articulo_id
+                properties:
+                  articulo_id:
+                    type: integer
+                  procesada:
+                    type: boolean
+                  eliminado:
+                    type: boolean
+                  procesado_rpa:
+                    type: boolean
+            example:
+              - articulo_id: 1
+                procesada: true
+              - articulo_id: 2
+                eliminado: true
+              - articulo_id: 3
+                procesada: true
+                eliminado: false
+                procesado_rpa: true
+      responses:
+        '200':
+          description: Resultado con cantidad de exitosos y errores.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                    properties:
+                      exitosos:
+                        type: integer
+                      errores:
+                        type: integer
+        '400':
+          description: Body inválido.
+        '500':
+          description: Error interno del servidor.
+  /api/v1/noticias/articulo-relacionado:
+    patch:
+      summary: >-
+        Actualización masiva de artículos relacionados (procesada, eliminado,
+        procesado_rpa)
+      description: >
+        Recibe un arreglo de objetos con `relacionado_id` y opcionalmente
+        `procesada`, `eliminado` y/o `procesado_rpa`.
+
+        Solo actualiza los campos que se envíen en cada elemento. Soporta 1 a N
+        registros por llamada.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                required:
+                  - relacionado_id
+                properties:
+                  relacionado_id:
+                    type: integer
+                  procesada:
+                    type: boolean
+                  eliminado:
+                    type: boolean
+                  procesado_rpa:
+                    type: boolean
+            example:
+              - relacionado_id: 10
+                procesada: true
+              - relacionado_id: 11
+                eliminado: true
+                procesado_rpa: false
+      responses:
+        '200':
+          description: Resultado con cantidad de exitosos y errores.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                    properties:
+                      exitosos:
+                        type: integer
+                      errores:
+                        type: integer
+        '400':
+          description: Body inválido.
+        '500':
+          description: Error interno del servidor.
+components: {}
+tags: []
