@@ -9,5 +9,6 @@
   "defaultImage": "/assets/img/og-default.jpg",
   "instagram": "noticiassurcdmx",
   "whatsapp": "5215512345678",
-  "twitter": "noticiassurcdmx"
+  "twitter": "noticiassurcdmx",
+  "apiBase": "http://localhost:3000"
 }

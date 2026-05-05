@@ -1,0 +1,294 @@
+---
+layout: layouts/base.njk
+title: Panel Administrativo - Noticias
+permalink: /administracion/admin/
+robots: noindex, nofollow
+eleventyExcludeFromCollections: true
+---
+
+<style>
+/* Expandir el contenedor principal para la tabla (sobreescribe base.njk) */
+.layout-constrain {
+    max-width: 1000px !important;
+}
+
+.admin-container {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.admin-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.admin-title {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.back-link {
+    color: var(--text-sec);
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--accent);
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.news-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+.news-table th,
+.news-table td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.news-table th {
+    background-color: var(--card-hover);
+    color: var(--text-sec);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.news-table tr {
+    transition: background-color 0.2s ease;
+}
+
+.news-table tbody tr:hover {
+    background-color: var(--card-hover);
+}
+
+.news-table td {
+    font-size: 14px;
+    color: var(--text-main);
+    vertical-align: middle;
+}
+
+.td-title { 
+    font-weight: 700; 
+}
+
+.td-desc { 
+    color: var(--text-sec);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+    line-height: 1.4;
+}
+
+.td-link a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.td-link a:hover {
+    text-decoration: underline;
+}
+
+.btn-publish {
+    background-color: var(--text-main);
+    color: var(--bg-color);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-publish:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.btn-publish:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+/* Scrollbar styling for webkit */
+.table-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+.table-wrapper::-webkit-scrollbar-track {
+    background: var(--bg-color);
+    border-radius: 0 0 12px 12px;
+}
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--text-sec);
+}
+
+/* Auth guard overlay */
+#auth-guard {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--bg-color);
+    z-index: 9999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+#auth-guard p {
+    font-size: 16px;
+    color: var(--text-sec);
+}
+#auth-guard a {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--text-main);
+    color: var(--bg-color);
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+#auth-guard a:hover { opacity: 0.85; }
+#page-content { display: none; }
+</style>
+
+<!-- Guard de autenticación -->
+<div id="auth-guard">
+    <p>🔒 Acceso restringido. Debes iniciar sesión para ver esta página.</p>
+    <a href="/login/">Ir al Login</a>
+</div>
+
+<!-- Contenido protegido -->
+<div id="page-content">
+
+<!-- Script externo con la lógica de publicar vinculada a la tabla -->
+<script src="/assets/js/admin.js" type="module" defer></script>
+
+<div class="admin-container">
+    <div class="admin-header-row">
+        <div>
+            <a href="/" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Volver al sitio
+            </a>
+            <h1 class="admin-title" style="margin-top: 8px;">Panel de Noticias</h1>
+        </div>
+        <p style="color: var(--text-sec); font-size: 14px;">Total: {{ collections.posts | length }} entradas</p>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="news-table">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Descripción</th>
+                    <th>Enlace</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in collections.posts %}
+                <tr>
+                    <td class="td-title">{{ post.data.title }}</td>
+                    <td>{{ post.data.author | default("Desconocido") }}</td>
+                    <td class="td-desc" title="{{ post.data.description }}">{{ post.data.description }}</td>
+                    <td class="td-link">
+                        <a href="{{ post.url }}" target="_blank">
+                            Ver
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </td>
+                    <td>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn-publish" 
+                                onclick="manejarPublicacion('{{ post.inputPath | default('') }}', '{{ post.url | default('') }}', '{{ post.data.title | escape }}', '{{ post.data.author | default('Desconocido') | escape }}', '{{ post.data.cover | default('') }}', '{{ post.data.ogImage | default('') }}', '{{ post.data.image | default('') }}')">
+                                Publicar
+                            </button>
+                            <button class="btn-publish" style="background-color: #1877F2;"
+                                onclick="manejarPublicacionProd('{{ post.inputPath | default('') }}', '{{ post.url | default('') }}', '{{ post.data.title | escape }}', '{{ post.data.author | default('Desconocido') | escape }}', '{{ post.data.cover | default('') }}', '{{ post.data.ogImage | default('') }}', '{{ post.data.image | default('') }}')">
+                                Publicar Redes
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 40px; color: var(--text-sec);">
+                        No hay noticias disponibles todavía.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</div><!-- fin #page-content -->
+
+<script type="module">
+import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBdB9pX33iCRwRgdQ_2nyBhVrLSbBttszY",
+  authDomain: "noticiascdmxsuronline.firebaseapp.com",
+  projectId: "noticiascdmxsuronline",
+  storageBucket: "noticiascdmxsuronline.firebasestorage.app",
+  messagingSenderId: "791218041376",
+  appId: "1:791218041376:web:3a04297728db2116228245"
+};
+
+// Reutiliza la app [DEFAULT] si ya fue inicializada (ej. por admin.js)
+// para compartir el mismo estado de autenticación del login.
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+onAuthStateChanged(auth, (user) => {
+    const guard = document.getElementById('auth-guard');
+    const content = document.getElementById('page-content');
+    if (user) {
+        guard.style.display = 'none';
+        content.style.display = 'block';
+    } else {
+        guard.style.display = 'flex';
+        content.style.display = 'none';
+    }
+});
+</script>
